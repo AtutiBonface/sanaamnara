@@ -1,0 +1,63 @@
+
+<app-toolbar></app-toolbar>
+
+<button type="submit" class="Publish-btn"  (click)="onSubmitPost()" [ngClass]="process_class_name" [disabled]="fileData.invalid && fileData.invalid">
+    <app-spinner *ngIf="form_is_submited"></app-spinner>
+    <div class="process" [ngClass]="process_class_name">{{process_name}}</div>                   
+</button> 
+<button><mat-icon>add_circle_outline</mat-icon></button>        
+
+<div class="create-hero" (dragover)="onFileDragOver($event)"> 
+    <div class="form1">
+        <div class="preview-upload" *ngIf="file_inputed">
+            <button id="file-input"(click)="input.click()" >
+                <mat-icon>edit</mat-icon>
+            </button>
+            <img [src]="preview_image_url">
+        </div>
+        <div class="drag-drop-container" [ngClass]="file_input_classname">
+            <div class="input-container">
+                <form [formGroup]="fileData">
+                    <label for="file-input"  (drop)="onFileDrop($event)">
+                        <div class="drag-drop-captions">
+                            <mat-icon>download</mat-icon>
+                            <h1>Drag and drop your <br> image here</h1>
+                            <p>Or click to upload</p>
+                        </div>
+                        <input #input type="file" accept="image/*" formControlName="imagePost" id="file-input" (change)="onFileInput($event)" hidden>
+                    </label>                
+                            
+                </form>            
+            </div>
+        </div>
+    </div>
+
+    
+        <div class="post-description">
+            
+                <div class="description-form">
+                    <form [formGroup]="formDescData">
+                        
+                        <div class="required">
+                            <label for="title">Title</label>
+                            <input type="text" id="title" placeholder="add title" formControlName="title">
+            
+                            <label for="description">Description</label>
+                            <textarea name="" id="description" cols="30" rows="1" placeholder="Describe your post |" formControlName="description"></textarea>
+                        </div>
+                        <div class="optional">
+                            <label for="link">Link</label>
+                            <input type="text" id="link" formControlName="link" placeholder="https://www.google.com">
+
+                            <label for="topics">Tagged topics</label>
+                            <input type="select" formControlName="tagged_topics" placeholder="search tagged topics">
+                        </div>          
+
+                    </form>
+                </div>
+           
+        </div>
+    </div>
+    
+
+

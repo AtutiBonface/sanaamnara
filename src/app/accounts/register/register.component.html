@@ -1,0 +1,73 @@
+<div class="form-container">
+    <button class="close" (click)="closeRegisterDialog()">
+        <mat-icon>close</mat-icon>
+    </button>
+    <div class="top-caption">
+        
+        <span class="title">
+            Welcome to<br>Sanaamnara.
+        </span>
+        <span class="title-comment">
+            Find new ideas and try!
+        </span>
+    </div>
+   
+    <form   [formGroup]="formData">
+        <div class="input-containers">
+            <!-- Api error response -->
+            <small *ngIf="registering_error != ''" style="margin-top: 10px; margin-bottom: 10px;"><mat-icon>error</mat-icon>{{registering_error}}</small>
+
+            <!-- username -->
+            <label for="username">Create username</label>
+            <div class="input-section">
+                <input type="text" id="username" formControlName="username">
+            </div>
+            <small *ngIf="formData.get('username')?.touched && formData.get('username')?.errors?.['required']"><mat-icon>error</mat-icon>*Field required</small>
+           
+
+            <!-- email field -->
+            <label for="email">Email</label>
+            <div class="input-section">
+                <input type="text" id="email"  formControlName="email">
+            </div>
+            <small *ngIf="formData.get('email')?.touched && formData.get('email')?.errors?.['required']"><mat-icon>error</mat-icon>*Field required</small>
+            <small *ngIf="formData.get('email')?.touched &&  formData.get('email')?.errors?.['email']"><mat-icon>error</mat-icon>*Invalid email address</small>
+            
+
+            <!-- create password field -->
+            <label for="Password">Create Password</label>
+            <div class="input-section">
+                <input [type]="hide_password? 'password': 'text'" id="Password" formControlName="password" >
+                <mat-icon (click)="hide_password = ! hide_password">{{hide_password? 'visibility_on':'visibility_off'}}</mat-icon>
+            </div>
+            <small *ngIf="formData.get('password')?.touched && formData.get('password')?.errors?.['required']"><mat-icon>error</mat-icon>*Field required</small>
+            <small *ngIf="formData.get('password')?.touched &&  formData.get('password')?.errors?.['minlength']"><mat-icon>error</mat-icon>*Password too short!</small>
+
+
+            <!-- confirm password field -->
+            <label for="Password2">Confirm Password</label>
+            <div class="input-section">
+                <input [type]="hide_password2? 'password': 'text'" id="Password2" formControlName="repeat_password">
+                <mat-icon (click)="hide_password2 = ! hide_password2">{{hide_password2? 'visibility_on':'visibility_off'}}</mat-icon>
+            </div>
+            <small *ngIf="formData.get('repeat_password')?.touched && formData.get('repeat_password')?.errors?.['required']"><mat-icon>error</mat-icon>*Field required</small>
+            <small *ngIf="formData.get('repeat_password')?.touched &&  formData.get('repeat_password')?.errors?.['passMissMatch']"><mat-icon>error</mat-icon>*Password doesn't match!</small>
+            
+            
+            
+            
+            <div class="submit-btn">
+                <button class="submit" [ngClass]="processing_class_name" style="display: flex;  justify-content: center; align-items: center;" (click)="onFormSubmit()" [disabled]="formData.invalid">
+                    
+                    <app-spinner *ngIf="processing_started"></app-spinner>                   
+                    <div class="start" [ngClass]="processing_class_name">{{reg_state_label}}</div>
+                </button>
+            </div>  
+            <div class="bottom-comments">
+                <span (click)="navigateToLoginPage()">I am  a member? Sign In</span>
+            </div>
+        </div>
+    </form>
+</div>
+
+

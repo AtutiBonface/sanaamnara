@@ -1,0 +1,50 @@
+<div class="form-container">
+    <button class="close" (click)="closeLoginDialog()">
+        <mat-icon>close</mat-icon>
+    </button>
+    
+    <div class="top-caption">
+        <span class="title">
+            Welcome again, to<br>Sanaamnara.
+        </span>
+        <span class="title-comment">
+            Continue trying new ideas!
+        </span>
+    </div>
+    <form  [formGroup]="formData">
+        <div class="input-containers">
+             <!-- Api error response -->
+             <small *ngIf="login_error != ''" style="margin-top: 10px; margin-bottom: 10px;"><mat-icon>error</mat-icon>{{login_error}}</small>
+
+
+            <!-- Email field here --> 
+            <label for="email">Email</label>
+            <div class="input-section">
+                <input type="text" id="email" formControlName="email">
+                
+            </div>
+            <small *ngIf="formData.get('email')?.touched && formData.get('email')?.errors?.['required']"><mat-icon>error</mat-icon>*Field required</small>
+            <small *ngIf="formData.get('email')?.touched &&  formData.get('email')?.errors?.['email']"><mat-icon>error</mat-icon>*Invalid email address</small>
+            
+
+            <!-- Password field here! -->
+            <label for="Password">Password</label>
+            <div class="input-section">
+                <input [type]="hide_password? 'password': 'text'" id="Password" formControlName="password">
+                <mat-icon (click)="togglePasswordVisibity()">{{hide_password? 'visibility_on': 'visibility_off' }}</mat-icon>
+            </div>
+            <small *ngIf="formData.get('password')?.touched && formData.get('password')?.errors?.['required']"><mat-icon >error</mat-icon>*Field required</small>
+            <span>Forgoten password?</span>
+            <div class="submit-btn">
+                <button class="submit" [ngClass]="processing_class_name" style="display: flex;  justify-content: center; align-items: center;" (click)="onFormSubmit()" [disabled]="formData.invalid">
+                    
+                    <app-spinner *ngIf="processing_started"></app-spinner>                   
+                    <div class="start" [ngClass]="processing_class_name">{{login_state_label}}</div>
+                </button>
+            </div>  
+            <div class="bottom-comments">
+                <span (click)="navigateToRegister()">I am not a member? Sign Up</span>
+            </div>
+        </div>
+    </form>
+</div>

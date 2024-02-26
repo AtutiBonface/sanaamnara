@@ -1,0 +1,94 @@
+
+<app-toolbar></app-toolbar>
+<div class="checkout-hero">
+    <div class="checkout-box">
+        <div class="checkout-image">
+            <img [src]="post_clicked?.image+timestamp | slice :67" alt="">
+        </div>
+        <div class="checkout-post-details">
+            <div class="post-actions">
+                <div class="left-icons">
+                    <button class="more"><mat-icon>more_horiz</mat-icon></button>
+                    <button class="upload"><mat-icon>upload</mat-icon></button>
+                </div>               
+                <button class="save">save</button>
+            </div>
+            <div class="post-owner">
+                <div class="left">
+                    <div class="profile">{{post_clicked?.creater | uppercase |  slice:0:2 }}</div>
+                    
+                    <div>
+                        <p style="font-weight: 600; font-size: .9rem;">{{post_clicked?.creater}}</p>
+                        <p><span>200</span>followers</p>
+                    </div>                    
+                </div>
+                <div class="right">
+                    <button>follow</button>
+                </div>
+            </div>
+
+            <!-- comments box starts here -->
+            <div class="comments-box">
+                <h1>Comments</h1>
+                <div class="comment-commenter">
+                    <div class="comment">
+                        <div class="commenter commenter-icon">BO</div>
+                        <p><span>Bonface</span>Wow this is lit</p>
+                    </div>
+                    <div class="comment-actions">
+                        <p><span style="color: rgb(247, 145, 247);">2w</span><span>reply</span><span>
+                            <mat-icon (click)="comment_liked = ! comment_liked" *ngIf="!comment_liked">favorite_outline</mat-icon>
+                            <mat-icon  (click)="comment_liked = ! comment_liked" *ngIf="comment_liked"class="liked">favorite</mat-icon>
+                            1
+                        </span>
+                        <span>more</span>
+                    </p>
+                    </div>
+                </div>
+            </div>
+            <!-- comments box ends here -->
+
+
+            <!-- post your coment starts here -->
+            <div class="post-comment">
+                <div class="comments-action">
+                    <p>6 Comments</p>
+                    <div class="right">
+                        <span>45 {{ '&#x2764;&#xFE0F;' }}</span>
+                        <button *ngIf="!post_liked" (click)="post_liked = ! post_liked"><mat-icon>favorite_outline</mat-icon></button>
+                        <button  (click)="post_liked = ! post_liked" *ngIf="post_liked"><mat-icon class="liked" >favorite</mat-icon></button>
+                    </div>                    
+                </div>
+                <form>
+                    <div class="logged-in-user-photo">
+                        BO
+                    </div>
+                   <div class="comment-input">
+                    <textarea name="user-comment" id="" cols="30" rows="1"></textarea>
+                    <div class="emoji-box">{{ '&#128515;' }}</div>
+                   </div>
+                </form>
+            </div>
+            <!-- post your coment ends here -->
+        </div>
+    </div>
+
+
+    <h1 class="related">More like this </h1>
+
+    <div class="pins-hero">
+        <div class="pin-container">
+          <button class="icon-save">
+            save
+          </button>
+          <button class="icon-upload">
+            <mat-icon>upload</mat-icon>
+          </button>
+          <button class="icon-more">
+            <mat-icon>more_horiz</mat-icon>
+          </button>
+          
+          <img src="assets/pins/35463c2cc8bf49ea2a4d501f99313115.jpg" alt="">
+        </div>
+    </div>
+</div>

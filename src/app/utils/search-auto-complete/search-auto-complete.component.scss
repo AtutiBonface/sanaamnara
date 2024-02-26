@@ -1,0 +1,129 @@
+$primary-color : rgb(243, 243, 243);
+$secondary-color : rgb(234, 186, 234);
+$icons-button-utils-color : purple;
+$font-size-big : 1.4rem;
+$font-size-middle : 1.1rem;
+$font-size-small: .7rem;
+$font-weight-small: 400;
+$font-weight-middle: 550;
+$font-weight-big : 600;
+$text-theme-color-dark: black;
+$text-theme-color-light: white;
+$warning-color: rgb(172, 16, 42);
+
+.search-container{
+    background-color: $text-theme-color-light;
+    margin-left: auto;
+    margin-right: auto;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    height: fit-content;//make sure you chage this
+    margin-left: 36.5px;
+    margin-right: 36.5px;
+    margin-bottom: 36.5px;
+    padding: 20px  20px 20px 20px;
+    h1{
+        margin: 5px 0 5px 0;
+        font-size: $font-size-middle;
+        font-weight: $font-weight-middle;
+    }
+    p{
+        word-wrap: break-word !important;
+        white-space: wrap !important;
+    }
+
+
+    .idea-box{
+        max-width: 150px;
+        height: 70px;
+        border-radius: 10px;
+        overflow: hidden;
+        margin-top: 10px;
+        display: grid;
+        grid-template-columns: 50px  100px;
+        margin-bottom: 10px;
+        img{
+            height: 100%;
+            object-fit: cover;
+            width: 100%;
+        }
+    }
+    .shoppin-box{
+        width: 130px;
+        height: 130px;
+        border-radius: 10px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        overflow: hidden;       
+        position: relative;
+        img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .shopping-caption{
+            position: absolute; 
+            top: 0;    
+            background-color: rgba(0,0,0,.4);             
+            width: 100%;
+            height: 100%; 
+            display: flex;
+            align-items: flex-end;
+                      
+            p{
+                margin: 0;
+                padding: 0;
+                text-align: center;
+                font-size: $font-size-small;
+                line-height: $font-size-small;
+                font-weight: $font-weight-middle;
+                color: $primary-color;
+                word-wrap: break-word;
+                margin-left: 10px;
+                margin-right: 10px;
+                margin-bottom: 10px;
+            
+            }
+        }
+    }
+    .idea-caption{
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0, .09);
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        align-content: center;
+        position: relative;
+        
+        p{
+            position: absolute;
+            font-size: $font-size-small;
+            font-weight: $font-weight-middle;
+            line-height: $font-size-small;
+            padding: 0;
+            margin: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            
+            
+        }
+    }
+}
+.recent-searches ,.ideas-for-you, .popular-posts{
+    display: grid;
+    //width of each column is 150px 3px gap
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    column-gap: 3px;
+    
+    
+}
+.shopping-sportlight{
+    display: grid;
+
+    // width of shop---  130px remember here 
+    grid-template-columns: repeat(auto-fill , minmax(130px , 1fr));
+    column-gap: 5px;
+    
+    
+}

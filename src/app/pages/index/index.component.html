@@ -1,0 +1,23 @@
+<mat-toolbar>
+<div class="left-end">
+    <img src="sanaamnara.png" alt="logo">
+    <span>Explore</span>
+    <mat-icon>apps</mat-icon>
+  </div>
+  <div class="middle"></div>
+  <div class="right-end">
+    <span class="menu-links">About</span>
+    <span class="menu-links">Business</span>
+    <span class="menu-links">Blog</span>
+    <div class="auth-btns">
+      <button class="accounts-btn login-btn"(click)="toggleLoginDialog()">Login</button>
+      <button class="accounts-btn register-btn" (click)="toggleRegisterDialog()">Register</button>
+    </div>
+    
+  </div>
+</mat-toolbar>
+
+
+<app-login *ngIf="openloginDialog"  (openDialog)="closeLogin($event)" (openRegisterPage)="toggleRegisterDialog()" (is_logged_in)="confirmLoggedIn($event)"></app-login>
+<app-register *ngIf="openRegisterDialog" (openRegister)="closeRegister($event)"  (navigateToLogin)="toggleLoginDialog()"></app-register>
+<div class="overlay" *ngIf="openRegisterDialog || openloginDialog "></div>

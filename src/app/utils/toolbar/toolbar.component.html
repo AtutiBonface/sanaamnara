@@ -1,0 +1,32 @@
+<mat-toolbar>
+    <div class="left-end logged-menu">
+      <img src="sanaamnara.png" alt="logo" (click)="navigateToHome()">
+      <span (click)="navigateToCreate()">Create</span>
+    </div>
+    <div class="middle">
+      <div class="search-container">
+        <form  [formGroup]="searchData">
+        <mat-icon class="search-icon">search</mat-icon>
+        <mat-icon class="close-icon" *ngIf="searchData.get('query')?.dirty && searchData.get('query')?.value != '' "
+        (click)="searchData.get('query')?.reset()"
+        >close</mat-icon>
+        
+  
+        <input #query type="text" placeholder="Search here" id="query" formControlName="query" (focus)="toggleOnAutoComplete()" (blur)="toggleOffAutoComplete()">
+      </form>
+          
+      </div>
+      <!-- autocomplete seaching is here -->
+      <div class="search-autocomplete" *ngIf="openSearchAutoComplete">
+        <app-search-auto-complete></app-search-auto-complete>
+      </div>
+  
+    </div>
+    <div class="right-end  logged-menu">
+      <mat-icon class="notifications">notifications</mat-icon>
+      <button class="profile-btn" (click)="navigateToProfile()">B0</button>   
+    </div>
+  </mat-toolbar>
+  <div class="overlay-search-container" *ngIf="openSearchAutoComplete"></div>
+  
+  

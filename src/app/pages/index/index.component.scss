@@ -1,0 +1,159 @@
+$primary-color : rgb(243, 243, 243);
+$secondary-color : rgb(234, 186, 234);
+$icons-button-utils-color : purple;
+$font-size-big : 1.4rem;
+$font-size-middle : 1.1rem;
+$font-size-small: .8rem;
+$font-weight-small: 400;
+$font-weight-middle: 550;
+$font-weight-big : 600;
+$text-theme-color-dark: black;
+$text-theme-color-light: white;
+$warning-color: rgb(172, 16, 42);
+
+
+mat-icon{
+    color: $icons-button-utils-color;
+    justify-self: center;
+    align-self: center;
+    font-size: 20px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+form{
+    height: 100%;
+}
+
+button{
+    height: 40px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border: none;
+    border-radius: 20px;
+    font-size: $font-size-middle;
+    font-weight: $font-weight-middle;
+    cursor: pointer;
+}
+.overlay{
+    position: absolute;
+    height: 100vh;
+    width: 100%;
+    top: 0;
+    background-color: rgba(0, 0, 0 ,.6);
+    z-index: 1000;
+}
+
+app-login{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1020;
+   
+   
+}
+app-register{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50% ,-50%);
+    z-index: 1020;
+   
+   
+}
+
+mat-toolbar{
+    background-color: $primary-color;
+    display: flex;
+    justify-content: space-between;
+    color: $text-theme-color-dark;
+    align-items: center;
+    /* position: fixed; */
+    
+
+    .left-end ,.right-end{
+        width: fit-content;
+        span{
+            color: $text-theme-color-dark;
+            font-weight: $font-weight-big;
+            font-size: $font-size-middle;
+            padding: 5px;
+            cursor: pointer;
+        }
+    }
+    .logged-menu{
+        width: 120px;
+    }
+    .left-end{
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        display: flex;
+
+        img{
+            height: 40px;
+            width: 40px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        mat-icon{
+            align-self: center;
+            justify-self: center;
+            text-align: center;
+        }
+    }
+    
+    .right-end{
+        display: flex;
+        .login-btn{
+            background-color: $icons-button-utils-color;
+            color: $primary-color;
+            margin-left: 5px;
+            margin-right: 5px;
+            border: 2px solid $icons-button-utils-color;
+            &:hover{
+                animation: removeBackgroundBtnHoverEffect 500ms ease-in forwards;
+            }
+        }
+        .register-btn{
+            background-color: transparent;
+            color: $icons-button-utils-color;
+            margin-left: 5px;
+            margin-right: 5px;
+            border: 2px solid $icons-button-utils-color;
+            &:hover{
+                animation: addBackgroundBtnHoverEffect 500ms ease-in forwards;
+            }
+        }
+
+        .profile-btn{
+            padding: 5px;
+            height: fit-content;
+
+            font-size: $font-size-small;
+            font-weight: $font-weight-middle;
+            color: $icons-button-utils-color;
+            border-radius: 50%;
+            border: 2px solid $icons-button-utils-color;
+        }
+        
+       
+
+    }
+
+
+
+
+}
+
+
+
+/* Animations  */
+@keyframes removeBackgroundBtnHoverEffect{
+    to{background-color: transparent; color: $icons-button-utils-color;}
+}
+@keyframes addBackgroundBtnHoverEffect {
+    to{background-color: $icons-button-utils-color; color: $primary-color;}
+    
+}

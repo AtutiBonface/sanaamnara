@@ -1,0 +1,26 @@
+$primary-color : rgb(243, 243, 243);
+$secondary-color : rgb(234, 186, 234);
+$icons-button-utils-color : purple;
+$font-size-big : 1.4rem;
+$font-size-middle : 1.1rem;
+$font-size-small: .8rem;
+$font-weight-small: 400;
+$font-weight-middle: 550;
+$font-weight-big : 600;
+$text-theme-color-dark: black;
+$text-theme-color-light: white;
+$warning-color: rgb(172, 16, 42);
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-color: $primary-color;}
+
+app-root{
+    width: 100vw;
+    height: fit-content;
+    
+}
+app-spinner{
+    width: fit-content;
+    height: fit-content;
+}

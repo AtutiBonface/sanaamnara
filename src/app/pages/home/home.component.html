@@ -1,0 +1,22 @@
+<app-toolbar></app-toolbar>
+
+<div class="home-container">
+  <div class="pins-hero">
+    <div class="pin-container" *ngFor="let pin of pins_list">
+      <button class="icons save">
+        save
+      </button>
+      <button class="icons upload">
+        <mat-icon>upload</mat-icon>
+      </button>
+      <button class="icons more">
+        <mat-icon>more_horiz</mat-icon>
+      </button>
+  
+      
+      <img [src]="pin.image+timestamp  |slice :67" alt="" (click)="navigateToCheckout(pin.id)">
+    </div>
+    
+  </div>
+
+</div>

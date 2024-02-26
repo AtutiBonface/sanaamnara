@@ -1,0 +1,56 @@
+$primary-color : rgb(243, 243, 243);
+$secondary-color : rgb(234, 186, 234);
+$icons-button-utils-color : purple;
+
+.spinner-container{
+    width: fit-content;
+    height: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: transparent;
+    position: relative;
+
+    .outer-spiner{
+        width: 26px;
+        height: 26px;
+        padding: 0 !important;
+        margin: 0 !important;
+        border-radius: 50%;
+        border: 3px solid transparent;
+        border-bottom: 3px solid $icons-button-utils-color;
+        border-top: 3px solid $icons-button-utils-color;
+                
+        animation: outer_spiner 1s linear infinite forwards;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+
+    }
+    .inner-spinner{
+        width: 17px;
+        height: 17px;
+        border-radius: 50%; 
+        border: 3px solid transparent;
+        border-bottom: 3px solid $icons-button-utils-color;
+        margin-left: auto;
+        margin-right: auto;
+        align-self: center;
+        justify-self: center;
+        text-align: center;
+        margin-top: 2.1px;
+        margin-bottom: 2.1px;
+        animation: inner_spiner 600ms linear infinite reverse;
+    }
+
+    @keyframes outer_spiner {
+        from{transform: rotate(0deg);}
+        to{transform: rotate(360deg);}
+    }
+
+    @keyframes inner_spiner {
+                
+        from{transform: rotate(0deg);}
+        to{transform: rotate(360deg);}
+    }
+ 
+}
