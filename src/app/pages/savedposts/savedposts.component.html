@@ -1,0 +1,21 @@
+<app-profile></app-profile>
+<div class="posts-container">
+    <div class="pins-hero">
+      <div class="pin-container" *ngFor="let pin of data">
+        <button class="icons save">
+          delete
+        </button>
+        <button class="icons upload">
+          <mat-icon>upload</mat-icon>
+        </button>
+        <button class="icons more">
+          <mat-icon>more_horiz</mat-icon>
+        </button>
+    
+        
+        <img  [src]="pin.image_url+timestamp | slice : 67" alt="" >
+      </div>
+      
+    </div>
+  
+  </div>

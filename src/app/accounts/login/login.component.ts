@@ -115,7 +115,7 @@ export class LoginComponent implements OnInit, OnDestroy {
         if(err){
           this.login_error_subject.next(err.error)
 
-          console.log(err)
+         
         }
         return EMPTY
       })

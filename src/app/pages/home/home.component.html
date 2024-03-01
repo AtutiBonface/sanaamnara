@@ -1,7 +1,8 @@
 <app-toolbar></app-toolbar>
 
 <div class="home-container">
-  <div class="pins-hero">
+  <app-spinner *ngIf="loading"></app-spinner>
+  <div class="pins-hero"  *ngIf="!loading">
     <div class="pin-container" *ngFor="let pin of pins_list">
       <button class="icons save">
         save

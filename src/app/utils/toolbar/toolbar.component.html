@@ -12,19 +12,19 @@
         >close</mat-icon>
         
   
-        <input #query type="text" placeholder="Search here" id="query" formControlName="query" (focus)="toggleOnAutoComplete()" (blur)="toggleOffAutoComplete()">
+        <input #query type="text" placeholder="Search here" id="query" formControlName="query" (focus)="toggleOnAutoComplete()" (blur)="toggleOffAutoComplete()" >
       </form>
           
       </div>
       <!-- autocomplete seaching is here -->
       <div class="search-autocomplete" *ngIf="openSearchAutoComplete">
-        <app-search-auto-complete></app-search-auto-complete>
+        <app-search-auto-complete ></app-search-auto-complete>
       </div>
   
     </div>
     <div class="right-end  logged-menu">
       <mat-icon class="notifications">notifications</mat-icon>
-      <button class="profile-btn" (click)="navigateToProfile()">B0</button>   
+      <button class="profile-btn" (click)="navigateToProfile()">{{profile_username | uppercase | slice :0:2}}</button>   
     </div>
   </mat-toolbar>
   <div class="overlay-search-container" *ngIf="openSearchAutoComplete"></div>

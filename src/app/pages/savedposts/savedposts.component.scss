@@ -1,0 +1,108 @@
+$primary-color : rgb(243, 243, 243);
+$secondary-color : rgb(234, 186, 234);
+$icons-button-utils-color : purple;
+$font-size-big : 1.4rem;
+$font-size-middle : 1.1rem;
+$font-size-small: .8rem;
+$font-weight-small: 400;
+$font-weight-middle: 550;
+$font-weight-big : 600;
+$text-theme-color-dark: black;
+$text-theme-color-light: white;
+$warning-color: rgb(172, 16, 42);
+
+.posts-container{
+    width: 80vw !important;
+    justify-content: center;
+
+    display: block;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+
+    button{
+        border: none;
+        width: fit-content;
+        height: fit-content;
+        background-color: transparent;
+        cursor: pointer;
+
+       
+    }
+    .save{
+        padding:5px 10px 5px 10px;
+        position: absolute;
+        border-radius: 20px;
+        background-color: $icons-button-utils-color;
+        color: $primary-color;
+        font-size: .9rem;
+        font-weight: bold;
+        top: 10px;
+        right: 10px;
+        display: none;
+
+        &:hover{
+            opacity: .7;
+        }
+    }
+    .upload , .more{
+        position: absolute;
+        justify-content: center;
+        align-items: center;
+        background-color: $primary-color;
+        padding: 0;
+        height: 30px;
+        width: 30px;
+        border-radius: 15px;
+        display: none;
+        mat-icon{
+            margin: 0;
+            padding: 0;
+            color: $icons-button-utils-color;
+            align-self: center;
+            justify-self: center;
+            vertical-align: middle;
+            
+        }
+    }
+    .more{
+        bottom: 10px;
+        right: 10px;
+    }
+    .upload{
+        bottom: 10px;
+        left: 10px;
+    }
+    .pins-hero{        
+        height: 100%;
+        width: 100%;
+        columns: 6;
+
+
+        .pin-container{
+            width: fit-content;
+            
+            
+            padding: 0;
+            margin: 0;
+            position: relative;
+            cursor: pointer;
+
+            img{
+                width: 100% !important;
+                margin: 0;
+                padding: 0;
+                border-radius: 15px;
+
+            }
+            &:hover{
+                .save , .more, .upload{
+                    display: block;  
+                }
+                              
+            }
+            
+        }
+        
+    }
+}

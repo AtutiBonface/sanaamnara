@@ -5,6 +5,8 @@ import { Restrictions, canActivateTeam } from './utils/authguard';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { CreateComponent } from './pages/create/create.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
+import { SavedpostsComponent } from './pages/savedposts/savedposts.component';
+import { MypostsComponent } from './pages/myposts/myposts.component';
 
 export const routes: Routes = [
     {
@@ -19,13 +21,24 @@ export const routes: Routes = [
 
     },
     {
-        path: 'profile',
-        component: ProfileComponent,
+        path: ':username',
+        component: MypostsComponent,
         canActivate: [canActivateTeam]
 
-    }, 
+    },
     {
-        path: 'create',
+        path: ':username/posts',
+        component: MypostsComponent,
+        canActivate: [canActivateTeam]
+
+    }, {
+        path: ':username/saved',
+        component: SavedpostsComponent,
+        canActivate: [canActivateTeam]
+
+    },  
+    {
+        path: 'posts/create',
         component: CreateComponent,
         canActivate: [canActivateTeam]
 

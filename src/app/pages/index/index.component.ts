@@ -28,12 +28,6 @@ export class IndexComponent {
   openloginDialog : boolean = false
   openRegisterDialog : boolean = false
 
- 
-
-    
-
-  
-
 
   toggleRegisterDialog() {
     if (this.openloginDialog){

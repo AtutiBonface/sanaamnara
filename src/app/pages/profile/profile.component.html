@@ -4,9 +4,9 @@
 <div class="profile-hero">
     <div class="user-details">
         <div class="profile-picture">
-            <img src="assets/pins/IMG20231010103243.png" alt="user profile picture">
+            {{activatedRouteParam | uppercase | slice :0:2}}
         </div>
-        <p class="profile-name">Bonface Nyarenchi</p>
+        <p class="profile-name">{{activatedRouteParam}}</p>
         <div class="followers-following">
             <div class="follower-box">
                 100 following you
@@ -22,12 +22,11 @@
         </div>
     </div>
     <div class="created-saved">
-        <div class="created">
-            <p class="created-title">My Posts</p>
-
+        <div class="created" (click)="navigateToMyPosts()">
+            <p class="created-title">Created</p>
         </div>
         <div class="saved">
-            <p class="saved-title">Saved</p>
+            <p class="saved-title" (click)="navigateToSavedPosts()">Saved</p>
 
         </div>
     </div>

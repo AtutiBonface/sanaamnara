@@ -35,7 +35,7 @@ export class CheckoutComponent implements OnInit{
 
   constructor(private service: AllpinsService, private http: HttpClient, private activatedRoute: ActivatedRoute){
 
-    console.log(this.timestamp)
+    
   }
 
 

@@ -12,6 +12,7 @@ import { ToolbarComponent } from '../../utils/toolbar/toolbar.component';
 import { Router } from '@angular/router';
 import { EMPTY, Subject, catchError, timestamp } from 'rxjs';
 import { AllpinsService } from '../../services/allpins.service';
+import { SpinnerComponent } from '../../utils/spinner/spinner.component';
 
 
 
@@ -19,14 +20,12 @@ import { AllpinsService } from '../../services/allpins.service';
   selector: 'app-home',
   standalone: true,
   imports: [
-    CommonModule,
-    HttpClientModule,
-    ReactiveFormsModule,
-    SearchAutoCompleteComponent,
+    CommonModule,    
     MatIconModule,
     MatToolbarModule,
     HttpClientModule,  
     ToolbarComponent,  
+    SpinnerComponent,
     
   ],
   providers:[
@@ -43,6 +42,8 @@ export class HomeComponent implements OnInit{
 
   timestamp : string = ''
 
+  loading : boolean = true
+
   pin_list_subject : Subject<any> = new Subject<any>()
   constructor(private service: AllpinsService, private router :Router){
 
@@ -57,6 +58,11 @@ export class HomeComponent implements OnInit{
     this.service.RequestAllPosts()
     this.service.all_posts_subject.subscribe((result)=>{
       this.pins_list = result
+      setTimeout(()=>{
+        this.loading = false
+      },1000)
+     
+
 
     })
   }
@@ -65,7 +71,7 @@ export class HomeComponent implements OnInit{
   }
   navigateToCheckout(id :any){
 
-    console.log(id)
+    
     this.router.navigate([`posts/${id}`])
     
   }

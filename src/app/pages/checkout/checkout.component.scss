@@ -10,7 +10,10 @@ $font-weight-big : 600;
 $text-theme-color-dark: black;
 $text-theme-color-light: white;
 $warning-color: rgb(172, 16, 42);
-
+/* @font-face {
+    font-family: ;
+    src: url('');
+} */
 .checkout-hero{
     /* height of  fixed toolbar */
     width: 100vw;
@@ -44,7 +47,6 @@ $warning-color: rgb(172, 16, 42);
         overflow: hidden;
         grid-template-columns: 50% 50%;
         column-gap: 20px;
-        box-shadow: 1px 2px 3px black;
 
 
         .checkout-image{
@@ -117,6 +119,8 @@ $warning-color: rgb(172, 16, 42);
             .post-owner{
                 display: flex;
                 justify-content: space-between;
+                margin-top: 10px;
+                margin-bottom: 10px;
                 width: calc(100% - 20px);
 
                 .left{
@@ -177,12 +181,12 @@ $warning-color: rgb(172, 16, 42);
 
 
             .comments-box{
-                max-height: calc(100% - 210px );
+                max-height: calc(100% - 230px );
                 overflow-y: auto;
                 width: calc(100% - 20px);
                 h1{
-                    font-size: $font-size-big;
-                    font-family: $font-size-middle;
+                    font-size: $font-size-middle;
+                    font-weight: $font-weight-middle;
                     color: $icons-button-utils-color;
                     margin: 0;
                     padding: 0;
@@ -332,7 +336,7 @@ $warning-color: rgb(172, 16, 42);
                         background-color: transparent;
                         height: 40px;
                         border-radius: 20px;
-                        border: 2px solid $icons-button-utils-color;
+                        border: 2px solid $secondary-color;
                         padding: 0;
                         overflow: hidden;
                         margin: 0;
