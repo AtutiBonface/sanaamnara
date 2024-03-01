@@ -31,11 +31,30 @@ $warning-color: rgb(172, 16, 42);
         word-wrap: break-word !important;
         white-space: wrap !important;
     }
+    .query-suggestions{
+        max-height: 200px;
+        overflow-y: auto;
+    }
+    .suggestions{
+        cursor: pointer;
+        overflow-x: hidden;
+        p{
+            color: $icons-button-utils-color;
+            font-size: $font-size-small;
+            font-weight: $font-weight-middle
+            
+            
+        }
+        p:hover{
+            color: $text-theme-color-dark;
+        }
+    }
 
 
     .idea-box{
         max-width: 150px;
         height: 70px;
+        cursor: pointer;
         border-radius: 10px;
         overflow: hidden;
         margin-top: 10px;
@@ -51,6 +70,7 @@ $warning-color: rgb(172, 16, 42);
     .shoppin-box{
         width: 130px;
         height: 130px;
+        cursor: pointer;
         border-radius: 10px;
         margin-top: 10px;
         margin-bottom: 10px;
@@ -84,6 +104,9 @@ $warning-color: rgb(172, 16, 42);
                 margin-bottom: 10px;
             
             }
+            p:hover{
+                color: $secondary-color;
+            }
         }
     }
     .idea-caption{
@@ -107,6 +130,9 @@ $warning-color: rgb(172, 16, 42);
             transform: translateY(-50%);
             
             
+        }
+        p:hover{
+            color: $secondary-color;
         }
     }
 }

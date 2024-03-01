@@ -36,6 +36,8 @@ export class ToolbarComponent  implements OnInit{
   profile_username : any;
   profile_subject: Subject<any> = new Subject<any>()
 
+  query :any;
+  query_subject : Subject<any> = new Subject<any>()
 
   searchData! : FormGroup;
 
@@ -51,8 +53,11 @@ export class ToolbarComponent  implements OnInit{
     
   searchQuery() {
     this.searchData.get('query')?.valueChanges.subscribe((result)=>{
-      this.service.getQuery(result)
+     
+      this.query_subject.next(result)    
     })
+
+    
 
   }
 
@@ -111,6 +116,8 @@ export class ToolbarComponent  implements OnInit{
   ngOnInit(): void {
     this.MyProfileName()
     this.searchQuery()
+
+    
     
   }
 

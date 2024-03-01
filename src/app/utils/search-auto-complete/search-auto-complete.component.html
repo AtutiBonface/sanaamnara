@@ -1,98 +1,106 @@
 <div class="search-container">
-    <div class="recent-searches">
-
-    </div>
-    <h1>Ideas for you</h1>
-    <div class="ideas-for-you" >
-        <div class="idea-box">
-            <img src="assets/pins/ff98549eba4972b8d1c8b7482ed723d3.jpg" alt="">
-            <div class="idea-caption">
-                <p>Luxury Room Bedroom</p>
-            </div>            
+    <div class="query-suggestions">
+        <div class="suggestions" *ngFor="let suggestion of query_suggestions" (click)="navigateToSearchResult()">
+            <p>{{suggestion.title}}</p>
         </div>
-        <div class="idea-box">
-            <img src="assets/pins/ff98549eba4972b8d1c8b7482ed723d3.jpg" alt="">
-            <div class="idea-caption">
-                <p>Luxury Room Bedroom</p>
-            </div>            
-        </div>
-        <div class="idea-box">
-            <img src="assets/pins/ff98549eba4972b8d1c8b7482ed723d3.jpg" alt="">
-            <div class="idea-caption">
-                <p>Luxury Room Bedroom</p>
-            </div>            
-        </div>       
     </div>
 
-    <h1>Popular on SanaaMnara</h1>
-    <div class="popular-posts">
-        <div class="idea-box">
-            <img src="assets/pins/WhatsApp_Image_2023-10-17_at_07.45.47.jpeg" alt="">
-            <div class="idea-caption">
-                <p>Luxury Room Bedroom</p>
-            </div>            
+    <div class="other-suggestions"*ngIf="showOtherSuggestions">
+        <div class="recent-searches">
         </div>
-        <div class="idea-box">
-            <img src="assets/pins/ff98549eba4972b8d1c8b7482ed723d3.jpg" alt="">
-            <div class="idea-caption">
-                <p>Luxury Room Bedroom</p>
-            </div>            
+        <h1>Ideas for you</h1>
+        <div class="ideas-for-you" >
+            <div class="idea-box">
+                <img src="assets/pins/ff98549eba4972b8d1c8b7482ed723d3.jpg" alt="">
+                <div class="idea-caption">
+                    <p>Luxury Room Bedroom</p>
+                </div>            
+            </div>
+            <div class="idea-box">
+                <img src="assets/pins/ff98549eba4972b8d1c8b7482ed723d3.jpg" alt="">
+                <div class="idea-caption">
+                    <p>Luxury Room Bedroom</p>
+                </div>            
+            </div>
+            <div class="idea-box">
+                <img src="assets/pins/ff98549eba4972b8d1c8b7482ed723d3.jpg" alt="">
+                <div class="idea-caption">
+                    <p>Luxury Room Bedroom</p>
+                </div>            
+            </div>       
         </div>
-        <div class="idea-box">
-            <img src="assets/pins/545575d7c9383597795205329da53a18.jpg" alt="">
-            <div class="idea-caption">
-                <p>Luxury Room Bedroom</p>
-            </div>            
-        </div>       
-        <div class="idea-box">
-            <img src="assets/pins/545575d7c9383597795205329da53a18.jpg" alt="">
-            <div class="idea-caption">
-                <p>Luxury Room Bedroom</p>
-            </div>            
-        </div>       
-        <div class="idea-box">
-            <img src="assets/pins/545575d7c9383597795205329da53a18.jpg" alt="">
-            <div class="idea-caption">
-                <p>Luxury Room Bedroom</p>
-            </div>            
-        </div>       
-
+    
+        <h1>Popular on SanaaMnara</h1>
+        <div class="popular-posts">
+            <div class="idea-box">
+                <img src="assets/pins/WhatsApp_Image_2023-10-17_at_07.45.47.jpeg" alt="">
+                <div class="idea-caption">
+                    <p>Luxury Room Bedroom</p>
+                </div>            
+            </div>
+            <div class="idea-box">
+                <img src="assets/pins/ff98549eba4972b8d1c8b7482ed723d3.jpg" alt="">
+                <div class="idea-caption">
+                    <p>Luxury Room Bedroom</p>
+                </div>            
+            </div>
+            <div class="idea-box">
+                <img src="assets/pins/545575d7c9383597795205329da53a18.jpg" alt="">
+                <div class="idea-caption">
+                    <p>Luxury Room Bedroom</p>
+                </div>            
+            </div>       
+            <div class="idea-box">
+                <img src="assets/pins/545575d7c9383597795205329da53a18.jpg" alt="">
+                <div class="idea-caption">
+                    <p>Luxury Room Bedroom</p>
+                </div>            
+            </div>       
+            <div class="idea-box">
+                <img src="assets/pins/545575d7c9383597795205329da53a18.jpg" alt="">
+                <div class="idea-caption">
+                    <p>Luxury Room Bedroom</p>
+                </div>            
+            </div>       
+    
+        </div>
+        <h1>Shopping sportlight</h1>
+        <div class="shopping-sportlight">
+            <div class="shoppin-box">
+                <img src="assets/pins/404f2bf0b6dbf002315cf04ab39bbd41.jpg" alt="">
+                <div class="shopping-caption">
+                    <p>Build your sacred place</p>
+                </div>            
+            </div>     
+            <div class="shoppin-box">
+                <img src="assets/pins/35bb72b63d8e0ea676af43cd11b492f3.jpg" alt="">
+                <div class="shopping-caption">
+                    <p>Build your sacred place</p>
+                </div>            
+            </div>     
+            <div class="shoppin-box">
+                <img src="assets/pins/35463c2cc8bf49ea2a4d501f99313115.jpg" alt="">
+                <div class="shopping-caption">
+                    <p>Build your sacred place</p>
+                </div>            
+            </div> 
+            <div class="shoppin-box">
+                <img src="assets/pins/35463c2cc8bf49ea2a4d501f99313115.jpg" alt="">
+                <div class="shopping-caption">
+                    <p>Build your sacred place</p>
+                </div>            
+            </div> 
+            <div class="shoppin-box">
+                <img src="assets/pins/35463c2cc8bf49ea2a4d501f99313115.jpg" alt="">
+                <div class="shopping-caption">
+                    <p>Build your sacred place</p>
+                </div>            
+            </div>     
+    
+        </div>   
+        
     </div>
-    <h1>Shopping sportlight</h1>
-    <div class="shopping-sportlight">
-        <div class="shoppin-box">
-            <img src="assets/pins/404f2bf0b6dbf002315cf04ab39bbd41.jpg" alt="">
-            <div class="shopping-caption">
-                <p>Build your sacred place</p>
-            </div>            
-        </div>     
-        <div class="shoppin-box">
-            <img src="assets/pins/35bb72b63d8e0ea676af43cd11b492f3.jpg" alt="">
-            <div class="shopping-caption">
-                <p>Build your sacred place</p>
-            </div>            
-        </div>     
-        <div class="shoppin-box">
-            <img src="assets/pins/35463c2cc8bf49ea2a4d501f99313115.jpg" alt="">
-            <div class="shopping-caption">
-                <p>Build your sacred place</p>
-            </div>            
-        </div> 
-        <div class="shoppin-box">
-            <img src="assets/pins/35463c2cc8bf49ea2a4d501f99313115.jpg" alt="">
-            <div class="shopping-caption">
-                <p>Build your sacred place</p>
-            </div>            
-        </div> 
-        <div class="shoppin-box">
-            <img src="assets/pins/35463c2cc8bf49ea2a4d501f99313115.jpg" alt="">
-            <div class="shopping-caption">
-                <p>Build your sacred place</p>
-            </div>            
-        </div>     
-
-    </div>
-
+    
    
     
     

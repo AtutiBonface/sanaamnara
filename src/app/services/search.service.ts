@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 
 @Injectable({
@@ -10,11 +10,12 @@ export class SearchService {
     
   }
 
-  query_subject: Subject<any> = new Subject<any>()
+  query_subject: EventEmitter<any> = new EventEmitter<any>()
 
 
   getQuery(query : any){
-    this.query_subject.next(query)
+    this.query_subject.emit(query)  
+    
   }
 
 }

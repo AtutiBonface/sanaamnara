@@ -3,6 +3,9 @@ import { HttpClient, HttpClientModule, HttpErrorResponse, HttpHeaders } from '@a
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { EMPTY, Subject, catchError } from 'rxjs';
 import { SearchService } from '../../services/search.service';
+import { MatIconModule } from '@angular/material/icon';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-search-auto-complete',
@@ -10,21 +13,26 @@ import { SearchService } from '../../services/search.service';
   imports: [
     CommonModule,
     HttpClientModule,
+    MatIconModule,
+    MatToolbarModule,
   ],
-  providers:[
+  providers: [
     SearchService
   ],
   templateUrl: './search-auto-complete.component.html',
   styleUrl: './search-auto-complete.component.scss'
 })
-export class SearchAutoCompleteComponent{
+export class SearchAutoCompleteComponent implements OnInit{
+
   allSearchableData : any = []
 
   recently_serched_data : any = []
 
   popular_searches: any = []
 
-  query :any;
+  showOtherSuggestions : boolean = true
+
+  @Input() query :any;
   query_subject : Subject<any> = new Subject<any>()
 
   query_suggestions : any = []
@@ -35,13 +43,10 @@ export class SearchAutoCompleteComponent{
 
   private token : string = ''
 
-  constructor(private http:HttpClient , private service:SearchService){
+  constructor(private http:HttpClient ,private service:SearchService, private router: Router){
     this.RequestAllSearchableData()
     this.RequestPopularSeachedData()
-    this.RequestRecentlySearchedData()
-
-
-   
+    this.RequestRecentlySearchedData() 
   
   }
   ReturnHeader(){
@@ -61,6 +66,8 @@ export class SearchAutoCompleteComponent{
     return { headers }
 
   }
+
+  
 
   RequestAllSearchableData(){
     this.http.get(this.search_url, this.ReturnHeader()).pipe(
@@ -108,6 +115,37 @@ export class SearchAutoCompleteComponent{
      
     })
 
+  }
+
+  searchSuggestions(e: any){
+    const filteredData = this.allSearchableData.filter((item: any) =>item.title.toLowerCase().includes(e.toLowerCase()))
+    
+    
+
+    this.query_suggestions = filteredData
+  }
+  
+  searchedData(){
+    this.query.subscribe((e: any)=>{
+      
+      this.searchSuggestions(e)
+      if(e === ''){
+        this.query_suggestions = []
+        this.showOtherSuggestions = true
+      }else{
+        this.showOtherSuggestions = false
+      }
+    })
+
+    
+  }
+  navigateToSearchResult() {
+    this.router.navigate(['create'])
+  }
+  ngOnInit(): void {
+    this.searchedData()
+
+    
   }
 
 

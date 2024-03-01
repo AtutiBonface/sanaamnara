@@ -1,7 +1,10 @@
 <app-toolbar></app-toolbar>
 
 <div class="home-container">
-  <app-spinner *ngIf="loading"></app-spinner>
+  <div class="waiting" *ngIf="loading">
+    <app-spinner ></app-spinner>
+    <h1>Loading interests on Home feed!</h1>
+  </div>
   <div class="pins-hero"  *ngIf="!loading">
     <div class="pin-container" *ngFor="let pin of pins_list">
       <button class="icons save">

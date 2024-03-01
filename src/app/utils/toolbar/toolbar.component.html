@@ -12,13 +12,13 @@
         >close</mat-icon>
         
   
-        <input #query type="text" placeholder="Search here" id="query" formControlName="query" (focus)="toggleOnAutoComplete()" (blur)="toggleOffAutoComplete()" >
+        <input type="text" placeholder="Search here" id="query" formControlName="query" (focus)="toggleOnAutoComplete()" (blur)="toggleOffAutoComplete()" >
       </form>
           
       </div>
       <!-- autocomplete seaching is here -->
       <div class="search-autocomplete" *ngIf="openSearchAutoComplete">
-        <app-search-auto-complete ></app-search-auto-complete>
+        <app-search-auto-complete [query]="query_subject"></app-search-auto-complete>
       </div>
   
     </div>

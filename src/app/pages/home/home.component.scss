@@ -21,6 +21,18 @@ $warning-color: rgb(172, 16, 42);
     margin-left: auto;
     margin-right: auto;
 
+    .waiting{
+        padding-top: 30px;
+        h1{
+            justify-content: center;
+            text-align: center;
+            font-size: $font-size-middle;
+            font-weight: $font-weight-middle;
+            color: $icons-button-utils-color;
+            margin-top: 30px;
+        }
+    }
+
     button{
         border: none;
         width: fit-content;
@@ -33,7 +45,9 @@ $warning-color: rgb(172, 16, 42);
     .save{
         padding:5px 10px 5px 10px;
         position: absolute;
-        border-radius: 20px;
+        height: 40px;
+        border-radius: 15px;
+        padding: 0 10px 0 10px ;
         background-color: $icons-button-utils-color;
         color: $primary-color;
         font-size: .9rem;
@@ -41,9 +55,10 @@ $warning-color: rgb(172, 16, 42);
         top: 10px;
         right: 10px;
         display: none;
+        opacity: .9;
 
         &:hover{
-            opacity: .7;
+            opacity: 1;
         }
     }
     .upload , .more{

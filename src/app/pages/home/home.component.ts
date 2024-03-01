@@ -60,7 +60,7 @@ export class HomeComponent implements OnInit{
       this.pins_list = result
       setTimeout(()=>{
         this.loading = false
-      },1000)
+      },500)
      
 
 
