@@ -1,9 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ProfileComponent } from '../profile/profile.component';
 import { MatIconModule } from '@angular/material/icon';
 import { EMPTY, catchError } from 'rxjs';
+import { error } from 'node:console';
+import { CommonUtilsService } from '../../services/common-utils.service';
+import { AllpinsService } from '../../services/allpins.service';
 
 @Component({
   selector: 'app-myposts',
@@ -14,30 +17,26 @@ import { EMPTY, catchError } from 'rxjs';
     ProfileComponent,
     MatIconModule,
   ],
+  providers:[
+    CommonUtilsService,
+    AllpinsService
+  ],
   templateUrl: './myposts.component.html',
   styleUrl: '../savedposts/savedposts.component.scss'
 })
-export class MypostsComponent {
+export class MypostsComponent implements OnInit{
   private myposts_url = 'http://localhost:8000/pins/owner'
   data : any = []
   timestamp = `?timestamp=${new Date().getTime()}`
-  constructor(private http: HttpClient){
-    
-    let token : any;
-    const is_server = typeof window === "undefined"
-    if(!is_server){
-      let tokenExists = localStorage.getItem('access_token')
-      if(tokenExists){
-        token = tokenExists
-      }      
+  constructor(
+    private http: HttpClient, 
+    private utils: CommonUtilsService,
+    private service: AllpinsService
+    ){}
+  
 
-    }
-
-    let headers = new HttpHeaders({
-      'Authorization': `Token ${token}`
-    })
-
-    this.http.get(this.myposts_url, {headers}).pipe(
+  createdPinsList(){
+    this.http.get(this.myposts_url, this.utils.returnHeaders()).pipe(
       catchError((err: HttpErrorResponse)=>{
         if(err){
           console.log(err.error)
@@ -49,7 +48,25 @@ export class MypostsComponent {
       this.data = result
      
     })
-  
+  }
+
+  deleteCreatedPost(id: any){
+    const data = 0
+    this.http.put(`${this.myposts_url}/${id}`,data, this.utils.returnHeaders()).pipe(
+      catchError((err:HttpErrorResponse)=>{
+        if(err){
+          console.log(err.error)
+        }
+        return EMPTY
+      })
+    ).subscribe((e)=>{
+      this.data = e
+    })
+  }
+
+
+  ngOnInit(): void {
+    this.createdPinsList()
   }
 
 }

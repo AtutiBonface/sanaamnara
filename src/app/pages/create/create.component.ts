@@ -8,6 +8,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { ToolbarComponent } from '../../utils/toolbar/toolbar.component';
 import { EMPTY, catchError } from 'rxjs';
 import { error } from 'console';
+import { AllpinsService } from '../../services/allpins.service';
+import { CommonUtilsService } from '../../services/common-utils.service';
 
 @Component({
   selector: 'app-create',
@@ -19,6 +21,10 @@ import { error } from 'console';
     HttpClientModule,
     MatIconModule,
     ToolbarComponent,
+  ],
+  providers: [
+    CommonUtilsService,
+    AllpinsService
   ],
   templateUrl: './create.component.html',
   styleUrl: './create.component.scss'
@@ -34,11 +40,19 @@ export class CreateComponent {
   file_inputed : boolean = false
   file_input_classname  : string= ''
 
+  private api_create_url = 'http://localhost:8000/pins/create'
+
   formDescData! : FormGroup;
   
   file : any ;
 
-  constructor(private fb:FormBuilder, private router: Router, private http: HttpClient){
+  constructor(
+    private fb:FormBuilder, 
+    private router: Router, 
+    private http: HttpClient,
+    private service : AllpinsService,
+    private utils: CommonUtilsService,
+    ){
     this.fileData = this.fb.group({
       imagePost:[
         '',
@@ -72,7 +86,7 @@ export class CreateComponent {
 
     const Data = new FormData()
     
-    const api_url = 'http://localhost:8000/pins/create'
+    
 
     Data.append('image', this.file)
     Data.append('title', this.formDescData.get('title')?.value)
@@ -80,22 +94,9 @@ export class CreateComponent {
     Data.append('link', this.formDescData.get('link')?.value)
     Data.append('tagged_topics', this.formDescData.get('tagged_topics')?.value)
 
-    const is_server = typeof window === "undefined"
+    
 
-    let token: any;
-
-    if(!is_server){
-      const tokenExists = localStorage.getItem('access_token')
-      if(tokenExists){
-        token = tokenExists
-      }
-    }
-
-    const headers = new HttpHeaders({
-      'Authorization': `Token ${token}`
-    })
-
-    this.http.post(api_url, Data, {headers}).pipe(
+    this.http.post(this.api_create_url, Data, this.utils.returnHeaders()).pipe(
       catchError((err: HttpErrorResponse)=>{
         if(err){
           console.log(err.error)
@@ -112,7 +113,7 @@ export class CreateComponent {
         return EMPTY
       })
     ).subscribe((result)=>{
-      console.log(result)
+     
       this.form_is_submited = false
       //use to do animations with spinner
       this.process_class_name  = ''
@@ -127,6 +128,7 @@ export class CreateComponent {
       this.file_input_classname  = ''
       this.fileData.reset()
       this.formDescData.reset()
+      this.service.RequestAllPosts()
     })
 
 

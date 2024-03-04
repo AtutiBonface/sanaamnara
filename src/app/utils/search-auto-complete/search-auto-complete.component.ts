@@ -2,9 +2,8 @@ import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { EMPTY, Subject, catchError } from 'rxjs';
-import { SearchService } from '../../services/search.service';
 import { MatIconModule } from '@angular/material/icon';
-import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatToolbarModule } from '@angular/material/toolbar'; 
 import { Router } from '@angular/router';
 
 @Component({
@@ -17,7 +16,6 @@ import { Router } from '@angular/router';
     MatToolbarModule,
   ],
   providers: [
-    SearchService
   ],
   templateUrl: './search-auto-complete.component.html',
   styleUrl: './search-auto-complete.component.scss'
@@ -43,7 +41,7 @@ export class SearchAutoCompleteComponent implements OnInit{
 
   private token : string = ''
 
-  constructor(private http:HttpClient ,private service:SearchService, private router: Router){
+  constructor(private http:HttpClient , private router: Router){
     this.RequestAllSearchableData()
     this.RequestPopularSeachedData()
     this.RequestRecentlySearchedData() 

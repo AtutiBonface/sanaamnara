@@ -7,8 +7,11 @@
   </div>
   <div class="pins-hero"  *ngIf="!loading">
     <div class="pin-container" *ngFor="let pin of pins_list">
-      <button class="icons save">
-        save
+      <button class="icons save"(click)="savePostToMyProfile(pin.id)" [disabled]="pin.saved" *ngIf="!saved">
+        {{pin.saved? 'saved': 'save'}}
+      </button>
+      <button class="icons save" *ngIf="saved">
+        {{saved_text}}
       </button>
       <button class="icons upload">
         <mat-icon>upload</mat-icon>

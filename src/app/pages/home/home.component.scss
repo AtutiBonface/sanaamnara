@@ -60,6 +60,10 @@ $warning-color: rgb(172, 16, 42);
         &:hover{
             opacity: 1;
         }
+        &:disabled{
+            background-color: $text-theme-color-dark;
+            cursor: not-allowed;
+        }
     }
     .upload , .more{
         position: absolute;

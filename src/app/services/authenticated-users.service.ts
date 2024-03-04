@@ -1,7 +1,8 @@
 import { isPlatformBrowser } from '@angular/common';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
-import { BehaviorSubject, Subject } from 'rxjs';
+import { BehaviorSubject, EMPTY, Subject, catchError } from 'rxjs';
+import { CommonUtilsService } from './common-utils.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,9 +11,13 @@ export class AuthenticatedUsersService {
 
   is_authenticated : Subject<boolean> = new Subject<boolean>()
 
+  private users_url = 'http://localhost:8000/accounts/users'
 
 
-  constructor(private http: HttpClient){}
+
+  constructor(private http: HttpClient, private utils: CommonUtilsService){
+
+  }
 
   
 
@@ -33,4 +38,6 @@ export class AuthenticatedUsersService {
     }return false
     
   }
+
+  
 }

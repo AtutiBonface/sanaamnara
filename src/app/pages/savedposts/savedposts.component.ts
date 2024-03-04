@@ -1,9 +1,10 @@
 import { HttpClient, HttpClientModule, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ProfileComponent } from '../profile/profile.component';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { EMPTY, catchError } from 'rxjs';
+import { CommonUtilsService } from '../../services/common-utils.service';
 
 @Component({
   selector: 'app-savedposts',
@@ -14,30 +15,20 @@ import { EMPTY, catchError } from 'rxjs';
     CommonModule,
     MatIconModule,
   ],
+  providers:[
+    CommonUtilsService
+  ],
   templateUrl: './savedposts.component.html',
   styleUrl: './savedposts.component.scss'
 })
-export class SavedpostsComponent {
+export class SavedpostsComponent implements OnInit{
   private saved_posts_url = 'http://localhost:8000/pins/saved'
   data : any = []
   timestamp = `?timestamp=${new Date().getTime()}`
-  constructor(private http: HttpClient){
-    
-    let token : any;
-    const is_server = typeof window === "undefined"
-    if(!is_server){
-      let tokenExists = localStorage.getItem('access_token')
-      if(tokenExists){
-        token = tokenExists
-      }      
+  constructor(private http: HttpClient, private utils: CommonUtilsService){}
 
-    }
-
-    let headers = new HttpHeaders({
-      'Authorization': `Token ${token}`
-    })
-
-    this.http.get(this.saved_posts_url, {headers}).pipe(
+  savedPinsList(){
+    this.http.get(this.saved_posts_url, this.utils.returnHeaders()).pipe(
       catchError((err: HttpErrorResponse)=>{
         if(err){
           console.log(err.error)
@@ -49,7 +40,28 @@ export class SavedpostsComponent {
       this.data = result
      
     })
+
+  }
+
   
+
+  deleteSavedPost(id: any){
+    const data = 0
+    this.http.put(`${this.saved_posts_url}/${id}`,data, this.utils.returnHeaders()).pipe(
+      catchError((err:HttpErrorResponse)=>{
+        if(err){
+          console.log(err)
+        }
+        return EMPTY
+      })
+    ).subscribe((e)=>{
+      this.data = e
+    })
+
+  }
+
+  ngOnInit(): void {
+    this.savedPinsList()
   }
 }
 

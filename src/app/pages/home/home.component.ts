@@ -13,6 +13,7 @@ import { Router } from '@angular/router';
 import { EMPTY, Subject, catchError, timestamp } from 'rxjs';
 import { AllpinsService } from '../../services/allpins.service';
 import { SpinnerComponent } from '../../utils/spinner/spinner.component';
+import { CommonUtilsService } from '../../services/common-utils.service';
 
 
 
@@ -29,50 +30,82 @@ import { SpinnerComponent } from '../../utils/spinner/spinner.component';
     
   ],
   providers:[
-   
+   CommonUtilsService,
+   AllpinsService,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
 export class HomeComponent implements OnInit{
 
-  pinLisUrl = 'http://localhost:8000/pins/list'
+  private pinLisUrl = 'http://localhost:8000/pins/list'
 
   pins_list : any = []
 
-  timestamp : string = ''
+  timestamp : string = `?timestamp=${new Date().getTime()}`
 
   loading : boolean = true
 
-  pin_list_subject : Subject<any> = new Subject<any>()
-  constructor(private service: AllpinsService, private router :Router){
+  saved : boolean = false
 
-    const Url_time = new Date().getTime()
-
-    this.timestamp = `?timestamp=${Url_time}`
-    
-  }
+  saved_text = 'saved'
 
 
-  ngOnInit(): void {
+
+  constructor(
+    private service: AllpinsService,
+    private router :Router, 
+    private http: HttpClient, 
+    private utils: CommonUtilsService
+    ){}
+
+
+  allWebsitePosts(){
     this.service.RequestAllPosts()
     this.service.all_posts_subject.subscribe((result)=>{
       this.pins_list = result
       setTimeout(()=>{
         this.loading = false
       },500)
-     
-
-
     })
   }
-  onScroll($event: Event) {
- 
-  }
-  navigateToCheckout(id :any){
 
-    
+  
+  
+  
+  savePostToMyProfile(id: any){
+    const data = 0
+    this.http.put(`${this.pinLisUrl}/${id}`,data, this.utils.returnHeaders()).pipe(
+      catchError((err: HttpErrorResponse)=>{
+        if(err){
+          this.saved_text = 'Already'          
+        }
+        this.saved_text = 'Already'
+        return EMPTY
+      })
+    ).subscribe((e)=>{
+
+      this.saved = true
+      this.saved_text = 'saved'
+
+      setTimeout(()=>{
+        this.saved = false
+
+      },500)
+      
+    })
+  }
+
+
+  // when a post is clicked it navigates to individual page aka checkout
+  navigateToCheckout(id :any){    
     this.router.navigate([`posts/${id}`])
+    
+  }
+
+
+  ngOnInit(): void {
+    this.allWebsitePosts()
     
   }
   

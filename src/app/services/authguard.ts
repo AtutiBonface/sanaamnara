@@ -1,6 +1,6 @@
 import { inject } from "@angular/core"
 import { Router } from "@angular/router"
-import { AuthenticatedUsersService } from "../services/authenticated-users.service"
+import { AuthenticatedUsersService } from "./authenticated-users.service"
 
 
 

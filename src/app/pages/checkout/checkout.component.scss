@@ -93,13 +93,26 @@ $warning-color: rgb(172, 16, 42);
                     justify-content: center;
                 }
                 .save{
-                    background-color: $icons-button-utils-color;
-                    border-radius: 20px;
                     height: 40px;
-                    color: $text-theme-color-light;
-                    padding: 0 15px 0 15px;
+                    border-radius: 15px;
+                    padding: 0 15px 0 15px ;
+                    background-color: $icons-button-utils-color;
+                    color: $primary-color;
                     font-size: $font-size-middle;
+                    font-weight: $font-weight-middle;font-size: $font-size-middle;
                     font-weight: $font-weight-middle;
+        
+                    opacity: .9;            
+        
+
+                    &:hover{
+                        opacity: 1;
+                    }
+
+                    &:disabled{
+                        background-color: $text-theme-color-dark;
+                        cursor: not-allowed;
+                    }
                 }
                 .more{
                     border-radius: 15px;

@@ -32,17 +32,20 @@ $warning-color: rgb(172, 16, 42);
     .save{
         padding:5px 10px 5px 10px;
         position: absolute;
-        border-radius: 20px;
-        background-color: $icons-button-utils-color;
+        height: 40px;
+        border-radius: 15px;
+        padding: 0 10px 0 10px ;
+        background-color: $warning-color;
         color: $primary-color;
         font-size: .9rem;
         font-weight: bold;
         top: 10px;
         right: 10px;
         display: none;
+        opacity: .9;
 
         &:hover{
-            opacity: .7;
+            opacity: 1;
         }
     }
     .upload , .more{

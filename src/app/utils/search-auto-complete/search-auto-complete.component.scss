@@ -41,7 +41,8 @@ $warning-color: rgb(172, 16, 42);
         p{
             color: $icons-button-utils-color;
             font-size: $font-size-small;
-            font-weight: $font-weight-middle
+            font-weight: $font-weight-middle;
+            line-height: calc($font-size-small + 5px);
             
             
         }

@@ -2,7 +2,7 @@
 <div class="posts-container">
     <div class="pins-hero">
       <div class="pin-container" *ngFor="let pin of data">
-        <button class="icons save">
+        <button class="icons save" (click)="deleteSavedPost(pin?.id)">
           delete
         </button>
         <button class="icons upload">

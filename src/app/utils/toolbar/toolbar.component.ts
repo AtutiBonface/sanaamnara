@@ -7,7 +7,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { EMPTY, Subject, catchError } from 'rxjs';
-import { SearchService } from '../../services/search.service';
+import { CommonUtilsService } from '../../services/common-utils.service';
 
 @Component({
   selector: 'app-toolbar',
@@ -16,11 +16,10 @@ import { SearchService } from '../../services/search.service';
     CommonModule,
     MatIconModule,
     MatToolbarModule,
-    SearchAutoCompleteComponent,
     ReactiveFormsModule,
+    SearchAutoCompleteComponent,
   ],
   providers: [
-    SearchService
   ],
   templateUrl: './toolbar.component.html',
   styleUrl: './toolbar.component.scss'
@@ -41,7 +40,11 @@ export class ToolbarComponent  implements OnInit{
 
   searchData! : FormGroup;
 
-  constructor(private http: HttpClient, private fb: FormBuilder, private router: Router,private service: SearchService){
+  constructor(
+    private http: HttpClient, 
+    private fb: FormBuilder, 
+    private router: Router,
+    private utils: CommonUtilsService){
     this.searchData = this.fb.group({
       query:[
         '',
@@ -85,38 +88,16 @@ export class ToolbarComponent  implements OnInit{
   navigateToHome() {
     this.router.navigate([''])    
   }
-  MyProfileName(){
-    const is_server = typeof window === 'undefined'
-    if (!is_server){
-      let tokenExists = localStorage.getItem('access_token')
-      if(tokenExists){
-        let token = tokenExists
-        const headers = new HttpHeaders({
-          'Authorization': `Token ${token}`
-        })
-        this.http.get(this.users_url, { headers }).pipe(
-          catchError((err:HttpErrorResponse)=>{
-            if(err){
-              console.log(err.error)
-            }
-            return EMPTY
-          })
-        ).subscribe((result)=>{
-          this.profile_subject.next(result)          
-        })
-
-      }
-
-    }
-    this.profile_subject.subscribe((data)=>{
+  MyProfileName(){    
+    this.utils.profile_subject.subscribe((data)=>{
       this.profile_username = data['username']
     })
 
   }
   ngOnInit(): void {
+    this.utils.ProfileName()
     this.MyProfileName()
     this.searchQuery()
-
     
     
   }

@@ -11,7 +11,9 @@
                     <button class="more"><mat-icon>more_horiz</mat-icon></button>
                     <button class="upload"><mat-icon>upload</mat-icon></button>
                 </div>               
-                <button class="save">save</button>
+                <button class="save" (click)="saveClickedPost(post_clicked.id)" [disabled]="post_saved">
+                    {{post_saved? 'saved': 'save'}}
+                </button>
             </div>
             <div class="post-owner">
                 <div class="left">
@@ -19,11 +21,11 @@
                     
                     <div>
                         <p style="font-weight: 600; font-size: .9rem;">{{post_clicked?.creater}}</p>
-                        <p><span>200</span>followers</p>
+                        <p><span>{{follower_obj.followers_count}}</span>followers</p>
                     </div>                    
                 </div>
                 <div class="right">
-                    <button>follow</button>
+                    <button (click)="FollowOrUnfollow(post_clicked?.creater_id)">follow</button>
                 </div>
             </div>
 
@@ -61,7 +63,7 @@
                 </div>
                 <form>
                     <div class="logged-in-user-photo">
-                        BO
+                        {{profile_name | uppercase | slice  :0:2}}
                     </div>
                    <div class="comment-input">
                     <textarea name="user-comment" id="" cols="30" rows="1"></textarea>
@@ -88,7 +90,7 @@
             <mat-icon>more_horiz</mat-icon>
           </button>
           
-          <img src="assets/pins/35463c2cc8bf49ea2a4d501f99313115.jpg" alt="">
+         <!--  <img src="assets/pins/35463c2cc8bf49ea2a4d501f99313115.jpg" alt=""> -->
         </div>
     </div>
 </div>
