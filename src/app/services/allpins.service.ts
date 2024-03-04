@@ -26,9 +26,11 @@ export class AllpinsService{
 
   RequestAllPosts(){
     this.http.get(this.allposts_url , this.utils.returnHeaders()).pipe(
-      catchError((err: HttpErrorResponse)=>{
-        if(err){
+      catchError((err:any)=>{
+        if(err instanceof HttpErrorResponse){
           console.log(err.error)
+        }else{
+          console.log('Second error', err.error)
         }
         return EMPTY
       })

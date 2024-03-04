@@ -11,6 +11,10 @@ export class CommonUtilsService {
 
   profile_subject: Subject<any> = new Subject<any>()
 
+  activateRouteUsername : string = ''
+
+  all_profile_data_subject : Subject<any> = new Subject<any>()
+
 
 
   constructor(
@@ -39,11 +43,14 @@ export class CommonUtilsService {
 
 
 
-  ProfileName(){  
+  ProfileName(){      
+       
       this.http.get(this.users_url, this.returnHeaders()).pipe(
-        catchError((err:HttpErrorResponse)=>{
-          if(err){
+        catchError((err:any)=>{
+          if(err instanceof HttpErrorResponse){
             console.log(err.error)
+          }else{
+            console.log('Second error', err.error)
           }
           return EMPTY
         })
@@ -52,6 +59,27 @@ export class CommonUtilsService {
       })
 
     }
+
+
+  getProfileUser(){
+    let data = new FormData()
+    data.append('username', this.activateRouteUsername) 
+
+    this.http.post(this.users_url,data, this.returnHeaders()).pipe(
+      catchError((err:any)=>{
+        if(err instanceof HttpErrorResponse){
+          console.log(err.error)
+        }else{
+          console.log('Second error', err.error)
+        }
+        return EMPTY
+      })
+    ).subscribe((result)=>{
+      this.all_profile_data_subject.next(result)      
+    })
+
+
+  }
 
    
 }

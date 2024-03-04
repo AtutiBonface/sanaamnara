@@ -1,21 +1,35 @@
-<app-profile></app-profile>
-<div class="posts-container">
-    <div class="pins-hero">
-      <div class="pin-container" *ngFor="let pin of data">
-        <button class="icons save" (click)="deleteSavedPost(pin?.id)">
-          delete
-        </button>
-        <button class="icons upload">
-          <mat-icon>upload</mat-icon>
-        </button>
-        <button class="icons more">
-          <mat-icon>more_horiz</mat-icon>
-        </button>
-    
-        
-        <img  [src]="pin.image_url+timestamp | slice : 67" alt="" >
-      </div>
+<app-toolbar></app-toolbar>
+<div class="loading" *ngIf="!loading_complete">    
+  <app-spinner ></app-spinner>
+  <p>please wait ...</p>
+</div>
+
+<div class="everything" *ngIf="loading_complete">
+  <app-profile></app-profile>
+  <div class="posts-container">
+      <div class="pins-hero">
+        <div class="pin-container" *ngFor="let pin of data.saved_pins">
+          <button class="icons save delete" (click)="deleteSavedPost(pin?.id)" *ngIf="current_user">
+            delete
+          </button>
+          <button class="icons save" (click)="saveUserPost(pin?.id)" *ngIf="!current_user">
+            save
+          </button>
+          
+          <button class="icons upload">
+            <mat-icon>upload</mat-icon>
+          </button>
+          <button class="icons more">
+            <mat-icon>more_horiz</mat-icon>
+          </button>
       
+          
+          <img  [src]="pin.image_url+timestamp | slice : 67" alt="" >
+        </div>
+        
+      </div>
+
+
     </div>
   
   </div>

@@ -11,6 +11,23 @@ $text-theme-color-dark: black;
 $text-theme-color-light: white;
 $warning-color: rgb(172, 16, 42);
 
+
+.loading{
+    margin-top: 100px;
+    app-spinner{
+        margin-left: auto;
+        margin-right: auto;
+        padding: 20px 0 20px 0;
+    }
+    p{
+        text-align: center;
+        color: $secondary-color;
+        font-weight: $font-weight-middle;
+        font-size: $font-size-middle;
+        margin: 0;
+        padding: 0;
+    }
+}
 .posts-container{
     width: 80vw !important;
     justify-content: center;
@@ -35,7 +52,6 @@ $warning-color: rgb(172, 16, 42);
         height: 40px;
         border-radius: 15px;
         padding: 0 10px 0 10px ;
-        background-color: $warning-color;
         color: $primary-color;
         font-size: .9rem;
         font-weight: bold;
@@ -43,11 +59,16 @@ $warning-color: rgb(172, 16, 42);
         right: 10px;
         display: none;
         opacity: .9;
+        background-color: $icons-button-utils-color;
 
         &:hover{
             opacity: 1;
         }
     }
+    .save.delete{
+        background-color: $warning-color;
+    }
+   
     .upload , .more{
         position: absolute;
         justify-content: center;

@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { ToolbarComponent } from '../../utils/toolbar/toolbar.component';
 import { AllpinsService } from '../../services/allpins.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Route, Router } from '@angular/router';
 import { EMPTY, Subject, catchError } from 'rxjs';
 import { CommonUtilsService } from '../../services/common-utils.service';
 
@@ -24,6 +24,7 @@ import { CommonUtilsService } from '../../services/common-utils.service';
   styleUrl: './checkout.component.scss'
 })
 export class CheckoutComponent implements OnInit{
+
   post_liked: boolean = false
   comment_liked : boolean = false
 
@@ -52,7 +53,8 @@ export class CheckoutComponent implements OnInit{
     private service: AllpinsService, 
     private http: HttpClient, 
     private activatedRoute: ActivatedRoute,
-    private utils: CommonUtilsService
+    private utils: CommonUtilsService,
+    private router: Router
     ){}
 
     
@@ -87,9 +89,7 @@ export class CheckoutComponent implements OnInit{
       
 
       
-    })
-
-    }
+    })}
 
     
 
@@ -121,6 +121,11 @@ export class CheckoutComponent implements OnInit{
     this.utils.profile_subject.subscribe((res)=>{
       this.profile_name = res['username']
     })
+  }
+
+
+  navigateToProfile(username: any) {
+    this.router.navigate([`${username}`])   
   }
  
 

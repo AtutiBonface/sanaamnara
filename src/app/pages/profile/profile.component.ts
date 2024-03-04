@@ -6,6 +6,7 @@ import { MatIcon, MatIconModule } from '@angular/material/icon';
 import { EMPTY, Subject, catchError } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CommonUtilsService } from '../../services/common-utils.service';
+import { SpinnerComponent } from '../../utils/spinner/spinner.component';
 
 @Component({
   selector: 'app-profile',
@@ -15,6 +16,7 @@ import { CommonUtilsService } from '../../services/common-utils.service';
     ToolbarComponent,
     HttpClientModule,
     MatIconModule,
+    SpinnerComponent,
   ],
   providers:[
     CommonUtilsService
@@ -28,6 +30,13 @@ export class ProfileComponent implements OnInit {
 
   private follow_url = 'http://localhost:8000/accounts/follow'
   follower_obj: any = []
+
+  profile_data :any = []
+
+  current_user : boolean = false
+
+  loading_complete : boolean = false
+ 
 
 
  
@@ -52,14 +61,30 @@ export class ProfileComponent implements OnInit {
     
     }
 
-    getFollowersState(){
-      this.http.get(this.follow_url,  this.utils.returnHeaders()).subscribe((e)=>{
-        this.follower_obj = e     
+   
+
+    receiveAllProfileData(){
+      this.utils.all_profile_data_subject.subscribe((e)=>{
+        setTimeout(()=>{
+          this.loading_complete = true
+        },1000)
+
+        this.profile_data = e
+        
+        this.current_user = this.profile_data['current_user']
       })
     }
 
+
+    returnActivatedUser(){
+      this.utils.activateRouteUsername = this.activatedRoute.snapshot.params['username']
+    }
+
+
     ngOnInit(): void {
-      this.getFollowersState()
+      this.returnActivatedUser()
+      this.utils.getProfileUser()
+      this.receiveAllProfileData()
       
     }
   

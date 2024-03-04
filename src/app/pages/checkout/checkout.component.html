@@ -16,7 +16,7 @@
                 </button>
             </div>
             <div class="post-owner">
-                <div class="left">
+                <div class="left" (click)="navigateToProfile(post_clicked?.creater)">
                     <div class="profile">{{post_clicked?.creater | uppercase |  slice:0:2 }}</div>
                     
                     <div>

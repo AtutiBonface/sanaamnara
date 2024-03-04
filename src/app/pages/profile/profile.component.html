@@ -1,6 +1,5 @@
-<app-toolbar></app-toolbar>
 
-<button><mat-icon>add_circle_outline</mat-icon></button>
+
 <div class="profile-hero">
     <div class="user-details">
         <div class="profile-picture">
@@ -9,16 +8,16 @@
         <p class="profile-name">{{activatedRouteParam}}</p>
         <div class="followers-following">
             <div class="follower-box">
-                Followers {{follower_obj?.followers_count}}
+                Followers {{profile_data?.follower_no}}
             </div>
             <div class="following-box">
-                Following {{follower_obj?.following_count}}
+                Following {{profile_data?.following_no}}
             </div>
         </div>
         <div class="share-edit">
             <button class="share">Share</button>
-            <button class="edit-profile">Edit profile</button>
-            <button class="share">follow</button>
+            <button class="edit-profile" *ngIf="current_user">Edit profile</button>
+            <button class="share" *ngIf="!current_user">follow</button>
         </div>
     </div>
     <div class="created-saved">
@@ -31,3 +30,6 @@
         </div>
     </div>
 </div>
+
+
+
