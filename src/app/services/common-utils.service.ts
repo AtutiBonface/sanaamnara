@@ -48,9 +48,7 @@ export class CommonUtilsService {
       this.http.get(this.users_url, this.returnHeaders()).pipe(
         catchError((err:any)=>{
           if(err instanceof HttpErrorResponse){
-            console.log(err.error)
-          }else{
-            console.log('Second error', err.error)
+            
           }
           return EMPTY
         })
@@ -68,9 +66,9 @@ export class CommonUtilsService {
     this.http.post(this.users_url,data, this.returnHeaders()).pipe(
       catchError((err:any)=>{
         if(err instanceof HttpErrorResponse){
-          console.log(err.error)
+          
         }else{
-          console.log('Second error', err.error)
+          
         }
         return EMPTY
       })

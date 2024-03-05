@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ToolbarComponent } from '../../utils/toolbar/toolbar.component';
 import { HttpClient, HttpClientModule, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { MatIcon, MatIconModule } from '@angular/material/icon';
@@ -36,9 +36,10 @@ export class ProfileComponent implements OnInit {
   current_user : boolean = false
 
   loading_complete : boolean = false
- 
 
+  pins_no : number = 0
 
+  @Input()in_createdPage :boolean = true
  
   constructor(
     private http: HttpClient, 

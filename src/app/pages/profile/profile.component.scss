@@ -93,21 +93,23 @@ $warning-color: rgb(172, 16, 42);
             cursor: pointer;
             padding: 0 15px 0 15px;            
             margin: 5px;
+            opacity: 1;
         }
         .share{
             background-color: $icons-button-utils-color;
             font-size: $font-size-small;
             font-weight: $font-weight-middle;
             color: $secondary-color;
+            opacity: 1;
             &:hover{
-                background-color: $primary-color;
-                color: $icons-button-utils-color;
+                opacity: .7;
+                
             }
         }
         .edit-profile{
             &:hover{
-                background-color: $icons-button-utils-color;
-                color: $secondary-color;
+                opacity: .7;
+                
             }
         }
     }
@@ -128,16 +130,10 @@ $warning-color: rgb(172, 16, 42);
        height: 100%;
        cursor: pointer;
     }
-    .created{
-        &:hover{
-            border-bottom: 3px solid $icons-button-utils-color;
-        }        
+    .saved.active{
+        background-color: rgba(0 ,0 ,0, .3);
+        
+        border-radius: 5px;
     }
-    .saved{
-        &:hover{
-            border-bottom: 3px solid $icons-button-utils-color;
-        }  
-
-    }
-
+    
 }

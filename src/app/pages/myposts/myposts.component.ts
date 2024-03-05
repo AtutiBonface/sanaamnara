@@ -7,7 +7,7 @@ import { EMPTY, catchError } from 'rxjs';
 import { error } from 'node:console';
 import { CommonUtilsService } from '../../services/common-utils.service';
 import { AllpinsService } from '../../services/allpins.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { SpinnerComponent } from '../../utils/spinner/spinner.component';
 import { ToolbarComponent } from '../../utils/toolbar/toolbar.component';
 
@@ -30,26 +30,31 @@ import { ToolbarComponent } from '../../utils/toolbar/toolbar.component';
   styleUrl: '../savedposts/savedposts.component.scss'
 })
 export class MypostsComponent implements OnInit{
-saveUserPost(arg0: any) {
-throw new Error('Method not implemented.');
-}
+
+
   private myposts_url = 'http://localhost:8000/pins/owner'
   data : any = []
   current_user : boolean = false
   loading_complete : boolean = false
+  no_of_post : number = 0
   timestamp = `?timestamp=${new Date().getTime()}`
   constructor(
     private http: HttpClient, 
     private utils: CommonUtilsService,
     private service: AllpinsService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private router : Router
     ){}
   
 
   createdPinsList(){
     this.utils.all_profile_data_subject.subscribe(e=>{
       this.data = e
+
+      
       this.current_user = this.data.current_user
+      this.no_of_post = this.data.posts_no
+
       setTimeout(()=>{
         // sets loader to false
         this.loading_complete = true
@@ -75,6 +80,14 @@ throw new Error('Method not implemented.');
     ).subscribe((e)=>{
       this.data = e
     })
+  }
+
+  saveUserPost(id: any) {
+    
+  }
+
+  navigateTocreate() {
+    this.router.navigate(['posts/create'])
   }
 
 

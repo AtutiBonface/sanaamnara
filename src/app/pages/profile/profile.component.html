@@ -21,11 +21,11 @@
         </div>
     </div>
     <div class="created-saved">
-        <div class="created" (click)="navigateToMyPosts()">
+        <div class="created saved" [ngClass]="in_createdPage? 'active': 'inactive'"  (click)="navigateToMyPosts()">
             <p class="created-title">Created</p>
         </div>
-        <div class="saved">
-            <p class="saved-title" (click)="navigateToSavedPosts()">Saved</p>
+        <div class="created saved" [ngClass]="in_createdPage? 'inactive': 'active'" (click)="navigateToSavedPosts()">
+            <p class="saved-title" >Saved</p>
 
         </div>
     </div>

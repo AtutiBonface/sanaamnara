@@ -2,7 +2,7 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
 import { Injectable, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { error } from 'console';
-import { EMPTY, Subject, catchError } from 'rxjs';
+import { EMPTY, Subject, catchError, delay, retry } from 'rxjs';
 import { CommonUtilsService } from './common-utils.service';
 
 @Injectable({
@@ -13,6 +13,8 @@ export class AllpinsService{
   all_posts : any = []
 
   all_posts_subject : Subject<any> = new Subject<any>()
+
+  error_subject : Subject<any> = new Subject<any>()
 
 
   private allposts_url = 'http://localhost:8000/pins/list'
@@ -28,9 +30,8 @@ export class AllpinsService{
     this.http.get(this.allposts_url , this.utils.returnHeaders()).pipe(
       catchError((err:any)=>{
         if(err instanceof HttpErrorResponse){
-          console.log(err.error)
-        }else{
-          console.log('Second error', err.error)
+          this.error_subject.next(err) 
+                   
         }
         return EMPTY
       })

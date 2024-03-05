@@ -26,6 +26,7 @@ $warning-color: rgb(172, 16, 42);
         font-size: $font-size-middle;
         margin: 0;
         padding: 0;
+        padding: 20px 0 20px 0;
     }
 }
 .posts-container{
@@ -36,6 +37,43 @@ $warning-color: rgb(172, 16, 42);
     align-items: center;
     margin-left: auto;
     margin-right: auto;
+
+    .heading{
+        color: $icons-button-utils-color;
+        font-size: $font-size-big;
+        font-weight: $font-weight-middle;
+        
+    }
+
+    .add-pins{
+
+        .add{
+            display: block;
+            background-color: $text-theme-color-light;
+            border-radius: 10px;
+            cursor: pointer;
+            position: relative;
+            width: fit-content;
+            margin: 0 auto 0 auto;
+            height: 100px;
+            p{
+                color: $secondary-color;
+                font-size: $font-size-middle;
+                font-weight: $font-weight-middle;
+                width: fit-content;
+                padding: 10px 20px 10px 20px;
+                margin: 0;
+            }
+            mat-icon{
+                position: absolute;
+                bottom: 20px;
+                left: 50%;
+                transform: translateX(-50%);
+                color: $icons-button-utils-color;
+            }            
+
+        }
+    }
 
     button{
         border: none;

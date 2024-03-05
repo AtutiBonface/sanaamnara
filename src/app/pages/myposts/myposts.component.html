@@ -6,6 +6,16 @@
 <div class="everything"*ngIf="loading_complete">
   <app-profile></app-profile>
   <div class="posts-container" >
+    <p class="heading"*ngIf="no_of_post != 0 ">Created pins:</p>
+    <p class="heading"*ngIf="no_of_post === 0 && !current_user">No posts.</p>
+    <div class="add-pins" *ngIf="current_user && no_of_post === 0" >
+      <p class="heading">No pins created!</p>
+      <div class="add" (click)="navigateTocreate()">
+         <p>create here</p>
+         <mat-icon>add_box</mat-icon>
+      </div>      
+    </div>
+    
       <div class="pins-hero">
         <div class="pin-container" *ngFor="let post of data.pins_created">
           <button class="icons save delete" (click)="deleteCreatedPost(post?.id)" *ngIf="current_user">

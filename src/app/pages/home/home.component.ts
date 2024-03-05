@@ -48,6 +48,8 @@ export class HomeComponent implements OnInit{
 
   saved : boolean = false
 
+  connection_failed : boolean = false
+
   saved_text = 'saved'
 
 
@@ -67,6 +69,17 @@ export class HomeComponent implements OnInit{
       setTimeout(()=>{
         this.loading = false
       },500)
+
+            
+    })
+
+
+  }
+  checkConnection(){
+    this.utils.getProfileUser()
+    this.service.error_subject.subscribe((e)=>{
+      
+      this.connection_failed = true
     })
   }
 
@@ -106,6 +119,7 @@ export class HomeComponent implements OnInit{
 
   ngOnInit(): void {
     this.allWebsitePosts()
+    this.checkConnection()
     
   }
   

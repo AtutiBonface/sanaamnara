@@ -35,6 +35,7 @@ throw new Error('Method not implemented.');
   timestamp = `?timestamp=${new Date().getTime()}`
   current_user: boolean = false
   loading_complete : boolean = false
+  no_of_saved_posts : number = 0
   constructor(
     private http: HttpClient, 
     private utils: CommonUtilsService,
@@ -47,6 +48,7 @@ throw new Error('Method not implemented.');
       this.data = e
      
       this.current_user = this.data.current_user
+      this.no_of_saved_posts = this.data.saved_no
       setTimeout(()=>{
         this.loading_complete = true
       },500)    

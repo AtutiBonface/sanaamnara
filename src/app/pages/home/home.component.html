@@ -1,6 +1,8 @@
 <app-toolbar></app-toolbar>
-
-<div class="home-container">
+<div class="connection-error" >
+  <h1 *ngIf="connection_failed">Oops connection failed!</h1>
+</div>
+<div class="home-container" *ngIf="!connection_failed">
   <div class="waiting" *ngIf="loading">
     <app-spinner ></app-spinner>
     <h1>Loading interests on Home feed!</h1>
