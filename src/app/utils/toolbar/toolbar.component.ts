@@ -25,6 +25,10 @@ import { CommonUtilsService } from '../../services/common-utils.service';
   styleUrl: './toolbar.component.scss'
 })
 export class ToolbarComponent  implements OnInit{
+navigateToMobileNotify() {
+throw new Error('Method not implemented.');
+}
+
 
 
 
@@ -93,6 +97,9 @@ export class ToolbarComponent  implements OnInit{
       this.profile_username = data['username']
     })
 
+  }
+  navigateToMobileSearch() {
+    
   }
   ngOnInit(): void {
     this.utils.ProfileName()

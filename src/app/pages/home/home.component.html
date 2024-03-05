@@ -1,31 +1,33 @@
-<app-toolbar></app-toolbar>
-<div class="connection-error" >
-  <h1 *ngIf="connection_failed">Oops connection failed!</h1>
-</div>
-<div class="home-container" *ngIf="!connection_failed">
-  <div class="waiting" *ngIf="loading">
-    <app-spinner ></app-spinner>
-    <h1>Loading interests on Home feed!</h1>
-  </div>
-  <div class="pins-hero"  *ngIf="!loading">
-    <div class="pin-container" *ngFor="let pin of pins_list">
-      <button class="icons save"(click)="savePostToMyProfile(pin.id)" [disabled]="pin.saved" *ngIf="!saved">
-        {{pin.saved? 'saved': 'save'}}
-      </button>
-      <button class="icons save" *ngIf="saved">
-        {{saved_text}}
-      </button>
-      <button class="icons upload">
-        <mat-icon>upload</mat-icon>
-      </button>
-      <button class="icons more">
-        <mat-icon>more_horiz</mat-icon>
-      </button>
-  
-      
-      <img [src]="pin.image+timestamp  |slice :67" alt="" (click)="navigateToCheckout(pin.id)">
-    </div>
-    
-  </div>
 
+<div class="home-body">
+
+  <app-toolbar></app-toolbar>
+  <div class="connection-error" >
+    <h1 *ngIf="connection_failed">Oops connection failed!</h1>
+  </div>
+  <div class="home-container" *ngIf="!connection_failed">
+    <div class="waiting" *ngIf="loading">
+      <app-spinner ></app-spinner>
+      <h1>Loading interests on Home feed!</h1>
+    </div>
+    <div class="pins-hero"  *ngIf="!loading">
+      <div class="pin-container" *ngFor="let pin of pins_list">
+        <button class="icons save"(click)="savePostToMyProfile(pin.id)" [disabled]="pin.saved">
+          {{pin.saved? 'saved': 'save'}}
+        </button>
+        
+        <button class="icons upload">
+          <mat-icon>upload</mat-icon>
+        </button>
+        <button class="icons more">
+          <mat-icon>more_horiz</mat-icon>
+        </button>
+    
+        
+        <img [src]="pin.image+timestamp  |slice :67" alt="" (click)="navigateToCheckout(pin.id)">
+      </div>
+      
+    </div>
+
+</div>
 </div>

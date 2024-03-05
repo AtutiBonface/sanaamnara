@@ -1,7 +1,9 @@
-<mat-toolbar>
+<mat-toolbar class="desktop-toolbar">
     <div class="left-end logged-menu">
       <img src="sanaamnara.png" alt="logo" (click)="navigateToHome()">
+      
       <span (click)="navigateToCreate()">Create</span>
+      
     </div>
     <div class="middle">
       <div class="search-container">
@@ -26,6 +28,22 @@
       <mat-icon class="notifications">notifications</mat-icon>
       <button class="profile-btn" (click)="navigateToProfile()">{{profile_username | uppercase | slice :0:2}}</button>   
     </div>
+  </mat-toolbar>
+
+
+
+  <mat-toolbar class="mobile-toolbar">
+    <div class="menus">
+      <mat-icon class="home-btn" (click)="navigateToHome()">home</mat-icon>
+      <mat-icon class="query-btn" (click)="navigateToMobileSearch()">search</mat-icon>
+      <mat-icon class="message-btn" (click)="navigateToMobileNotify()">notifications</mat-icon>
+      <div class="mobile-profile" (click)="navigateToProfile()">
+        <button>{{profile_username | uppercase | slice :0:2}}</button>
+      </div>
+    </div>
+    
+  
+      
   </mat-toolbar>
   <div class="overlay-search-container" *ngIf="openSearchAutoComplete"></div>
   

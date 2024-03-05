@@ -6,7 +6,6 @@
 <div class="everything"*ngIf="loading_complete">
   <app-profile></app-profile>
   <div class="posts-container" >
-    <p class="heading"*ngIf="no_of_post != 0 ">Created pins:</p>
     <p class="heading"*ngIf="no_of_post === 0 && !current_user">No posts.</p>
     <div class="add-pins" *ngIf="current_user && no_of_post === 0" >
       <p class="heading">No pins created!</p>
@@ -21,8 +20,8 @@
           <button class="icons save delete" (click)="deleteCreatedPost(post?.id)" *ngIf="current_user">
             delete
           </button>
-          <button class="icons save" (click)="saveUserPost(post?.id)" *ngIf="!current_user">
-            save
+          <button class="icons save" (click)="saveUserPost(post?.id)" *ngIf="!current_user" [disabled]="post.saved">
+            {{post .saved? 'saved': 'save'}}
           </button>
           <button class="icons upload">
             <mat-icon>upload</mat-icon>

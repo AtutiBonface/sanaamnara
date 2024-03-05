@@ -7,17 +7,12 @@
 <div class="everything" *ngIf="loading_complete">
   <app-profile [in_createdPage]="false"></app-profile>
   <div class="posts-container">
-      <p class="heading" *ngIf="no_of_saved_posts != 0">Saved posts:</p>
       <p class="heading" *ngIf="no_of_saved_posts === 0">No posts saved.</p>
       <div class="pins-hero">
         <div class="pin-container" *ngFor="let pin of data.saved_pins">
           <button class="icons save delete" (click)="deleteSavedPost(pin?.id)" *ngIf="current_user">
             delete
-          </button>
-          <button class="icons save" (click)="saveUserPost(pin?.id)" *ngIf="!current_user">
-            save
-          </button>
-          
+          </button>          
           <button class="icons upload">
             <mat-icon>upload</mat-icon>
           </button>

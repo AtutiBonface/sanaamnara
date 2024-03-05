@@ -1,6 +1,16 @@
 
 
 <div class="profile-hero">
+    <div class="add-search-settings">
+        <div class="search-input">
+            <mat-icon>search</mat-icon>
+            <input type="text" placeholder="Search your posts ">
+        </div>
+        <div class="add-settings">
+            <mat-icon>add</mat-icon>
+            <mat-icon>settings</mat-icon>
+        </div>
+    </div>
     <div class="user-details">
         <div class="profile-picture">
             {{activatedRouteParam | uppercase | slice :0:2}}

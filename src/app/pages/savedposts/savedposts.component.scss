@@ -32,7 +32,6 @@ $warning-color: rgb(172, 16, 42);
 .posts-container{
     width: 80vw !important;
     justify-content: center;
-
     display: block;
     align-items: center;
     margin-left: auto;
@@ -103,6 +102,10 @@ $warning-color: rgb(172, 16, 42);
             opacity: 1;
         }
     }
+    .save:disabled{
+        background-color: $text-theme-color-dark;
+        cursor: not-allowed;
+    }
     .save.delete{
         background-color: $warning-color;
     }
@@ -142,8 +145,7 @@ $warning-color: rgb(172, 16, 42);
 
 
         .pin-container{
-            width: fit-content;
-            
+            width: fit-content;         
             
             padding: 0;
             margin: 0;
@@ -166,5 +168,93 @@ $warning-color: rgb(172, 16, 42);
             
         }
         
+    }
+}
+
+@media only screen and (max-width: 310px) {
+    .posts-container{
+        width: 80vw !important;
+        margin-top: 10px !important;
+    }
+    .pins-hero{        
+        columns: 1 !important;
+    }
+   
+}
+
+
+@media only screen and (min-width: 311px) and (max-width: 500px) {
+    .posts-container{
+        width: 95vw !important;
+        margin-top: 10px !important;
+    }
+    .pins-hero{        
+        columns: 2 !important;
+    }
+   
+}
+
+@media only screen and (min-width: 501px) and (max-width: 650px){
+    .posts-container{
+        width: 75vw !important;
+        margin-top: 10px !important;
+    }
+    .pins-hero{        
+        columns: 2 !important;
+    }
+
+}
+@media only screen and (min-width: 651px) and (max-width: 750px){
+    .posts-container{
+        width: 92vw !important;
+        margin-top: 10px !important;
+    }
+    .pins-hero{        
+        columns: 3 !important;
+    }
+
+}
+@media only screen and (min-width: 751px) and (max-width: 850px) {
+    .posts-container{
+        width: 85vw !important;
+        margin-top: 10px !important;
+    }
+    .pins-hero{        
+        columns: 3 !important;
+    }
+    
+}
+@media only screen and (min-width: 851px) and (max-width: 1000px) {
+    .posts-container{
+        width: 70vw !important;
+        margin-top: 10px !important;
+    }
+    .pins-hero{        
+        columns: 3 !important;
+    }
+}
+
+@media only screen and (min-width: 1001px) and (max-width: 1100px) {
+    .posts-container{
+        width: 80vw !important;
+    }
+    .pins-hero{        
+        columns: 4 !important;
+    }
+}
+@media only screen and (min-width: 1101px) and (max-width: 1300px) {
+    .posts-container{
+        width: 95vw !important;
+    }
+    .pins-hero{        
+        columns: 5 !important;
+    }
+}
+@media only screen and (min-width: 1301px) and (max-width: 1400px) {
+    .posts-container{
+        width: 90vw !important;
+    }
+    .pins-hero{        
+        columns: 5 !important;
     }
 }

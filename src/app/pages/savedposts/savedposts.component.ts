@@ -27,10 +27,10 @@ import { ToolbarComponent } from '../../utils/toolbar/toolbar.component';
   styleUrl: './savedposts.component.scss'
 })
 export class SavedpostsComponent implements OnInit{
-saveUserPost(arg0: any) {
-throw new Error('Method not implemented.');
-}
+
   private saved_posts_url = 'http://localhost:8000/pins/saved'
+  private pinLisUrl = 'http://localhost:8000/pins/list'
+
   data : any = []
   timestamp = `?timestamp=${new Date().getTime()}`
   current_user: boolean = false
@@ -49,6 +49,7 @@ throw new Error('Method not implemented.');
      
       this.current_user = this.data.current_user
       this.no_of_saved_posts = this.data.saved_no
+     
       setTimeout(()=>{
         this.loading_complete = true
       },500)    
@@ -61,7 +62,9 @@ throw new Error('Method not implemented.');
   }
 
   deleteSavedPost(id: any){
-    const data = 0
+    const data = new FormData()
+    let activeUsername = this.activatedRoute.snapshot.params['username']
+    data.append('username',activeUsername )
     this.http.put(`${this.saved_posts_url}/${id}`,data, this.utils.returnHeaders()).pipe(
       catchError((err:any)=>{
         if(err instanceof HttpErrorResponse){
@@ -72,10 +75,12 @@ throw new Error('Method not implemented.');
         return EMPTY
       })
     ).subscribe((e)=>{
-      this.data = e
+      this.data = e  
     })
 
   }
+
+  
 
   ngOnInit(): void {
     this.returnActivatedUsername()

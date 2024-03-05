@@ -50,8 +50,7 @@ export class HomeComponent implements OnInit{
 
   connection_failed : boolean = false
 
-  saved_text = 'saved'
-
+ 
 
 
   constructor(
@@ -77,9 +76,9 @@ export class HomeComponent implements OnInit{
   }
   checkConnection(){
     this.utils.getProfileUser()
-    this.service.error_subject.subscribe((e)=>{
-      
+    this.service.error_subject.subscribe((e)=>{      
       this.connection_failed = true
+      
     })
   }
 
@@ -90,21 +89,13 @@ export class HomeComponent implements OnInit{
     const data = 0
     this.http.put(`${this.pinLisUrl}/${id}`,data, this.utils.returnHeaders()).pipe(
       catchError((err: HttpErrorResponse)=>{
-        if(err){
-          this.saved_text = 'Already'          
-        }
-        this.saved_text = 'Already'
+        
         return EMPTY
       })
     ).subscribe((e)=>{
-
-      this.saved = true
-      this.saved_text = 'saved'
-
-      setTimeout(()=>{
-        this.saved = false
-
-      },500)
+      this.allWebsitePosts()
+      
+     
       
     })
   }

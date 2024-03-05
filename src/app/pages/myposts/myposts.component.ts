@@ -33,6 +33,7 @@ export class MypostsComponent implements OnInit{
 
 
   private myposts_url = 'http://localhost:8000/pins/owner'
+  private pinLisUrl = 'http://localhost:8000/pins/list'
   data : any = []
   current_user : boolean = false
   loading_complete : boolean = false
@@ -54,7 +55,7 @@ export class MypostsComponent implements OnInit{
       
       this.current_user = this.data.current_user
       this.no_of_post = this.data.posts_no
-
+      
       setTimeout(()=>{
         // sets loader to false
         this.loading_complete = true
@@ -67,7 +68,9 @@ export class MypostsComponent implements OnInit{
   }
 
   deleteCreatedPost(id: any){
-    const data = 0
+    const data = new FormData()
+    let activatedUsername = this.activatedRoute.snapshot.params['username']
+    data.append('username', activatedUsername)
     this.http.put(`${this.myposts_url}/${id}`,data, this.utils.returnHeaders()).pipe(
       catchError((err:any)=>{
         if(err instanceof HttpErrorResponse){
@@ -79,10 +82,24 @@ export class MypostsComponent implements OnInit{
       })
     ).subscribe((e)=>{
       this.data = e
+      
+
+     
     })
   }
 
   saveUserPost(id: any) {
+    let data = 0
+    this.http.put(`${this.pinLisUrl}/${id}`,data, this.utils.returnHeaders()).pipe(
+      catchError((err: HttpErrorResponse)=>{
+        
+        return EMPTY
+      })
+    ).subscribe((e)=>{
+       
+      console.log(e)
+       
+    })
     
   }
 

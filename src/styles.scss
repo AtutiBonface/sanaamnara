@@ -12,7 +12,10 @@ $text-theme-color-light: white;
 $warning-color: rgb(172, 16, 42);
 
 
-html, body { height: 100%; }
+html, body {
+    height: 100%;
+    scroll-snap-type: y mandatory;
+ }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-color: $primary-color;}
 
 app-root{
