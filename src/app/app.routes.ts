@@ -1,12 +1,11 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
-import { IndexComponent } from './pages/index/index.component';
 import { Restrictions, canActivateTeam } from './services/authguard';
-import { ProfileComponent } from './pages/profile/profile.component';
 import { CreateComponent } from './pages/create/create.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { SavedpostsComponent } from './pages/savedposts/savedposts.component';
 import { MypostsComponent } from './pages/myposts/myposts.component';
+import { UnauthenticatedComponent } from './pages/unauthenticated/unauthenticated.component';
 
 export const routes: Routes = [
     {
@@ -15,8 +14,8 @@ export const routes: Routes = [
         canActivate: [canActivateTeam]
     },
     {
-        path: 'index',
-        component: IndexComponent,
+        path: 'unauth',
+        component: UnauthenticatedComponent,
         canActivate: [Restrictions]   
 
     },

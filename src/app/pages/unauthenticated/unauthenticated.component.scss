@@ -1,0 +1,363 @@
+$primary-color : rgb(243, 243, 243);
+$secondary-color : rgb(234, 186, 234);
+$icons-button-utils-color : purple;
+$font-size-big : 1.4rem;
+$font-size-middle : 1.1rem;
+$font-size-small: .8rem;
+$font-weight-small: 400;
+$font-weight-middle: 550;
+$font-weight-big : 600;
+$text-theme-color-dark: black;
+$text-theme-color-light: white;
+$warning-color: rgb(172, 16, 42);
+
+// utils here eg buttons icons
+mat-icon{
+    color: $icons-button-utils-color;
+    justify-self: center;
+    align-self: center;
+    font-size: 20px;
+    margin-left: 5px;
+    margin-right: 5px;
+}mat-toolbar{
+    background-color: $primary-color;
+    display: flex;
+    justify-content: space-between;
+    color: $text-theme-color-dark;
+    align-items: center;
+}
+button{
+    height: 40px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border: none;
+    border-radius: 20px;
+    font-size: $font-size-middle;
+    font-weight: $font-weight-middle;
+    cursor: pointer;
+}
+app-login{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1020;
+   
+   
+}
+app-register{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50% ,-50%);
+    z-index: 1020;
+   
+   
+}
+
+.home-hero{
+    padding: 0;
+    margin: 0;
+    .overlay{
+        position: absolute;
+        height: 100vh;
+        width: 100%;
+        top: 0;
+        background-color: rgba(0, 0, 0 ,.6);
+        z-index: 1000;
+    }
+    .desktop-toolbar{
+        display: flex;
+        height: 70px;
+        position: fixed;
+        top: 0;
+        .left-end ,.right-end{
+            width: fit-content;
+            span{
+                color: $text-theme-color-dark;
+                font-weight: $font-weight-big;
+                font-size: $font-size-middle;
+                padding: 5px;
+                cursor: pointer;
+            }
+        }
+        
+        .left-end{
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            display: flex;
+    
+            img{
+                height: 40px;
+                width: 40px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            
+            mat-icon{
+                align-self: center;
+                justify-self: center;
+                text-align: center;
+            }
+        }
+        
+        .right-end{
+            display: flex;
+            .login-btn{
+                background-color: $icons-button-utils-color;
+                color: $primary-color;
+                margin-left: 5px;
+                margin-right: 5px;
+                border: 2px solid $icons-button-utils-color;
+                &:hover{
+                    animation: removeBackgroundBtnHoverEffect 500ms ease-in forwards;
+                }
+            }
+            .register-btn{
+                background-color: transparent;
+                color: $icons-button-utils-color;
+                margin-left: 5px;
+                margin-right: 5px;
+                border: 2px solid $icons-button-utils-color;
+                &:hover{
+                    animation: addBackgroundBtnHoverEffect 500ms ease-in forwards;
+                }
+            }
+    
+            .profile-btn{
+                padding: 5px;
+                height: fit-content;
+    
+                font-size: $font-size-small;
+                font-weight: $font-weight-middle;
+                color: $icons-button-utils-color;
+                border-radius: 50%;
+                border: 2px solid $icons-button-utils-color;
+            }
+            
+           
+    
+        }
+
+        
+            
+            
+       
+        @keyframes removeBackgroundBtnHoverEffect{
+            to{background-color: transparent; color: $icons-button-utils-color;}
+        }
+        @keyframes addBackgroundBtnHoverEffect {
+            to{background-color: $icons-button-utils-color; color: $primary-color;}
+            
+        }
+    
+    
+    
+    }
+    /* small screens navigation bar */
+    .mobile-toolbar{
+        width: 100vw;
+        height: 100vh;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        z-index: 20;
+        background-color: rgba(0, 0, 0, 0.596);
+        place-content: center;
+        scroll-snap-align: center;
+        .title{
+            display: block;
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+            padding-top: 40%;
+            .logo{
+    
+                height: 40px;
+                width: 40px;
+                margin: 0 auto 0 auto;
+               
+                
+                img{
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+            .title-caption{
+                margin-top: 20px;
+                margin-bottom: 20px;
+                h1{
+                    font-size: 2rem;
+                    font-weight: 700;
+                    color: $text-theme-color-light;
+                }
+            }
+        }
+        .bigger-links{
+            display: block;
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+            .menu-links{
+                width: 300px;
+                display: block;            
+                height: 50px;
+                margin-top: 7px;
+                margin-bottom: 7px;
+                border-radius: 25px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: $font-size-middle;
+                font-weight: $font-weight-big;
+                
+            }
+            .link-1{
+                color: $icons-button-utils-color;
+                background-color: $secondary-color;
+            }
+            .link-2{
+                color: $primary-color;
+                background-color: $icons-button-utils-color;
+            }
+            .link-3{
+                color: $icons-button-utils-color;
+                background-color: $primary-color;
+                border: 2px solid $icons-button-utils-color;
+            }
+            
+            
+        }
+        .smaller-links{
+            margin-top: 10%;
+    
+            p{
+                font-size: $font-size-middle;
+                font-weight: $font-weight-big;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 0;
+                margin: 0;
+                padding: 20px 0 20px 0;
+                color: $secondary-color;
+            }
+    
+    
+    
+    
+        }
+        .terms-policy{
+            padding-top: 10%;
+            
+            p{
+                font-size: $font-size-small;
+                font-weight: $font-weight-middle;
+                display: flex;
+                text-align: center;
+                padding: 0;
+                color: $text-theme-color-light;
+                margin: 0;
+                padding-left: 20px;
+                padding-right: 20px;
+    
+            }
+        }
+    
+    }
+    /* small screens navigation bar background */
+    .cover-section{
+        display: grid;
+        height: 100vh;
+        width: 100vw;
+        position: relative;
+        place-content: center;
+        scroll-snap-align: center;
+        grid-template-columns: calc(100vw / 3) calc(100vw / 3) calc(100vw / 3);
+        grid-template-rows: calc(100vh / 4) calc(100vh / 4) calc(100vh / 4) calc(100vh / 4);
+        gap: 10px;
+        overflow: hidden;
+        .pictures{
+            width: 100%;
+            width: 100%;
+            height: 100%;
+        }
+    
+        img{
+            width: 100%;
+            height: 100%;
+            object-fit: scale-down;
+            object-fit: cover;
+            border-radius: 20px;
+        }
+    
+    }
+    .section2{
+        width: 100vw;
+        height: 100vh;
+        scroll-snap-align: center;
+        place-content: center;
+    }
+
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* Animations  */
+
+
+
+
+
+
+/* responsiveness */
+
+@media only screen and (max-width: 1000px) {
+    .desktop-toolbar{
+        display: none !important;
+    }
+    
+    .mobile-toolbar{
+        display: block !important;
+    }
+
+    .overlay{
+        display: none !important;
+    }
+    
+    
+     
+}
+@media only screen and  (min-width: 600px)and (max-width: 1000px) {
+    .title{
+        padding-top: 150px !important;
+    }
+
+}
+
+
+
+@media only screen and (min-width: 1001px){
+    .desktop-toolbar{
+        display: flex !important;
+
+    } 
+    .mobile-toolbar{
+        display: none !important;
+    }
+    .cover-section{
+        display: none !important;
+    }  
+   
+}

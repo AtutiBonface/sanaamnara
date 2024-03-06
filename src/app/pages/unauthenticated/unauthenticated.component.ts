@@ -6,7 +6,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 
 @Component({
-  selector: 'app-index',
+  selector: 'app-unauthenticated',
   standalone: true,
   imports: [
     CommonModule,
@@ -16,10 +16,10 @@ import { MatIconModule } from '@angular/material/icon';
     MatIconModule,
     
   ],
-  templateUrl: './index.component.html',
-  styleUrl: './index.component.scss'
+  templateUrl: './unauthenticated.component.html',
+  styleUrl: './unauthenticated.component.scss'
 })
-export class IndexComponent {
+export class UnauthenticatedComponent {
 
 
   constructor(){}  

@@ -8,7 +8,6 @@ import { SpinnerComponent } from './utils/spinner/spinner.component';
 import { MatIconModule } from '@angular/material/icon';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { IndexComponent } from './pages/index/index.component';
 import { SearchAutoCompleteComponent } from './utils/search-auto-complete/search-auto-complete.component';
 import { AuthenticatedUsersService } from './services/authenticated-users.service';
 
@@ -26,7 +25,6 @@ import { AuthenticatedUsersService } from './services/authenticated-users.servic
     MatIconModule,
     SearchAutoCompleteComponent,
     HttpClientModule,
-    IndexComponent,
   ],
   providers:[
     AuthenticatedUsersService

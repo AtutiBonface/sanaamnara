@@ -13,7 +13,7 @@ export const canActivateTeam = ()=>{
         return true
     }else{
         const router = inject(Router)
-        router.navigate(['index'])
+        router.navigate(['unauth'])
         return false
     }
 }
