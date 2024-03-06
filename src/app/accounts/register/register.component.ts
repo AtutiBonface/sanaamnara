@@ -112,8 +112,7 @@ export class RegisterComponent implements OnInit, OnDestroy{
     const api_url = 'http://localhost:8000/accounts/register/'
 
 
-    console.log(this.formData.get('password')?.value)
-
+    
     this.http.post(api_url, Data).pipe(
       catchError((err: HttpErrorResponse)=>{
         if(err){
@@ -158,6 +157,7 @@ export class RegisterComponent implements OnInit, OnDestroy{
 
   ngOnDestroy(): void {
     this.destroySubsOnclose.unsubscribe()
+    
     
   }
   ngOnInit(): void {

@@ -249,10 +249,9 @@ app-register{
     
         }
         .terms-policy{
-            padding-top: 10%;
             
             p{
-                font-size: $font-size-small;
+                font-size: .9rem;
                 font-weight: $font-weight-middle;
                 display: flex;
                 text-align: center;
@@ -341,7 +340,7 @@ app-register{
 }
 @media only screen and  (min-width: 600px)and (max-width: 1000px) {
     .title{
-        padding-top: 150px !important;
+        padding-top: 20% !important;
     }
 
 }

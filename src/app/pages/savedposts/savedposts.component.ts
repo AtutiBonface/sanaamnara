@@ -1,9 +1,9 @@
 import { HttpClient, HttpClientModule, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { ProfileComponent } from '../profile/profile.component';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
-import { EMPTY, catchError } from 'rxjs';
+import { EMPTY, Subscription, catchError } from 'rxjs';
 import { CommonUtilsService } from '../../services/common-utils.service';
 import { ActivatedRoute } from '@angular/router';
 import { SpinnerComponent } from '../../utils/spinner/spinner.component';
@@ -26,7 +26,7 @@ import { ToolbarComponent } from '../../utils/toolbar/toolbar.component';
   templateUrl: './savedposts.component.html',
   styleUrl: './savedposts.component.scss'
 })
-export class SavedpostsComponent implements OnInit{
+export class SavedpostsComponent implements OnInit, OnDestroy{
 
   private saved_posts_url = 'http://localhost:8000/pins/saved'
   private pinLisUrl = 'http://localhost:8000/pins/list'
@@ -36,6 +36,8 @@ export class SavedpostsComponent implements OnInit{
   current_user: boolean = false
   loading_complete : boolean = false
   no_of_saved_posts : number = 0
+
+  
   constructor(
     private http: HttpClient, 
     private utils: CommonUtilsService,
@@ -86,6 +88,10 @@ export class SavedpostsComponent implements OnInit{
     this.returnActivatedUsername()
     this.utils.getProfileUser()
     this.savedPinsList()
+  }
+
+  ngOnDestroy(): void {
+   
   }
 }
 

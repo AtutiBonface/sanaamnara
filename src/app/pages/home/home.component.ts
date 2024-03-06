@@ -1,16 +1,11 @@
-import { CommonModule, NgClass } from '@angular/common';
-import { HttpClient, HttpClientModule, HttpErrorResponse, HttpHeaders, provideHttpClient, withFetch } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { RegisterComponent } from '../../accounts/register/register.component';
-import { LoginComponent } from '../../accounts/login/login.component';
-import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { SearchAutoCompleteComponent } from '../../utils/search-auto-complete/search-auto-complete.component';
+import { CommonModule} from '@angular/common';
+import { HttpClient, HttpClientModule, HttpErrorResponse} from '@angular/common/http';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { ToolbarComponent } from '../../utils/toolbar/toolbar.component';
 import { Router } from '@angular/router';
-import { EMPTY, Subject, catchError, timestamp } from 'rxjs';
+import { EMPTY, catchError,} from 'rxjs';
 import { AllpinsService } from '../../services/allpins.service';
 import { SpinnerComponent } from '../../utils/spinner/spinner.component';
 import { CommonUtilsService } from '../../services/common-utils.service';
@@ -36,7 +31,7 @@ import { CommonUtilsService } from '../../services/common-utils.service';
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
-export class HomeComponent implements OnInit{
+export class HomeComponent implements OnInit, OnDestroy{
 
   private pinLisUrl = 'http://localhost:8000/pins/list'
 
@@ -50,6 +45,7 @@ export class HomeComponent implements OnInit{
 
   connection_failed : boolean = false
 
+  
  
 
 
@@ -111,6 +107,11 @@ export class HomeComponent implements OnInit{
   ngOnInit(): void {
     this.allWebsitePosts()
     this.checkConnection()
+    
+  }
+
+  ngOnDestroy(): void {
+    
     
   }
   

@@ -6,7 +6,6 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { EMPTY, Subject, Subscription, catchError } from 'rxjs';
 import { Router } from '@angular/router';
 import { HttpClient, HttpClientModule, HttpErrorResponse, provideHttpClient, withFetch } from '@angular/common/http';
-import { error } from 'console';
 
 @Component({
   selector: 'app-login',
@@ -44,6 +43,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   login_success_subject : Subject<any> = new Subject<any>()
 
   destroyLoginSubs! : Subscription;
+  
 
   
   @Output() openDialog = new EventEmitter<boolean>() 
@@ -160,6 +160,8 @@ export class LoginComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
 
     this.destroyLoginSubs.unsubscribe()
+    
+
     
   }
 

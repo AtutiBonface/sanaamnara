@@ -1,9 +1,9 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { ToolbarComponent } from '../../utils/toolbar/toolbar.component';
-import { HttpClient, HttpClientModule, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
-import { MatIcon, MatIconModule } from '@angular/material/icon';
-import { EMPTY, Subject, catchError } from 'rxjs';
+import { HttpClient, HttpClientModule} from '@angular/common/http';
+import { MatIconModule } from '@angular/material/icon';
+import { Subscription} from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CommonUtilsService } from '../../services/common-utils.service';
 import { SpinnerComponent } from '../../utils/spinner/spinner.component';
@@ -24,7 +24,7 @@ import { SpinnerComponent } from '../../utils/spinner/spinner.component';
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.scss'
 })
-export class ProfileComponent implements OnInit {
+export class ProfileComponent implements OnInit, OnDestroy {
 
   activatedRouteParam : any;
 
@@ -38,6 +38,8 @@ export class ProfileComponent implements OnInit {
   loading_complete : boolean = false
 
   pins_no : number = 0
+
+  
 
   @Input()in_createdPage :boolean = true
  
@@ -86,6 +88,9 @@ export class ProfileComponent implements OnInit {
       this.returnActivatedUser()
       this.utils.getProfileUser()
       this.receiveAllProfileData()
+      
+    }
+    ngOnDestroy(): void {
       
     }
   

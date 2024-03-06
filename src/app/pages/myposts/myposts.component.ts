@@ -1,10 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ProfileComponent } from '../profile/profile.component';
 import { MatIconModule } from '@angular/material/icon';
-import { EMPTY, catchError } from 'rxjs';
-import { error } from 'node:console';
+import { EMPTY, Subscription, catchError } from 'rxjs';
 import { CommonUtilsService } from '../../services/common-utils.service';
 import { AllpinsService } from '../../services/allpins.service';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -29,7 +28,7 @@ import { ToolbarComponent } from '../../utils/toolbar/toolbar.component';
   templateUrl: './myposts.component.html',
   styleUrl: '../savedposts/savedposts.component.scss'
 })
-export class MypostsComponent implements OnInit{
+export class MypostsComponent implements OnInit, OnDestroy{
 
 
   private myposts_url = 'http://localhost:8000/pins/owner'
@@ -39,6 +38,9 @@ export class MypostsComponent implements OnInit{
   loading_complete : boolean = false
   no_of_post : number = 0
   timestamp = `?timestamp=${new Date().getTime()}`
+
+ 
+  subscribed3! : Subscription
   constructor(
     private http: HttpClient, 
     private utils: CommonUtilsService,
@@ -112,6 +114,9 @@ export class MypostsComponent implements OnInit{
     this.saveActivatedRoute()
     this.utils.getProfileUser()
     this.createdPinsList()
+  }
+  ngOnDestroy(): void {
+    
   }
 
 }

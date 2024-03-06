@@ -1,12 +1,12 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, OnInit, Output } from '@angular/core';
+import { Component,OnInit} from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { SearchAutoCompleteComponent } from '../search-auto-complete/search-auto-complete.component';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { EMPTY, Subject, catchError } from 'rxjs';
+import { Subject} from 'rxjs';
 import { CommonUtilsService } from '../../services/common-utils.service';
 
 @Component({
@@ -25,9 +25,7 @@ import { CommonUtilsService } from '../../services/common-utils.service';
   styleUrl: './toolbar.component.scss'
 })
 export class ToolbarComponent  implements OnInit{
-navigateToMobileNotify() {
-throw new Error('Method not implemented.');
-}
+
 
 
 
@@ -101,12 +99,14 @@ throw new Error('Method not implemented.');
   navigateToMobileSearch() {
     
   }
+  navigateToMobileNotify() {
+    
+  }
   ngOnInit(): void {
     this.utils.ProfileName()
     this.MyProfileName()
     this.searchQuery()
-    
-    
+
   }
 
 

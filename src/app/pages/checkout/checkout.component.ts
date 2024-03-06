@@ -1,11 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule, HttpErrorResponse } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { ToolbarComponent } from '../../utils/toolbar/toolbar.component';
 import { AllpinsService } from '../../services/allpins.service';
-import { ActivatedRoute, Route, Router } from '@angular/router';
-import { EMPTY, Subject, catchError } from 'rxjs';
+import { ActivatedRoute, Router } from '@angular/router';
+import { EMPTY, Subject, Subscription, catchError } from 'rxjs';
 import { CommonUtilsService } from '../../services/common-utils.service';
 
 @Component({
@@ -23,7 +23,7 @@ import { CommonUtilsService } from '../../services/common-utils.service';
   templateUrl: './checkout.component.html',
   styleUrl: './checkout.component.scss'
 })
-export class CheckoutComponent implements OnInit{
+export class CheckoutComponent implements OnInit , OnDestroy{
 
   post_liked: boolean = false
   comment_liked : boolean = false
@@ -44,6 +44,9 @@ export class CheckoutComponent implements OnInit{
 
   private follow_url = 'http://localhost:8000/accounts/follow'
 
+
+  
+
   
 
   current_id = this.activatedRoute.snapshot.params['id']
@@ -61,7 +64,7 @@ export class CheckoutComponent implements OnInit{
 
     saveClickedPost(id: any){
       const data = 0
-      this.http.put(`${this.allposts_url}/${id}`,data,  this.utils.returnHeaders()).pipe(
+     this.http.put(`${this.allposts_url}/${id}`,data,  this.utils.returnHeaders()).pipe(
         catchError((err: HttpErrorResponse)=>{
           if(err){
             console.log(err.error)
@@ -133,6 +136,10 @@ export class CheckoutComponent implements OnInit{
     this.myProfileName()
     this.clickedPostData()   
     this.getFollowersState() 
+  }
+
+  ngOnDestroy(){
+   
   }
 
 

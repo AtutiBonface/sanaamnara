@@ -1,12 +1,12 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { SpinnerComponent } from '../../utils/spinner/spinner.component';
 import { HttpClient, HttpClientModule, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import { ToolbarComponent } from '../../utils/toolbar/toolbar.component';
-import { EMPTY, catchError } from 'rxjs';
+import { EMPTY, Subscription, catchError } from 'rxjs';
 import { error } from 'console';
 import { AllpinsService } from '../../services/allpins.service';
 import { CommonUtilsService } from '../../services/common-utils.service';
@@ -29,7 +29,7 @@ import { CommonUtilsService } from '../../services/common-utils.service';
   templateUrl: './create.component.html',
   styleUrl: './create.component.scss'
 })
-export class CreateComponent {
+export class CreateComponent implements OnInit, OnDestroy{
 [x: string]: any;
 
   fileData! : FormGroup;
@@ -45,6 +45,8 @@ export class CreateComponent {
   formDescData! : FormGroup;
   
   file : any ;
+
+ 
 
   constructor(
     private fb:FormBuilder, 
@@ -186,6 +188,14 @@ export class CreateComponent {
     $event.preventDefault()
    
 
+  }
+
+  ngOnDestroy(): void {
+   
+    
+  }
+  ngOnInit(): void {
+    
   }
 
 }

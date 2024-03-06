@@ -1,10 +1,11 @@
 import { CommonModule } from '@angular/common';
-import { HttpClient, HttpClientModule, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { EMPTY, Subject, catchError } from 'rxjs';
+import { HttpClient, HttpClientModule, HttpErrorResponse} from '@angular/common/http';
+import { Component,Input, OnDestroy, OnInit, } from '@angular/core';
+import { EMPTY, Subject, Subscription, catchError } from 'rxjs';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar'; 
 import { Router } from '@angular/router';
+import { CommonUtilsService } from '../../services/common-utils.service';
 
 @Component({
   selector: 'app-search-auto-complete',
@@ -20,7 +21,7 @@ import { Router } from '@angular/router';
   templateUrl: './search-auto-complete.component.html',
   styleUrl: './search-auto-complete.component.scss'
 })
-export class SearchAutoCompleteComponent implements OnInit{
+export class SearchAutoCompleteComponent implements OnInit, OnDestroy{
 
   allSearchableData : any = []
 
@@ -41,34 +42,24 @@ export class SearchAutoCompleteComponent implements OnInit{
 
   private token : string = ''
 
-  constructor(private http:HttpClient , private router: Router){
-    this.RequestAllSearchableData()
-    this.RequestPopularSeachedData()
-    this.RequestRecentlySearchedData() 
+  subscribed! : Subscription
+  subscribed2! : Subscription
+  subscribed3! : Subscription
+
+  constructor(
+    private http:HttpClient , 
+    private router: Router,
+    private utils: CommonUtilsService
+    ){
+    
   
   }
-  ReturnHeader(){
-    const is_server = typeof window === "undefined"
-    if(!is_server){
-      let tokenExists = localStorage.getItem('access_token')
-      if(tokenExists){
-        this.token = tokenExists
-      }      
-
-    }
-
-    let headers = new HttpHeaders({
-      'Authorization': `Token ${this.token}`
-    })
-
-    return { headers }
-
-  }
+ 
 
   
 
   RequestAllSearchableData(){
-    this.http.get(this.search_url, this.ReturnHeader()).pipe(
+    this.subscribed = this.http.get(this.search_url, this.utils.returnHeaders()).pipe(
       catchError((err: HttpErrorResponse)=>{
         if(err){
           console.log(err.error)
@@ -85,7 +76,7 @@ export class SearchAutoCompleteComponent implements OnInit{
 
   }
   RequestRecentlySearchedData(){
-    this.http.get(this.recently_searched_url, this.ReturnHeader()).pipe(
+    this.subscribed2 = this.http.get(this.recently_searched_url, this.utils.returnHeaders()).pipe(
       catchError((err: HttpErrorResponse)=>{
         if(err){
           console.log(err.error)
@@ -100,7 +91,7 @@ export class SearchAutoCompleteComponent implements OnInit{
 
   }
   RequestPopularSeachedData(){
-    this.http.get(this.popular_searchs_url, this.ReturnHeader()).pipe(
+    this.subscribed3 = this.http.get(this.popular_searchs_url, this.utils.returnHeaders()).pipe(
       catchError((err: HttpErrorResponse)=>{
         if(err){
           console.log(err.error)
@@ -141,9 +132,19 @@ export class SearchAutoCompleteComponent implements OnInit{
     this.router.navigate(['create'])
   }
   ngOnInit(): void {
+    this.RequestAllSearchableData()
+    this.RequestPopularSeachedData()
+    this.RequestRecentlySearchedData() 
     this.searchedData()
 
     
+  }
+
+  ngOnDestroy(): void {
+    this.subscribed.unsubscribe()
+    this.subscribed2.unsubscribe()
+    this.subscribed3.unsubscribe()
+
   }
 
 
