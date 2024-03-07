@@ -33,15 +33,16 @@
 
 
   <mat-toolbar class="mobile-toolbar">
+    <app-mobile-search *ngIf="open_mobile_search_popup"></app-mobile-search>
     <div class="menus">
-      <mat-icon class="home-btn" (click)="navigateToHome()">home</mat-icon>
-      <mat-icon class="query-btn" (click)="navigateToMobileSearch()">search</mat-icon>
+      <img src="assets/TaswiraApp.png" alt="logo" (click)="navigateToHome()">
+      <mat-icon class="query-btn" (click)="open_mobile_search_popup =! open_mobile_search_popup">{{open_mobile_search_popup? 'close': 'search'}}</mat-icon>
       <mat-icon class="message-btn" (click)="navigateToMobileNotify()">notifications</mat-icon>
       <div class="mobile-profile" (click)="navigateToProfile()">
         <button>{{profile_username | uppercase | slice :0:2}}</button>
       </div>
-    </div>
-    
+    </div> 
+     
   
       
   </mat-toolbar>

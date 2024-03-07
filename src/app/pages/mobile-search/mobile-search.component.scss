@@ -1,0 +1,77 @@
+
+$primary-color : rgb(243, 243, 243);
+$secondary-color : rgb(234, 186, 234);
+$icons-button-utils-color : purple;
+$font-size-big : 1.4rem;
+$font-size-middle : 1.1rem;
+$font-size-small: .8rem;
+$font-weight-small: 400;
+$font-weight-middle: 550;
+$font-weight-big : 600;
+$text-theme-color-dark: black;
+$text-theme-color-light: white;
+$warning-color: rgb(172, 16, 42);
+
+app-search-auto-complete{
+    position: absolute;
+    top: 70px;
+    z-index: 0;
+    width: 100%;
+}
+.search-dropbox{
+
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.586);
+    .popup-container{
+        background-color: $primary-color;
+        width: 100vw;
+        height: 80vh;
+        position: absolute;
+        
+        bottom: 0;
+        border-top-right-radius: 20px;
+        border-top-left-radius: 20px;
+        overflow-y: auto;
+        
+        .search-input{
+            display: flex;
+            border: 2px solid $secondary-color;
+            border-radius: 25px;
+            margin: 20px;
+            height: 50px;
+            width: calc(100% - 40px);
+            justify-content: center;
+            overflow: hidden;
+            align-items: center;
+            position: fixed;
+            z-index: 9999;
+            background-color: $primary-color;
+            mat-icon{
+                margin-left: 10px;
+                color: $secondary-color;
+                font-size: 1.5rem;
+                font-weight: 700;
+                width: fit-content;
+                height: fit-content;
+            }
+            input{
+                width: 100%;
+                border: none;
+                padding: 0;
+                margin: 0;
+                height: 100%;
+                outline: none;
+                background-color: $primary-color;
+                font-size: $font-size-small;
+                padding: 0 5px 0 5px;
+                width:  calc(100% - 10px);
+                font-weight: $font-weight-middle;
+    
+            }
+        }
+
+    }
+    
+}

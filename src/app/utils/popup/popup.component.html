@@ -1,1 +1,59 @@
-<p>popup works!</p>
+<div class="popup-hero">
+    <div class="close-popup" (click)="closeMyPopup()">
+
+    </div>
+    <div class="popup-container">
+        <div class="details">
+            <mat-icon  class="close"(click)="closeMyPopup()
+            ">close</mat-icon>
+
+
+            <div class="options">
+                <h1>Options</h1>
+                <div class="option">
+                    <mat-icon>download</mat-icon>
+                    <p>Download Image</p>
+                </div>
+                <div class="option">
+
+                    <mat-icon>save</mat-icon>
+                    <p>Save</p>
+                </div>
+                <div class="option">
+                    <mat-icon>close</mat-icon>
+                    <p>I don't want to see this</p>
+                </div>
+                <div class="option">
+                    <mat-icon>not_interested</mat-icon>
+                    <p>Report <br> <span>This goes against community quidelines</span></p>
+
+                </div>
+                
+            </div>
+            <div class="share">
+                <h1>Share</h1>
+                <div class="socials">
+                    <div class="social-logo">
+                        <img src="assets/icons8-facebook-96.png" alt="">
+                    </div>
+                    <div class="social-logo">
+                        <img src="assets/icons8-whatsapp-96.png" alt="">
+                    </div>
+                    <div class="social-logo">
+                        <img src="assets/icons8-twitterx-96.png" alt="">
+                    </div>
+                    <div class="social-logo">
+                        <img src="assets/icons8-instagram-96.png" alt="">
+                    </div>
+                    <div class="social-logo">
+                        <img src="assets/icons8-facebook-messenger-96.png" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="caption">
+                <p>This post was inspired by your recent activity</p>
+            </div>
+        </div>
+
+    </div>
+</div>

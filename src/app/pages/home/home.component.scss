@@ -10,6 +10,8 @@ $font-weight-big : 600;
 $text-theme-color-dark: black;
 $text-theme-color-light: white;
 $warning-color: rgb(172, 16, 42);
+
+
 .connection-error{
     position: absolute;
     top: 50%;
@@ -34,6 +36,13 @@ $warning-color: rgb(172, 16, 42);
         left: 0;
         z-index: 9999;
     }
+
+    app-popup{
+        z-index: 10000;
+        margin: 0;
+        bottom: 0;
+        position: fixed;
+    }
 }
 
 .home-container{
@@ -44,6 +53,7 @@ $warning-color: rgb(172, 16, 42);
     align-items: center;
     margin-left: auto;
     margin-right: auto;
+    position: relative;
 
     .waiting{
         padding-top: 30px;
@@ -121,16 +131,48 @@ $warning-color: rgb(172, 16, 42);
         height: 100%;
         width: 100%;
         columns: 6;
+        
+
 
 
         .pin-container{
             width: fit-content;
-            
+            break-inside: avoid;          
             
             padding: 0;
             margin: 0;
-            position: relative;
+
+            .pin-owner-description{
+                display: flex;
+                justify-content: space-between;
+
+                .owner-profile{
+                    width: 30px;
+                    height: 30px;
+                    border-radius: 15px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    color: $text-theme-color-dark;
+                    font-weight: $font-weight-middle;
+                }
+                .description{
+                    p{
+                        width: 100%;
+                        word-wrap: break-word;
+                        padding: 0;
+                        margin: 0;
+                    }
+                }
+            }
+            
             cursor: pointer;
+
+            .pin{
+                position: relative;
+                width: fit-content;
+
+            }
 
             img{
                 width: 100% !important;
@@ -160,6 +202,13 @@ $warning-color: rgb(172, 16, 42);
     .pins-hero{        
         columns: 1 !important;
     }
+    
+    .pin-container:hover{
+        .save , .more, .upload{
+            display: none;  
+        }
+    }
+    
    
 }
 
@@ -172,6 +221,11 @@ $warning-color: rgb(172, 16, 42);
     .pins-hero{        
         columns: 2 !important;
     }
+    .pin-container:hover{
+        .save , .more, .upload{
+            display: none !important;  
+        }
+    }
    
 }
 
@@ -183,7 +237,13 @@ $warning-color: rgb(172, 16, 42);
     .pins-hero{        
         columns: 2 !important;
     }
-
+    .pin-container:hover{
+        .save , .more, .upload{
+            display: none !important;  
+        }
+    }
+    
+    
 }
 @media only screen and (min-width: 651px) and (max-width: 750px){
     .home-container{
@@ -192,6 +252,11 @@ $warning-color: rgb(172, 16, 42);
     }
     .pins-hero{        
         columns: 3 !important;
+    }
+    .pin-container:hover{
+        .save , .more, .upload{
+            display: none !important;  
+        }
     }
 
 }
@@ -203,6 +268,11 @@ $warning-color: rgb(172, 16, 42);
     .pins-hero{        
         columns: 3 !important;
     }
+    .pin-container:hover{
+        .save , .more, .upload{
+            display: none !important;  
+        }
+    }
     
 }
 @media only screen and (min-width: 851px) and (max-width: 1000px) {
@@ -213,6 +283,7 @@ $warning-color: rgb(172, 16, 42);
     .pins-hero{        
         columns: 3 !important;
     }
+    
 }
 
 @media only screen and (min-width: 1001px) and (max-width: 1100px) {

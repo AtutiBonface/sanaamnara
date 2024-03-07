@@ -6,6 +6,7 @@ import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { SavedpostsComponent } from './pages/savedposts/savedposts.component';
 import { MypostsComponent } from './pages/myposts/myposts.component';
 import { UnauthenticatedComponent } from './pages/unauthenticated/unauthenticated.component';
+import { PopupComponent } from './utils/popup/popup.component';
 
 export const routes: Routes = [
     {
@@ -47,8 +48,9 @@ export const routes: Routes = [
         component: CheckoutComponent,
         canActivate: [canActivateTeam]
 
-    } 
-
+    },
+    
+    
     
     
     

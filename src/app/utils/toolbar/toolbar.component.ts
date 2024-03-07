@@ -8,6 +8,7 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Subject} from 'rxjs';
 import { CommonUtilsService } from '../../services/common-utils.service';
+import { MobileSearchComponent } from '../../pages/mobile-search/mobile-search.component';
 
 @Component({
   selector: 'app-toolbar',
@@ -18,6 +19,7 @@ import { CommonUtilsService } from '../../services/common-utils.service';
     MatToolbarModule,
     ReactiveFormsModule,
     SearchAutoCompleteComponent,
+    MobileSearchComponent
   ],
   providers: [
   ],
@@ -41,6 +43,8 @@ export class ToolbarComponent  implements OnInit{
   query_subject : Subject<any> = new Subject<any>()
 
   searchData! : FormGroup;
+
+  open_mobile_search_popup = false
 
   constructor(
     private http: HttpClient, 
@@ -88,18 +92,19 @@ export class ToolbarComponent  implements OnInit{
     
   }
   navigateToHome() {
+    this.open_mobile_search_popup = false
     this.router.navigate([''])    
   }
-  MyProfileName(){    
+  MyProfileName(){ 
+    this.open_mobile_search_popup = false   
     this.utils.profile_subject.subscribe((data)=>{
       this.profile_username = data['username']
     })
 
   }
-  navigateToMobileSearch() {
-    
-  }
+  
   navigateToMobileNotify() {
+    this.open_mobile_search_popup = false
     
   }
   ngOnInit(): void {

@@ -163,7 +163,7 @@ app-register{
         top: 0;
         bottom: 0;
         z-index: 20;
-        background-color: rgba(0, 0, 0, 0.596);
+        background-color: rgba(0, 0, 0, 0.703);
         place-content: center;
         scroll-snap-align: center;
         .title{
@@ -174,9 +174,11 @@ app-register{
             padding-top: 40%;
             .logo{
     
-                height: 40px;
-                width: 40px;
+                height: 70px;
+                width: 70px;
+                background-color: rgba(0, 0, 0, 0.494);
                 margin: 0 auto 0 auto;
+                border-radius: 10px;
                
                 
                 img{

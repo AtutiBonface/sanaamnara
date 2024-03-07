@@ -9,6 +9,8 @@ import { EMPTY, catchError,} from 'rxjs';
 import { AllpinsService } from '../../services/allpins.service';
 import { SpinnerComponent } from '../../utils/spinner/spinner.component';
 import { CommonUtilsService } from '../../services/common-utils.service';
+import { MobileSearchComponent } from '../mobile-search/mobile-search.component';
+import { PopupComponent } from '../../utils/popup/popup.component';
 
 
 
@@ -22,6 +24,8 @@ import { CommonUtilsService } from '../../services/common-utils.service';
     HttpClientModule,  
     ToolbarComponent,  
     SpinnerComponent,
+    MobileSearchComponent,
+    PopupComponent,
     
   ],
   providers:[
@@ -33,11 +37,14 @@ import { CommonUtilsService } from '../../services/common-utils.service';
 })
 export class HomeComponent implements OnInit, OnDestroy{
 
+
   private pinLisUrl = 'http://localhost:8000/pins/list'
 
   pins_list : any = []
 
   timestamp : string = `?timestamp=${new Date().getTime()}`
+
+  open_popup : boolean = false
 
   loading : boolean = true
 
@@ -96,11 +103,18 @@ export class HomeComponent implements OnInit, OnDestroy{
     })
   }
 
+  closeMorePopup(e: any){
+    this.open_popup = false
+  }
 
   // when a post is clicked it navigates to individual page aka checkout
   navigateToCheckout(id :any){    
     this.router.navigate([`posts/${id}`])
     
+  }
+
+  openPopupMenu(id: any) {
+    this.open_popup = true
   }
 
 
