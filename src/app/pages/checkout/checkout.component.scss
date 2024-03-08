@@ -1,6 +1,6 @@
 $primary-color : rgb(243, 243, 243);
 $secondary-color : rgb(234, 186, 234);
-$icons-button-utils-color : purple;
+$icons-button-utils-color :#800080;
 $font-size-big : 1.4rem;
 $font-size-middle : 1.1rem;
 $font-size-small: .8rem;
@@ -10,11 +10,30 @@ $font-weight-big : 600;
 $text-theme-color-dark: black;
 $text-theme-color-light: white;
 $warning-color: rgb(172, 16, 42);
-/* @font-face {
-    font-family: ;
-    src: url('');
-} */
-
+@font-face {
+    font-family: 'montserrat';
+    src: url("/assets/fonts/Montserrat-Black.ttf") format('truetype');
+    font-weight: normal;
+    
+}
+@font-face {
+    font-family: 'montserrat-semibold';
+    src: url("/assets/fonts/Montserrat-SemiBold.ttf") format('truetype');
+    font-weight: normal;
+    
+}
+@font-face {
+    font-family: 'montserrat-Extrabold';
+    src: url("/assets/fonts/Montserrat-ExtraBold.ttf") format('truetype');
+    font-weight: normal;
+    
+}
+@font-face {
+    font-family: 'montserrat-medium';
+    src: url("/assets/fonts/Montserrat-Light.ttf") format('truetype');
+    font-weight: normal;
+    
+}
 
 .checkout-hero{
     /* height of  fixed toolbar */
@@ -98,6 +117,7 @@ $warning-color: rgb(172, 16, 42);
                     height: 40px;
                     border-radius: 15px;
                     padding: 0 15px 0 15px ;
+                    font-family: 'montserrat-semibold';
                     background-color: $icons-button-utils-color;
                     color: $primary-color;
                     font-size: $font-size-middle;
@@ -162,6 +182,7 @@ $warning-color: rgb(172, 16, 42);
                     p{
                         margin: 0;
                         padding: 0;
+                        font-family: 'montserrat-semibold';
                         width: fit-content;
                         display: block;
                         height: $font-size-middle;
@@ -182,7 +203,8 @@ $warning-color: rgb(172, 16, 42);
                     color: $icons-button-utils-color;
                     padding: 0 15px 0 15px;
                     font-size: $font-size-middle;
-                    font-weight: $font-weight-middle;   
+                    font-weight: $font-weight-middle; 
+                    font-family: 'montserrat-semibold';  
                     cursor: pointer;  
                     
                     &:hover{
@@ -208,6 +230,7 @@ $warning-color: rgb(172, 16, 42);
                     color: $icons-button-utils-color;
                     margin: 0;
                     padding: 0;
+                    font-family: 'montserrat-semibold';
                 }
                 .comment-commenter{
                     .comment{
@@ -239,6 +262,7 @@ $warning-color: rgb(172, 16, 42);
                             justify-content: left;
                             height: $font-size-middle;
                             vertical-align: middle;
+                            font-family: 'montserrat-semibold';
                            
                         
                             span{
@@ -262,6 +286,8 @@ $warning-color: rgb(172, 16, 42);
                             max-width: 170px;
                             margin-left: 30px;
                             align-items: center;
+                            font-family: 'montserrat-medium';
+                            font-weight: $font-size-big;
                         }
                         mat-icon{
                             font-size: 20px;
@@ -290,6 +316,7 @@ $warning-color: rgb(172, 16, 42);
                         font-weight: $font-weight-middle;
                         line-height: $font-size-middle;
                         color: $icons-button-utils-color;
+                        font-family: 'montserrat-semibold';
                         margin: 0;
                         padding: 0;
                         text-align: center;
@@ -339,6 +366,7 @@ $warning-color: rgb(172, 16, 42);
                         border-radius: 18px;
                         font-weight: $font-weight-middle;
                         font-size: $font-size-small;
+                        font-family: 'montserrat-semibold';
                         color: $text-theme-color-light;
                         display: flex;
                         background-color: indigo;
@@ -378,6 +406,7 @@ $warning-color: rgb(172, 16, 42);
                             width: calc(100% - 20px);
                             height: 100%;
                             font-size: $font-size-middle;
+                            font-family: 'montserrat-semibold';
                         }
                         .emoji-box{
                             position: absolute;
@@ -410,6 +439,7 @@ $warning-color: rgb(172, 16, 42);
         font-weight: $font-weight-big;
         color: $icons-button-utils-color;
         font-size: $font-size-big;
+        font-family: 'montserrat-semibold';
     }
 
     

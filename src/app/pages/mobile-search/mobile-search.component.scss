@@ -1,7 +1,7 @@
 
 $primary-color : rgb(243, 243, 243);
 $secondary-color : rgb(234, 186, 234);
-$icons-button-utils-color : purple;
+$icons-button-utils-color :#800080;
 $font-size-big : 1.4rem;
 $font-size-middle : 1.1rem;
 $font-size-small: .8rem;
@@ -11,6 +11,8 @@ $font-weight-big : 600;
 $text-theme-color-dark: black;
 $text-theme-color-light: white;
 $warning-color: rgb(172, 16, 42);
+
+
 
 app-search-auto-complete{
     position: absolute;
@@ -68,6 +70,7 @@ app-search-auto-complete{
                 padding: 0 5px 0 5px;
                 width:  calc(100% - 10px);
                 font-weight: $font-weight-middle;
+                font-family: 'montserrat-semibold', Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     
             }
         }

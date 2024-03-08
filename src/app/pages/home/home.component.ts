@@ -70,7 +70,7 @@ export class HomeComponent implements OnInit, OnDestroy{
       this.pins_list = result
       setTimeout(()=>{
         this.loading = false
-      },500)
+      },1000)
 
             
     })
@@ -115,6 +115,7 @@ export class HomeComponent implements OnInit, OnDestroy{
 
   openPopupMenu(id: any) {
     this.open_popup = true
+    
   }
 
 

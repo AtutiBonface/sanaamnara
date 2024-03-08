@@ -1,6 +1,6 @@
 $primary-color : rgb(243, 243, 243);
 $secondary-color : rgb(234, 186, 234);
-$icons-button-utils-color : purple;
+$icons-button-utils-color :#800080;
 $font-size-big : 1.4rem;
 $font-size-middle : 1.1rem;
 $font-size-small: .8rem;
@@ -62,6 +62,7 @@ $warning-color: rgb(172, 16, 42);
             box-shadow: 2px 2px 5px black;
             width: 30px;
             height: 30px;
+            font-family: 'montserrat-semibold';
             padding: 0;
             margin: 0;
             cursor: pointer;
@@ -102,6 +103,7 @@ $warning-color: rgb(172, 16, 42);
            display: block;
            height: 260px;
            width: 260px;
+           font-family: 'montserrat-semibold';
         }
         
 
@@ -130,6 +132,7 @@ $warning-color: rgb(172, 16, 42);
     justify-content: center;
     align-items: center;
     min-width: 110px;
+    font-family: 'montserrat-semibold';
     &:disabled{
         opacity: .3;
         cursor: not-allowed;
@@ -172,6 +175,7 @@ $warning-color: rgb(172, 16, 42);
         font-size: $font-size-middle;
         font-weight: $font-weight-middle;
         line-height: $font-size-middle;
+        font-family: 'montserrat-semibold';
     }
     p{
         padding: 0;
@@ -180,6 +184,7 @@ $warning-color: rgb(172, 16, 42);
         font-size: $font-size-small;
         font-weight: $font-weight-middle;
         color: $icons-button-utils-color;
+        font-family: 'montserrat-semibold';
     }
 
     
@@ -212,6 +217,7 @@ $warning-color: rgb(172, 16, 42);
             font-size: $font-size-small;
             font-weight: $font-weight-middle;
             display: block;
+            font-family: 'montserrat-semibold';
         }
         input, textarea{
             background-color: transparent;
@@ -223,6 +229,7 @@ $warning-color: rgb(172, 16, 42);
             height: 40px;
             padding: 0;
             padding: 0 10px 0 10px;
+            font-family: 'montserrat-semibold';
             
         }
         #description{

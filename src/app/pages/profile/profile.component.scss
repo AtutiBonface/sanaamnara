@@ -1,6 +1,6 @@
 $primary-color : rgb(243, 243, 243);
 $secondary-color : rgb(234, 186, 234);
-$icons-button-utils-color : purple;
+$icons-button-utils-color :#800080;
 $font-size-big : 1.4rem;
 $font-size-middle : 1.1rem;
 $font-size-small: .8rem;
@@ -35,6 +35,7 @@ $warning-color: rgb(172, 16, 42);
             margin-right: 10px;
             width: fit-content;
             height: fit-content;
+            color: $secondary-color;
         }
         
         .search-input{
@@ -66,6 +67,7 @@ $warning-color: rgb(172, 16, 42);
                 padding: 0 5px 0 5px;
                 width:  calc(100% - 10px);
                 font-weight: $font-weight-middle;
+                font-family: 'montserrat-semibold', Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 
             }
         }
@@ -92,6 +94,7 @@ $warning-color: rgb(172, 16, 42);
         border-radius: 50%;
         overflow: hidden;
         text-align: center;
+        font-family: 'montserrat-semibold',Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
         font-size: 2rem;
         font-weight: $font-weight-big;
         color: $primary-color;
@@ -111,6 +114,7 @@ $warning-color: rgb(172, 16, 42);
         text-align: center;
         padding: 0;
         margin: 0;
+        font-family: 'montserrat-semibold';
         margin-top: 10px;
         margin-bottom: 10px;
     }
@@ -130,6 +134,7 @@ $warning-color: rgb(172, 16, 42);
             margin-right: auto;
             padding: 0 10px 0 10px;
             color: $secondary-color;
+            font-family: 'montserrat-semibold';
             font-size: $font-size-small;
             font-weight: $font-weight-middle;
         }
@@ -147,6 +152,7 @@ $warning-color: rgb(172, 16, 42);
             height: 46px;
             border-radius: 23px;
             font-size: $font-size-small;
+            font-family: 'montserrat-semibold';
             font-weight: $font-weight-middle;
             color: $icons-button-utils-color;
             cursor: pointer;
@@ -159,6 +165,7 @@ $warning-color: rgb(172, 16, 42);
             font-size: $font-size-small;
             font-weight: $font-weight-middle;
             color: $secondary-color;
+            font-family: 'montserrat-semibold';
             opacity: 1;
             &:hover{
                 opacity: .7;
@@ -166,6 +173,7 @@ $warning-color: rgb(172, 16, 42);
             }
         }
         .edit-profile{
+            font-family: 'montserrat-semibold';
             &:hover{
                 opacity: .7;
                 
@@ -186,6 +194,7 @@ $warning-color: rgb(172, 16, 42);
        padding: 0;
        margin: 5px;
        text-align: center;
+       font-family: 'montserrat-semibold';
        height: 100%;
        cursor: pointer;
     }

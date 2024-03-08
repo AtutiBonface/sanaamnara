@@ -21,26 +21,32 @@
     </mat-toolbar>
     
     <section class="mobile-toolbar  section section1">
-      <div class="title">
-        <div class="logo">
-          <img src="assets/TaswiraApp.png" alt="">
+      <div class="content">
+        <div class="center">
+          <div class="title">
+            <div class="logo">
+              <img src="assets/TaswiraApp.png" alt="">
+            </div>
+            <div class="title-caption">
+              <h1>Welcome to <br> Taswira </h1>
+            </div>
+          </div>
+        
+          <div class="bigger-links">
+            <span class="menu-links link-1">About</span>
+            <span class="menu-links link-2">Business</span>
+            <span class="menu-links link-3"(click)="toggleLoginDialog()" >Sign in</span>
+          </div>
+          <div class="smaller-links">
+            <p (click)="toggleRegisterDialog()">Am not a member? Register</p>
+            <p>Are you a Business? start here</p>
+          </div>
+          <div class="terms-policy">
+            <p>By continuing , you agree to Taswira's terms of Service and acknowlege you've read our Privacy Policy.</p>
+          </div>
+
         </div>
-        <div class="title-caption">
-          <h1>Welcome to <br> Sanaamnara </h1>
-        </div>
-      </div>
-    
-      <div class="bigger-links">
-        <span class="menu-links link-1">About</span>
-        <span class="menu-links link-2">Business</span>
-        <span class="menu-links link-3"(click)="toggleLoginDialog()" >Sign in</span>
-      </div>
-      <div class="smaller-links">
-        <p (click)="toggleRegisterDialog()">Am not a member? Register</p>
-        <p>Are you a Business? start here</p>
-      </div>
-      <div class="terms-policy">
-        <p>By continuing , you agree to Sanaamnara's terms of Service and acknowlege you've read our Privacy Policy.</p>
+
       </div>
     
     </section>

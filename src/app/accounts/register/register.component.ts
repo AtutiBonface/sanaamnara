@@ -18,7 +18,7 @@ import { Router } from '@angular/router';
     HttpClientModule,
   ],
   templateUrl: './register.component.html',
-  styleUrl: './register.component.scss'
+  styleUrl: '../login/login.component.scss'
 })
 export class RegisterComponent implements OnInit, OnDestroy{
 

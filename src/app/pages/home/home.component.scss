@@ -1,6 +1,6 @@
 $primary-color : rgb(243, 243, 243);
 $secondary-color : rgb(234, 186, 234);
-$icons-button-utils-color : purple;
+$icons-button-utils-color :#800080;
 $font-size-big : 1.4rem;
 $font-size-middle : 1.1rem;
 $font-size-small: .8rem;
@@ -10,6 +10,7 @@ $font-weight-big : 600;
 $text-theme-color-dark: black;
 $text-theme-color-light: white;
 $warning-color: rgb(172, 16, 42);
+
 
 
 .connection-error{
@@ -28,6 +29,7 @@ $warning-color: rgb(172, 16, 42);
     width: 100vw;
     height: 100%;
     position: relative;
+    overflow-x: hidden;
     
     mat-toolbar{
         margin: 0;
@@ -43,6 +45,21 @@ $warning-color: rgb(172, 16, 42);
         bottom: 0;
         position: fixed;
     }
+    .waiting{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50% , -50%);
+        h1{
+            justify-content: center;
+            text-align: center;
+            font-size: $font-size-middle;
+            font-weight: $font-weight-middle;
+            color: $secondary-color;
+            margin-top: 30px;
+            font-family: 'montserrat-semibold';
+        }
+    }
 }
 
 .home-container{
@@ -55,17 +72,7 @@ $warning-color: rgb(172, 16, 42);
     margin-right: auto;
     position: relative;
 
-    .waiting{
-        padding-top: 30px;
-        h1{
-            justify-content: center;
-            text-align: center;
-            font-size: $font-size-middle;
-            font-weight: $font-weight-middle;
-            color: $icons-button-utils-color;
-            margin-top: 30px;
-        }
-    }
+    
 
     button{
         border: none;
@@ -85,6 +92,7 @@ $warning-color: rgb(172, 16, 42);
         background-color: $icons-button-utils-color;
         color: $primary-color;
         font-size: .9rem;
+        font-family: 'montserrat-semibold';
         font-weight: bold;
         top: 10px;
         right: 10px;
@@ -162,7 +170,14 @@ $warning-color: rgb(172, 16, 42);
                         word-wrap: break-word;
                         padding: 0;
                         margin: 0;
+                        font-size: $font-size-small;
+                        color: $text-theme-color-dark;
+                        font-family: 'montserrat-semibold', Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
                     }
+                }
+                .phone-more{
+                    display: none;
+                    color: $icons-button-utils-color;
                 }
             }
             
@@ -208,6 +223,10 @@ $warning-color: rgb(172, 16, 42);
             display: none;  
         }
     }
+    .phone-more{
+        
+        display: block !important;
+    }
     
    
 }
@@ -226,6 +245,9 @@ $warning-color: rgb(172, 16, 42);
             display: none !important;  
         }
     }
+    .phone-more{
+        display: block !important;
+    }
    
 }
 
@@ -241,6 +263,9 @@ $warning-color: rgb(172, 16, 42);
         .save , .more, .upload{
             display: none !important;  
         }
+    }
+    .phone-more{
+        display: block !important;
     }
     
     
@@ -258,6 +283,9 @@ $warning-color: rgb(172, 16, 42);
             display: none !important;  
         }
     }
+    .phone-more{
+        display: block !important;
+    }
 
 }
 @media only screen and (min-width: 751px) and (max-width: 850px) {
@@ -273,6 +301,9 @@ $warning-color: rgb(172, 16, 42);
             display: none !important;  
         }
     }
+    .phone-more{
+        display: block !important;
+    }
     
 }
 @media only screen and (min-width: 851px) and (max-width: 1000px) {
@@ -282,6 +313,9 @@ $warning-color: rgb(172, 16, 42);
     }
     .pins-hero{        
         columns: 3 !important;
+    }
+    .phone-more{
+        display: block !important;
     }
     
 }

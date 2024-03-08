@@ -1,6 +1,6 @@
 $primary-color : rgb(243, 243, 243);
 $secondary-color : rgb(234, 186, 234);
-$icons-button-utils-color : purple;
+$icons-button-utils-color :#800080;
 $font-size-big : 1.4rem;
 $font-size-middle : 1.1rem;
 $font-size-small: .8rem;
@@ -10,6 +10,7 @@ $font-weight-big : 600;
 $text-theme-color-dark: black;
 $text-theme-color-light: white;
 $warning-color: rgb(172, 16, 42);
+
 
 
 
@@ -49,13 +50,27 @@ $warning-color: rgb(172, 16, 42);
             display: block;
             align-self: center;
             text-align: center;
+            text-align: center;
             
         }
         .title{
             font-weight: $font-weight-middle;
             font-size: $font-size-big;
             color: $text-theme-color-dark;
-            font-family:Verdana, Geneva, Tahoma, sans-serif;
+            font-family: 'montserrat-Extrabold';
+            .title-continues{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                .title-extension{
+                    width: fit-content;
+                    height: fit-content;
+                    margin-left: -5px;
+                }   
+            }
+            img{
+                height: 25px;
+            }
         }
         .title-comment{
             font-size: small;
@@ -74,17 +89,18 @@ $warning-color: rgb(172, 16, 42);
     margin-bottom: 20px;
 
     label{
-        font-size: $font-size-middle;
+        font-size: $font-size-small;
         font-weight: $font-weight-small;
         color: $text-theme-color-dark;
-        font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        font-family: 'montserrat-semibold',Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
         
     }
     span{
         color: $text-theme-color-dark;
         font-weight: $font-size-middle;
-        font-size: small;
+        font-size: $font-size-small;
         cursor: pointer;
+        font-family: 'montserrat-medium', Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     }
 
     .input-section{
@@ -171,5 +187,21 @@ small{
 }
 
 
+
+
+@media only screen  and (max-width: 500px) {
+    .form-container{
+        width: 250px !important;
+        padding-top: 20px !important;
+       
+    }
+    .close{
+        top: 5px  !important;
+        right: 5px !important;
+    }
+    .title{
+        margin-top: 10px;
+    }
+}
 
 

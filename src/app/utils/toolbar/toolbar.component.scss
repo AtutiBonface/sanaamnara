@@ -1,6 +1,6 @@
 $primary-color : rgb(243, 243, 243);
 $secondary-color : rgb(234, 186, 234);
-$icons-button-utils-color : purple;
+$icons-button-utils-color :#800080;
 $font-size-big : 1.4rem;
 $font-size-middle : 1.1rem;
 $font-size-small: .8rem;
@@ -13,7 +13,7 @@ $warning-color: rgb(172, 16, 42);
 
 app-mobile-search{
     position: fixed;
-    bottom: 70px;
+    bottom: 50px;
     left: 0;
     z-index: 9999;
 
@@ -181,15 +181,15 @@ mat-toolbar{
     
 
     .query-btn{
-        font-size: 2.5rem;
+        font-size: 2.2rem;
         font-weight: 900 !important;
 
     }
     img{
-        height: 40px;
+        height: 35px;
     }
     mat-icon{
-        font-size: 2.5rem;
+        font-size: 2.2rem;
         width: fit-content;
         height: fit-content;
         color: $secondary-color;
@@ -198,8 +198,8 @@ mat-toolbar{
 
     .mobile-profile{
         button{
-            height: 36px;
-            width: 36px;
+            height: 34px;
+            width: 34px;
             display: flex;
             font-size: $font-size-small;
             font-weight: $font-weight-middle;
@@ -209,7 +209,7 @@ mat-toolbar{
             padding: 0;
             margin: 0;
             cursor: pointer;
-            border-radius: 18px;
+            border-radius: 17px;
             justify-content: center;
             align-items: center;
         }
@@ -228,6 +228,9 @@ mat-toolbar{
 
 
 @media only screen  and (max-width: 1000px) {
+    mat-toolbar{
+        height: 50px !important;
+    }
     .desktop-toolbar{
         display: none;
     }

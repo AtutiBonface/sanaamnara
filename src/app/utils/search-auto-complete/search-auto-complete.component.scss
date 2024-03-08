@@ -22,10 +22,12 @@ $warning-color: rgb(172, 16, 42);
     margin-right: 36.5px;
     margin-bottom: 36.5px;
     padding: 20px  20px 20px 20px;
+    
     h1{
         margin: 5px 0 5px 0;
         font-size: $font-size-middle;
         font-weight: $font-weight-middle;
+        font-family: 'montserrat-semibold', Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     }
     p{
         word-wrap: break-word !important;
@@ -43,13 +45,15 @@ $warning-color: rgb(172, 16, 42);
             font-size: $font-size-small;
             font-weight: $font-weight-middle;
             line-height: calc($font-size-small + 5px);
-            
+            font-family: 'montserrat-medium', Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
             
         }
         p:hover{
             color: $text-theme-color-dark;
         }
     }
+
+    
 
 
     .idea-box{
@@ -99,6 +103,7 @@ $warning-color: rgb(172, 16, 42);
                 line-height: $font-size-small;
                 font-weight: $font-weight-middle;
                 color: $primary-color;
+                font-family: 'montserrat-semibold';
                 word-wrap: break-word;
                 margin-left: 10px;
                 margin-right: 10px;
@@ -123,11 +128,12 @@ $warning-color: rgb(172, 16, 42);
         p{
             position: absolute;
             font-size: $font-size-small;
-            font-weight: $font-weight-middle;
+            font-weight: $font-weight-big;
             line-height: $font-size-small;
             padding: 0;
             margin: 0;
             top: 50%;
+            font-family: 'montserrat-medium', Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
             transform: translateY(-50%);
             
             
@@ -151,6 +157,61 @@ $warning-color: rgb(172, 16, 42);
     // width of shop---  130px remember here 
     grid-template-columns: repeat(auto-fill , minmax(130px , 1fr));
     column-gap: 5px;
+    
+    
+}
+
+
+
+
+
+
+@media only screen and (max-width: 1000px) {
+    .other-suggestions{
+        width: calc(100vw - 40px ) !important;
+        overflow: hidden;
+    }
+    .search-container{
+        margin: 0 !important;
+        overflow-x: hidden;
+    }
+
+    .ideas-for-you, .popular-posts{
+        width: calc(100vw - 40px);
+        overflow-y: auto; 
+        grid-template-columns: repeat(auto-fill , minmax(110px , 1fr)); 
+        max-height: 200px;   
+
+        .idea-box{
+            position: relative;
+            display: flex !important;
+            img{
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+            .idea-caption{
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: rgba(0, 0, 0, 0.584) !important;
+                left: 0;
+                bottom: 0;
+                p{
+                    word-wrap: break-word !important;
+                    color: $text-theme-color-light;
+                }
+            }
+        }
+
+    }
+    
+    
+}
+@media only screen and (min-width: 1001px) {
     
     
 }

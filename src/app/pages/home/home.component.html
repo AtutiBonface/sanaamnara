@@ -6,11 +6,12 @@
   <div class="connection-error" >
     <h1 *ngIf="connection_failed">Oops connection failed!</h1>
   </div>
+  <div class="waiting" *ngIf="loading">
+    <app-spinner ></app-spinner>
+    <h1>Loading interests on Home feed!</h1>
+  </div>
   <div class="home-container" *ngIf="!connection_failed">
-    <div class="waiting" *ngIf="loading">
-      <app-spinner ></app-spinner>
-      <h1>Loading interests on Home feed!</h1>
-    </div>
+    
     <div class="pins-hero"  *ngIf="!loading">
       <div class="pin-container" *ngFor="let pin of pins_list">
         <div class="pin">
@@ -19,7 +20,7 @@
           </button>
           
           <button class="icons upload">
-            <mat-icon>upload</mat-icon>
+            <mat-icon>share</mat-icon>
           </button>
           <button class="icons more">
             <mat-icon>more_horiz</mat-icon>

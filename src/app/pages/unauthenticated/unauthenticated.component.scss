@@ -1,6 +1,6 @@
 $primary-color : rgb(243, 243, 243);
 $secondary-color : rgb(234, 186, 234);
-$icons-button-utils-color : purple;
+$icons-button-utils-color :#800080;
 $font-size-big : 1.4rem;
 $font-size-middle : 1.1rem;
 $font-size-small: .8rem;
@@ -10,6 +10,7 @@ $font-weight-big : 600;
 $text-theme-color-dark: black;
 $text-theme-color-light: white;
 $warning-color: rgb(172, 16, 42);
+
 
 // utils here eg buttons icons
 mat-icon{
@@ -166,16 +167,23 @@ app-register{
         background-color: rgba(0, 0, 0, 0.703);
         place-content: center;
         scroll-snap-align: center;
+        .content{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+
+
+        }
         .title{
             display: block;
             width: fit-content;
             margin-left: auto;
             margin-right: auto;
-            padding-top: 40%;
             .logo{
     
-                height: 70px;
-                width: 70px;
+                height: 50px;
+                width: 50px;
                 background-color: rgba(0, 0, 0, 0.494);
                 margin: 0 auto 0 auto;
                 border-radius: 10px;
@@ -189,10 +197,14 @@ app-register{
             .title-caption{
                 margin-top: 20px;
                 margin-bottom: 20px;
+
                 h1{
                     font-size: 2rem;
                     font-weight: 700;
-                    color: $text-theme-color-light;
+                    color: 
+                    $text-theme-color-light;
+                    text-align: center;
+                    font-family: 'montserrat-Extrabold';
                 }
             }
         }
@@ -202,12 +214,13 @@ app-register{
             margin-left: auto;
             margin-right: auto;
             .menu-links{
-                width: 300px;
+                width: 260px;
                 display: block;            
-                height: 50px;
-                margin-top: 7px;
+                height: 40px;
+                cursor: pointer;
+                margin-top: 10px;
                 margin-bottom: 7px;
-                border-radius: 25px;
+                border-radius: 20px;
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -233,9 +246,11 @@ app-register{
         }
         .smaller-links{
             margin-top: 10%;
+            cursor: pointer;
+
     
             p{
-                font-size: $font-size-middle;
+                font-size: $font-size-small;
                 font-weight: $font-weight-big;
                 display: flex;
                 justify-content: center;
@@ -244,6 +259,7 @@ app-register{
                 margin: 0;
                 padding: 20px 0 20px 0;
                 color: $secondary-color;
+                font-family: 'montserrat';
             }
     
     
@@ -251,9 +267,15 @@ app-register{
     
         }
         .terms-policy{
+            max-width: 80vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: auto;
+            margin-right: auto;
             
             p{
-                font-size: .9rem;
+                font-size: $font-size-small;
                 font-weight: $font-weight-middle;
                 display: flex;
                 text-align: center;
@@ -262,6 +284,7 @@ app-register{
                 margin: 0;
                 padding-left: 20px;
                 padding-right: 20px;
+                font-family: 'montserrat-semibold';
     
             }
         }
@@ -339,12 +362,6 @@ app-register{
     
     
      
-}
-@media only screen and  (min-width: 600px)and (max-width: 1000px) {
-    .title{
-        padding-top: 20% !important;
-    }
-
 }
 
 
