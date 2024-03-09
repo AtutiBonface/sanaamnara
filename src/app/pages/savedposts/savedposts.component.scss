@@ -1,16 +1,4 @@
-$primary-color : rgb(243, 243, 243);
-$secondary-color : rgb(234, 186, 234);
-$icons-button-utils-color :#800080;
-$font-size-big : 1.4rem;
-$font-size-middle : 1.1rem;
-$font-size-small: .8rem;
-$font-weight-small: 400;
-$font-weight-middle: 550;
-$font-weight-big : 600;
-$text-theme-color-dark: black;
-$text-theme-color-light: white;
-$warning-color: rgb(172, 16, 42);
-
+@import '../utils';
 
 .loading{
     margin-top: 100px;
@@ -40,9 +28,12 @@ $warning-color: rgb(172, 16, 42);
 
     .heading{
         color: $icons-button-utils-color;
-        font-size: $font-size-big;
         font-weight: $font-weight-middle;
         font-family: 'montserrat-semibold';
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
     }
 
     .add-pins{
@@ -55,7 +46,7 @@ $warning-color: rgb(172, 16, 42);
             position: relative;
             width: fit-content;
             margin: 0 auto 0 auto;
-            height: 100px;
+            
             p{
                 color: $secondary-color;
                 font-size: $font-size-middle;
@@ -65,13 +56,7 @@ $warning-color: rgb(172, 16, 42);
                 margin: 0;
                 font-family: 'montserrat-semibold';
             }
-            mat-icon{
-                position: absolute;
-                bottom: 20px;
-                left: 50%;
-                transform: translateX(-50%);
-                color: $icons-button-utils-color;
-            }            
+                     
 
         }
     }

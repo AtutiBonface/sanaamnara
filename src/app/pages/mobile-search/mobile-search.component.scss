@@ -1,18 +1,5 @@
 
-$primary-color : rgb(243, 243, 243);
-$secondary-color : rgb(234, 186, 234);
-$icons-button-utils-color :#800080;
-$font-size-big : 1.4rem;
-$font-size-middle : 1.1rem;
-$font-size-small: .8rem;
-$font-weight-small: 400;
-$font-weight-middle: 550;
-$font-weight-big : 600;
-$text-theme-color-dark: black;
-$text-theme-color-light: white;
-$warning-color: rgb(172, 16, 42);
-
-
+@import '../utils';
 
 app-search-auto-complete{
     position: absolute;
@@ -25,16 +12,16 @@ app-search-auto-complete{
     width: 100vw;
     height: 100vh;
     position: relative;
-    background-color: rgba(0, 0, 0, 0.586);
+    background-color: rgba(0 , 0 , 0 ,.489);
     .popup-container{
         background-color: $primary-color;
         width: 100vw;
         height: 80vh;
-        position: absolute;
-        
+        position: absolute;                
         bottom: 0;
-        border-top-right-radius: 20px;
-        border-top-left-radius: 20px;
+        border-top-right-radius: 30px;
+        border-top-left-radius: 30px;
+        overflow-x: hidden !important;
         overflow-y: auto;
         
         .search-input{

@@ -1,16 +1,4 @@
-$primary-color : rgb(243, 243, 243);
-$secondary-color : rgb(234, 186, 234);
-$icons-button-utils-color :#800080;
-$font-size-big : 1.4rem;
-$font-size-middle : 1.1rem;
-$font-size-small: .8rem;
-$font-weight-small: 400;
-$font-weight-middle: 550;
-$font-weight-big : 600;
-$text-theme-color-dark: black;
-$text-theme-color-light: white;
-$warning-color: rgb(172, 16, 42);
-
+@import '../utils';
 
 // utils here eg buttons icons
 mat-icon{
@@ -56,9 +44,12 @@ app-register{
    
 }
 
+
+
 .home-hero{
     padding: 0;
     margin: 0;
+    display: block;   
     .overlay{
         position: absolute;
         height: 100vh;
@@ -182,9 +173,9 @@ app-register{
             margin-right: auto;
             .logo{
     
-                height: 50px;
-                width: 50px;
-                background-color: rgba(0, 0, 0, 0.494);
+                height: 60px;
+                width: 60px;
+                background-color: rgba(0, 0, 0, 0.627);
                 margin: 0 auto 0 auto;
                 border-radius: 10px;
                
@@ -229,8 +220,8 @@ app-register{
                 
             }
             .link-1{
-                color: $icons-button-utils-color;
-                background-color: $secondary-color;
+                color: $primary-color;
+                background-color: orange;
             }
             .link-2{
                 color: $primary-color;
@@ -258,7 +249,7 @@ app-register{
                 padding: 0;
                 margin: 0;
                 padding: 20px 0 20px 0;
-                color: $secondary-color;
+                color: $primary-color;
                 font-family: 'montserrat';
             }
     
@@ -326,6 +317,7 @@ app-register{
 
     
 }
+
 
 
 

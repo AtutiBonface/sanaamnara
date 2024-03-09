@@ -11,6 +11,7 @@ import { SpinnerComponent } from '../../utils/spinner/spinner.component';
 import { CommonUtilsService } from '../../services/common-utils.service';
 import { MobileSearchComponent } from '../mobile-search/mobile-search.component';
 import { PopupComponent } from '../../utils/popup/popup.component';
+import { LazyLoadImagesModule } from 'ngx-lazyload-image';
 
 
 
@@ -27,15 +28,19 @@ import { PopupComponent } from '../../utils/popup/popup.component';
     MobileSearchComponent,
     PopupComponent,
     
+        
   ],
   providers:[
    CommonUtilsService,
    AllpinsService,
+   
+
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
 export class HomeComponent implements OnInit, OnDestroy{
+
 
 
   private pinLisUrl = 'http://localhost:8000/pins/list'
@@ -46,7 +51,7 @@ export class HomeComponent implements OnInit, OnDestroy{
 
   open_popup : boolean = false
 
-  loading : boolean = true
+  loading : boolean = false
 
   saved : boolean = false
 
@@ -60,18 +65,22 @@ export class HomeComponent implements OnInit, OnDestroy{
     private service: AllpinsService,
     private router :Router, 
     private http: HttpClient, 
-    private utils: CommonUtilsService
-    ){}
+    private utils: CommonUtilsService,
+    
+    ){
+      this.allWebsitePosts()
+    }
+
+    
 
 
   allWebsitePosts(){
     this.service.RequestAllPosts()
     this.service.all_posts_subject.subscribe((result)=>{
-      this.pins_list = result
-      setTimeout(()=>{
+      this.pins_list = result 
+      setTimeout(() =>{
         this.loading = false
-      },1000)
-
+      },500)    
             
     })
 
@@ -81,6 +90,7 @@ export class HomeComponent implements OnInit, OnDestroy{
     this.utils.getProfileUser()
     this.service.error_subject.subscribe((e)=>{      
       this.connection_failed = true
+      this.loading = false
       
     })
   }
@@ -96,8 +106,7 @@ export class HomeComponent implements OnInit, OnDestroy{
         return EMPTY
       })
     ).subscribe((e)=>{
-      this.allWebsitePosts()
-      
+      this.allWebsitePosts()     
      
       
     })
@@ -120,7 +129,7 @@ export class HomeComponent implements OnInit, OnDestroy{
 
 
   ngOnInit(): void {
-    this.allWebsitePosts()
+    
     this.checkConnection()
     
   }

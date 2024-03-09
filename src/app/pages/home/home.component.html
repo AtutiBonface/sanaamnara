@@ -3,11 +3,11 @@
 
   <app-popup (closePopup)="closeMorePopup($event)" *ngIf="open_popup"></app-popup>  
   <app-toolbar (click)="open_popup = false"></app-toolbar>
-  <div class="connection-error" >
-    <h1 *ngIf="connection_failed">Oops connection failed!</h1>
+  <div class="connection-error" *ngIf="connection_failed">
+    <h1 >Oops connection failed!</h1>
   </div>
   <div class="waiting" *ngIf="loading">
-    <app-spinner ></app-spinner>
+    <app-spinner *ngIf="loading"></app-spinner>
     <h1>Loading interests on Home feed!</h1>
   </div>
   <div class="home-container" *ngIf="!connection_failed">
@@ -26,13 +26,13 @@
             <mat-icon>more_horiz</mat-icon>
           </button>  
           
-          <img [src]="pin.image+timestamp  |slice :67" alt="" (click)="navigateToCheckout(pin.id)">
+          <img loading="lazy" class="lazy-waiting" [src]="pin.image+timestamp  |slice :67" [alt]="pin.image+timestamp  |slice :67" (click)="navigateToCheckout(pin.id)">
 
       </div>
 
       <div class="pin-owner-description">
           <div class="description">
-            <p>this is a description</p>
+            <small>this is a description</small>
           </div>
           <div class="phone-more" (click)="openPopupMenu(pin.id)">
             <mat-icon>more_horiz</mat-icon>

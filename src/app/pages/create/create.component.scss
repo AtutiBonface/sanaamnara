@@ -1,6 +1,6 @@
 $primary-color : rgb(243, 243, 243);
-$secondary-color : rgb(234, 186, 234);
-$icons-button-utils-color :#800080;
+$secondary-color : #6730fb;
+$icons-button-utils-color : #330099;
 $font-size-big : 1.4rem;
 $font-size-middle : 1.1rem;
 $font-size-small: .8rem;
@@ -247,5 +247,49 @@ $warning-color: rgb(172, 16, 42);
 }
 
 
+@media screen and (max-width : 1000px) {
+    .create-hero{
+        display: block !important;
+        
+    }
+    .Publish-btn{
+        top: 20px !important;
+    }
+    
+    
+    .drag-drop-container{
+        width: fit-content !important;
+        height: fit-content !important;
+        padding: 0 !important;
+        .input-container{
+            border: 2px solid $secondary-color !important;
+            label{
+                display: block;
+                height: fit-content !important;
+                width: fit-content !important;
+                padding: 10px;                
+                font-family: 'montserrat-semibold';
+                background-color: $text-theme-color-light;
+             } 
 
+        }
+        
+
+        .drag-drop-captions{
+            mat-icon{
+                display: none;
+                
+            }
+            h1{
+                display: none;
+            }
+            p{
+                color: $secondary-color;
+                span{
+                    display: none;
+                }
+            }
+        }
+    }
+}
 

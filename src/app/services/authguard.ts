@@ -2,7 +2,7 @@ import { inject } from "@angular/core"
 import { Router } from "@angular/router"
 import { AuthenticatedUsersService } from "./authenticated-users.service"
 
-
+export let className = ''
 
 export const canActivateTeam = ()=>{
 
@@ -13,6 +13,7 @@ export const canActivateTeam = ()=>{
         return true
     }else{
         const router = inject(Router)
+        className = 'block'
         router.navigate(['unauth'])
         return false
     }

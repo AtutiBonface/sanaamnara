@@ -4,8 +4,7 @@
 <button type="submit" class="Publish-btn"  (click)="onSubmitPost()" [ngClass]="process_class_name" [disabled]="fileData.invalid && fileData.invalid">
     <app-spinner *ngIf="form_is_submited"></app-spinner>
     <div class="process" [ngClass]="process_class_name">{{process_name}}</div>                   
-</button> 
-<button><mat-icon>add_circle_outline</mat-icon></button>        
+</button>       
 
 <div class="create-hero" (dragover)="onFileDragOver($event)"> 
     <div class="form1">
@@ -22,7 +21,7 @@
                         <div class="drag-drop-captions">
                             <mat-icon>download</mat-icon>
                             <h1>Drag and drop your <br> image here</h1>
-                            <p>Or click to upload</p>
+                            <p><span>Or</span> click to upload</p>
                         </div>
                         <input #input type="file" accept="image/*" formControlName="imagePost" id="file-input" (change)="onFileInput($event)" hidden>
                     </label>                

@@ -1,6 +1,6 @@
 $primary-color : rgb(243, 243, 243);
-$secondary-color : rgb(234, 186, 234);
-$icons-button-utils-color :#800080;
+$secondary-color : #6730fb;
+$icons-button-utils-color : #330099;
 $font-size-big : 1.4rem;
 $font-size-middle : 1.1rem;
 $font-size-small: .8rem;
@@ -36,6 +36,7 @@ $warning-color: rgb(172, 16, 42);
             width: fit-content;
             height: fit-content;
             color: $secondary-color;
+            cursor: pointer;
         }
         
         .search-input{

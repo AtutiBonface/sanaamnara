@@ -1,6 +1,6 @@
 <mat-toolbar class="desktop-toolbar">
     <div class="left-end logged-menu">
-      <img src="assets/TaswiraApp.png" alt="logo" (click)="navigateToHome()">
+      <img src="assets/Taswira2030.png" alt="logo" (click)="navigateToHome()">
       
       <span (click)="navigateToCreate()">Create</span>
       
@@ -35,7 +35,7 @@
   <mat-toolbar class="mobile-toolbar">
     <app-mobile-search *ngIf="open_mobile_search_popup"></app-mobile-search>
     <div class="menus">
-      <img src="assets/TaswiraApp.png" alt="logo" (click)="navigateToHome()">
+      <img src="assets/Taswira2030.png" alt="logo" (click)="navigateToHome()">
       <mat-icon class="query-btn" (click)="open_mobile_search_popup =! open_mobile_search_popup">{{open_mobile_search_popup? 'close': 'search'}}</mat-icon>
       <mat-icon class="message-btn" (click)="navigateToMobileNotify()">notifications</mat-icon>
       <div class="mobile-profile" (click)="navigateToProfile()">

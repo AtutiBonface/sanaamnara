@@ -29,8 +29,7 @@ export class AuthenticatedUsersService {
     const ISSERVER = typeof window === "undefined";
     if (!ISSERVER) {
       token = localStorage.getItem('access_token')
-      if(token){
-        
+      if(token){       
         return true
       }
       return false

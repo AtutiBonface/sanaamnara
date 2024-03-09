@@ -4,6 +4,7 @@ import { RegisterComponent } from '../../accounts/register/register.component';
 import { LoginComponent } from '../../accounts/login/login.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
+import { AuthenticatedUsersService } from '../../services/authenticated-users.service';
 
 @Component({
   selector: 'app-unauthenticated',
@@ -15,14 +16,22 @@ import { MatIconModule } from '@angular/material/icon';
     MatToolbarModule,
     MatIconModule,
     
+    
   ],
   templateUrl: './unauthenticated.component.html',
   styleUrl: './unauthenticated.component.scss'
 })
 export class UnauthenticatedComponent {
 
+  
 
-  constructor(){}  
+  constructor(
+    private service: AuthenticatedUsersService
+  ){
+
+    
+
+  }  
   
   
   openloginDialog : boolean = false

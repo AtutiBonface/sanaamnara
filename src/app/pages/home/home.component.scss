@@ -1,17 +1,12 @@
-$primary-color : rgb(243, 243, 243);
-$secondary-color : rgb(234, 186, 234);
-$icons-button-utils-color :#800080;
-$font-size-big : 1.4rem;
-$font-size-middle : 1.1rem;
-$font-size-small: .8rem;
-$font-weight-small: 400;
-$font-weight-middle: 550;
-$font-weight-big : 600;
-$text-theme-color-dark: black;
-$text-theme-color-light: white;
-$warning-color: rgb(172, 16, 42);
 
 
+@import '../utils';
+
+
+.lazy-waiting{
+    background-color: $text-theme-color-light;
+    width: 100%;
+}
 
 .connection-error{
     position: absolute;
@@ -20,8 +15,8 @@ $warning-color: rgb(172, 16, 42);
     transform: translate(-50% , -50%);
     h1{
         color: $secondary-color;
-        font-size: 2.5rem;
         font-weight: 700;
+        text-align: center;
     }
 }
 
@@ -165,12 +160,12 @@ $warning-color: rgb(172, 16, 42);
                     font-weight: $font-weight-middle;
                 }
                 .description{
-                    p{
+                    small{
                         width: 100%;
                         word-wrap: break-word;
                         padding: 0;
                         margin: 0;
-                        font-size: $font-size-small;
+                        font-size: .6rem;
                         color: $text-theme-color-dark;
                         font-family: 'montserrat-semibold', Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
                     }

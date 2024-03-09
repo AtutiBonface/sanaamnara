@@ -26,6 +26,7 @@ import { SpinnerComponent } from '../../utils/spinner/spinner.component';
 })
 export class ProfileComponent implements OnInit, OnDestroy {
 
+
   activatedRouteParam : any;
 
   private follow_url = 'http://localhost:8000/accounts/follow'
@@ -81,6 +82,12 @@ export class ProfileComponent implements OnInit, OnDestroy {
 
     returnActivatedUser(){
       this.utils.activateRouteUsername = this.activatedRoute.snapshot.params['username']
+
+
+    }
+
+    navigateToCreatePosts() {
+      this.router.navigate(['posts/create'])
     }
 
 
