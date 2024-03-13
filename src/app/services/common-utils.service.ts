@@ -7,13 +7,34 @@ import { EMPTY, Subject, catchError } from 'rxjs';
 })
 export class CommonUtilsService {
 
-  private users_url = 'http://localhost:8000/accounts/users'
+  domain_url = 'http://localhost:8000'
+  users_url = `${this.domain_url}/accounts/users`
+
+  login_url = `${this.domain_url}/accounts/login/`
+
+  register_url = `${this.domain_url}/accounts/register/`
+
+  follow_url = `${this.domain_url}/accounts/follow`
+
+  pinslist_url = `${this.domain_url}/pins/list`
+
+  create_pin_url = `${this.domain_url}/pins/create`
+
+  pin_owner_url = `${this.domain_url}/pins/owner`
+
+  pin_saved_url = `${this.domain_url}/pins/saved`
+
+  search_url = `${this.domain_url}/pins/search`
 
   profile_subject: Subject<any> = new Subject<any>()
 
   activateRouteUsername : string = ''
 
   all_profile_data_subject : Subject<any> = new Subject<any>()
+
+  saved_successfully : Subject<any> = new Subject<any>()
+
+  PinID_subject: Subject<any> = new Subject<any>()
 
 
 
@@ -40,6 +61,19 @@ export class CommonUtilsService {
     return { headers }
   }
 
+
+  savePost(id: any){
+    const data = 0
+    this.http.put(`${this.pinslist_url}/${id}`,data, this.returnHeaders()).pipe(
+      catchError((err: HttpErrorResponse)=>{
+        
+        return EMPTY
+      })
+    ).subscribe((e)=>{
+      this.saved_successfully.next(e)
+      
+    })
+  }
 
 
 

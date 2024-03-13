@@ -1,14 +1,16 @@
 
-<app-toolbar></app-toolbar>
-<div class="checkout-hero">
+<div class="checkout-hero" TaswiraTheme>
+    <app-toolbar TaswiraTheme></app-toolbar>
     <div class="checkout-box">
         <div class="checkout-image">
-            <img [src]="post_clicked?.image+timestamp | slice :67" alt="">
+            <mat-icon (click)="moveBack()">navigate_before</mat-icon>
+            <img loading="lazy" [src]="rootDirectory! + post_clicked?.image+timestamp">
         </div>
         <div class="checkout-post-details">
             <div class="post-actions">
                 <div class="left-icons">
                     <button class="more"><mat-icon>more_horiz</mat-icon></button>
+
                     <button class="upload"><mat-icon>share</mat-icon></button>
                 </div>               
                 <button class="save" (click)="saveClickedPost(post_clicked.id)" [disabled]="post_saved">

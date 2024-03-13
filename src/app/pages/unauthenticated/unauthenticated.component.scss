@@ -132,6 +132,7 @@ app-register{
     
         }
 
+
         
             
             
@@ -195,7 +196,7 @@ app-register{
                     color: 
                     $text-theme-color-light;
                     text-align: center;
-                    font-family: 'montserrat-Extrabold';
+                    font-family: 'montserrat-Extrabold' ,Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
                 }
             }
         }
@@ -217,6 +218,7 @@ app-register{
                 align-items: center;
                 font-size: $font-size-middle;
                 font-weight: $font-weight-big;
+                
                 
             }
             .link-1{
@@ -250,7 +252,7 @@ app-register{
                 margin: 0;
                 padding: 20px 0 20px 0;
                 color: $primary-color;
-                font-family: 'montserrat';
+                font-family: 'montserrat', Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
             }
     
     
@@ -275,7 +277,7 @@ app-register{
                 margin: 0;
                 padding-left: 20px;
                 padding-right: 20px;
-                font-family: 'montserrat-semibold';
+                font-family: 'montserrat-semibold', Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     
             }
         }

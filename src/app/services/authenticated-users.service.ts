@@ -11,7 +11,6 @@ export class AuthenticatedUsersService {
 
   is_authenticated : Subject<boolean> = new Subject<boolean>()
 
-  private users_url = 'http://localhost:8000/accounts/users'
 
 
 
@@ -29,10 +28,14 @@ export class AuthenticatedUsersService {
     const ISSERVER = typeof window === "undefined";
     if (!ISSERVER) {
       token = localStorage.getItem('access_token')
-      if(token){       
+      if(token){  
+        
+        this.is_authenticated.next(true)
         return true
+
       }
-      return false
+      this.is_authenticated.next(true)
+      return false      
       
     }return false
     

@@ -6,6 +6,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { EMPTY, Subject, Subscription, catchError } from 'rxjs';
 import { Router } from '@angular/router';
 import { HttpClient, HttpClientModule, HttpErrorResponse, provideHttpClient, withFetch } from '@angular/common/http';
+import { CommonUtilsService } from '../../services/common-utils.service';
 
 @Component({
   selector: 'app-login',
@@ -16,6 +17,9 @@ import { HttpClient, HttpClientModule, HttpErrorResponse, provideHttpClient, wit
     ReactiveFormsModule,
     SpinnerComponent,
     HttpClientModule,
+  ],
+  providers:[
+    CommonUtilsService
   ],
   
   templateUrl: './login.component.html',
@@ -55,7 +59,12 @@ export class LoginComponent implements OnInit, OnDestroy {
   formData! : FormGroup;
 
 
-  constructor(private fb: FormBuilder , private router: Router, private http: HttpClient){
+  constructor(
+    private fb: FormBuilder , 
+    private router: Router, 
+    private http: HttpClient,
+    private utils: CommonUtilsService
+    ){
 
     this.formData = this.fb.group({
       email: [
@@ -107,10 +116,10 @@ export class LoginComponent implements OnInit, OnDestroy {
     Data.append('password', this.formData.get('password')?.value)
 
     
-    const api_url = 'http://localhost:8000/accounts/login/'
+    
 
 
-    this.http.post(api_url, Data).pipe(
+    this.http.post(this.utils.login_url, Data).pipe(
       catchError((err: HttpErrorResponse)=>{
         if(err){
           this.login_error_subject.next(err.error)
@@ -119,8 +128,7 @@ export class LoginComponent implements OnInit, OnDestroy {
         }
         return EMPTY
       })
-    ).subscribe((result)=>{
-      
+    ).subscribe((result)=>{      
       this.login_success_subject.next(result)
     })
 
@@ -143,11 +151,13 @@ export class LoginComponent implements OnInit, OnDestroy {
       this.router.navigate([''])
 
       const access_token = result['access_token']
+      const username = result['username']
 
       const ISSERVER = typeof window === "undefined";
       if(access_token && !ISSERVER){
     
         localStorage.setItem('access_token', access_token)
+        localStorage.setItem('user' , username)
       
       }
 

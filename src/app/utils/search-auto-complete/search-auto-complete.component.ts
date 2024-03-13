@@ -36,10 +36,7 @@ export class SearchAutoCompleteComponent implements OnInit, OnDestroy{
 
   query_suggestions : any = []
 
-  private search_url = 'http://localhost:8000/pins/search'
-  private popular_searchs_url = 'http://localhost:8000/pins/popular-searches'
-  private recently_searched_url = 'http://localhost:8000/pins/recent-searches'
-
+  
   private token : string = ''
 
   subscribed! : Subscription
@@ -59,7 +56,7 @@ export class SearchAutoCompleteComponent implements OnInit, OnDestroy{
   
 
   RequestAllSearchableData(){
-    this.subscribed = this.http.get(this.search_url, this.utils.returnHeaders()).pipe(
+    this.subscribed = this.http.get(this.utils.search_url, this.utils.returnHeaders()).pipe(
       catchError((err: HttpErrorResponse)=>{
         if(err){
           console.log(err.error)
@@ -75,36 +72,7 @@ export class SearchAutoCompleteComponent implements OnInit, OnDestroy{
     })
 
   }
-  RequestRecentlySearchedData(){
-    this.subscribed2 = this.http.get(this.recently_searched_url, this.utils.returnHeaders()).pipe(
-      catchError((err: HttpErrorResponse)=>{
-        if(err){
-          console.log(err.error)
-        }
-        return EMPTY
-      })
-    ).subscribe((result)=>{
-      
-      this.recently_serched_data = result
-     
-    })
-
-  }
-  RequestPopularSeachedData(){
-    this.subscribed3 = this.http.get(this.popular_searchs_url, this.utils.returnHeaders()).pipe(
-      catchError((err: HttpErrorResponse)=>{
-        if(err){
-          console.log(err.error)
-        }
-        return EMPTY
-      })
-    ).subscribe((result)=>{
-      
-      this.popular_searches = result
-     
-    })
-
-  }
+ 
 
   searchSuggestions(e: any){
     const filteredData = this.allSearchableData.filter((item: any) =>item.title.toLowerCase().includes(e.toLowerCase()))
@@ -133,8 +101,6 @@ export class SearchAutoCompleteComponent implements OnInit, OnDestroy{
   }
   ngOnInit(): void {
     this.RequestAllSearchableData()
-    this.RequestPopularSeachedData()
-    this.RequestRecentlySearchedData() 
     this.searchedData()
 
     

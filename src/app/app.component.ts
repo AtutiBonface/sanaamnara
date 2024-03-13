@@ -1,30 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, RouterOutlet } from '@angular/router';
-import {MatToolbarModule} from '@angular/material/toolbar'
-import { LoginComponent } from './accounts/login/login.component';
-import { RegisterComponent } from './accounts/register/register.component';
+
 import { CommonModule } from '@angular/common';
 import { SpinnerComponent } from './utils/spinner/spinner.component';
-import { MatIconModule } from '@angular/material/icon';
-import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { SearchAutoCompleteComponent } from './utils/search-auto-complete/search-auto-complete.component';
 import { AuthenticatedUsersService } from './services/authenticated-users.service';
+import { UnauthenticatedComponent } from './pages/unauthenticated/unauthenticated.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
     RouterOutlet,
-    MatToolbarModule,
-    RegisterComponent,
-    ReactiveFormsModule,
-    LoginComponent,
+    
     CommonModule,
     SpinnerComponent,
-    MatIconModule,
-    SearchAutoCompleteComponent,
+    
     HttpClientModule,
+    UnauthenticatedComponent,
   ],
   providers:[
     AuthenticatedUsersService
@@ -34,11 +27,15 @@ import { AuthenticatedUsersService } from './services/authenticated-users.servic
 })
 export class AppComponent  implements OnInit{
 
-  
+  loading: boolean = true
+
+  constructor(private service : AuthenticatedUsersService){}
 
   ngOnInit(): void {
-   
-    
+
+    setTimeout(()=>{
+      this.loading = false
+    },1000) 
   }
   
   

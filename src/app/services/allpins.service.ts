@@ -16,8 +16,9 @@ export class AllpinsService{
 
   error_subject : Subject<any> = new Subject<any>()
 
+  private domain_url = 'http://localhost:8000'
 
-  private allposts_url = 'http://localhost:8000/pins/list'
+  private allposts_url = `${this.domain_url}/pins/list`
 
   constructor(
     private http: HttpClient,
@@ -41,6 +42,8 @@ export class AllpinsService{
       
     })
   }
+
+  
 
 
 }

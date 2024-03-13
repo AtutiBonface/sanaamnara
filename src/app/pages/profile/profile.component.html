@@ -1,6 +1,6 @@
 
 
-<div class="profile-hero">
+<div class="profile-hero" TaswiraTheme  [attr.theme]="selectedTheme">
     <div class="add-search-settings">
         <div class="search-input">
             <mat-icon>search</mat-icon>
@@ -8,10 +8,17 @@
         </div>
         <div class="add-settings">
             <mat-icon (click)="navigateToCreatePosts()">add</mat-icon>
-            <mat-icon>settings</mat-icon>
+            <mat-icon (click)="Logout()">settings</mat-icon>
         </div>
     </div>
     <div class="user-details">
+        <div class="toggle-theme">
+            <h1>Theme : {{darkTheme? 'Dark': 'Light'}}</h1>
+            <button class="change-theme" (click)="toggleTheme()">
+                <mat-icon>{{darkTheme? 'brightness_2': 'brightness_6'}}</mat-icon>
+            </button>
+            
+        </div>
         <div class="profile-picture">
             {{activatedRouteParam | uppercase | slice :0:2}}
         </div>

@@ -1,32 +1,53 @@
-<app-toolbar></app-toolbar>
-<div class="loading" *ngIf="!loading_complete">    
+<!-- <div class="loading" *ngIf="!loading_complete" TaswiraTheme>    
   <app-spinner ></app-spinner>
   <p>please wait ...</p>
-</div>
+</div> -->
 
-<div class="everything" *ngIf="loading_complete">
-  <app-profile [in_createdPage]="false"></app-profile>
+<div class="everything"  TaswiraTheme [attr.theme]="theme">
   <div class="posts-container">
+    <app-profile [in_createdPage]="false" (Theme)="selectedTheme($event)"></app-profile>
+    <app-toolbar TaswiraTheme></app-toolbar>
       <p class="heading" *ngIf="no_of_saved_posts === 0">No posts saved.</p>
       <div class="pins-hero">
-        <div class="pin-container" *ngFor="let pin of data.saved_pins">
-          <button class="icons save delete" (click)="deleteSavedPost(pin?.id)" *ngIf="current_user">
-            delete
-          </button>          
-          <button class="icons upload">
-            <mat-icon>share</mat-icon>
-          </button>
-          <button class="icons more">
-            <mat-icon>more_horiz</mat-icon>
-          </button>
-      
-          
-          <img  [src]="pin.image_url+timestamp | slice : 67" alt="" >
+        <div class="pin-container">
+            <div class="pins">
+                <div class="pin-box" *ngFor="let pin of data.saved_pins">
+                      <div class="image-box">
+                        <button class="icons save delete" (click)="deleteSavedPost(pin?.id)" *ngIf="current_user">
+                          delete
+                        </button> 
+                        
+                        <button class="icons upload">
+                          <mat-icon>share</mat-icon>
+                        </button>
+                        <button class="icons more">
+                          <mat-icon>more_horiz</mat-icon>
+                        </button>  
+                    
+                        <img loading="lazy"   class="lazy-waiting" src="/assets/posts/{{pin.image+timestamp}}" (click)="navigateToCheckout(pin.id)" >
+                      </div>     
+                    
+                      <div class="pin-owner-description">
+                        <div class="description">
+                          <small>{{pin.description}}</small>
+                        </div>
+                        <div class="phone-more" (click)="openPopupMenu(pin.id, pin.image)">
+                          <mat-icon>more_horiz</mat-icon>
+                        </div>          
+                    </div>
+            
+                </div>    
+            </div>
+            
         </div>
-        
       </div>
-
-
     </div>
   
   </div>
+
+
+  
+
+
+
+  

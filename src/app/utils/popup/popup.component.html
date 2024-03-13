@@ -10,43 +10,60 @@
 
             <div class="options">
                 <h1>Options</h1>
-                <div class="option">
+               
+                   <button class="option"  (click)="downLoadImage()">
                     <mat-icon>download</mat-icon>
                     <p>Download Image</p>
-                </div>
-                <div class="option">
+                   </button>
+               
+               
 
-                    <mat-icon>save</mat-icon>
-                    <p>Save</p>
-                </div>
-                <div class="option">
-                    <mat-icon>close</mat-icon>
-                    <p>I don't want to see this</p>
-                </div>
-                <div class="option">
-                    <mat-icon>not_interested</mat-icon>
-                    <p>Report <br> <span>This goes against community quidelines</span></p>
+                    <button class="option"  (click)="savePost()">
+                        <mat-icon>save</mat-icon>
+                        <p>Save</p>
+                    </button>
 
-                </div>
+                    <button class="option">
+                        <mat-icon>close</mat-icon>
+                        <p>I don't want to see this</p>
+                    </button>
+
+                    <button class="option">
+                        <mat-icon>not_interested</mat-icon>
+                        <p>Report <br> <span>This goes against community quidelines</span></p>
+                    </button>  
+               
+                
                 
             </div>
             <div class="share">
                 <h1>Share</h1>
                 <div class="socials">
                     <div class="social-logo">
-                        <img src="assets/icons8-facebook-96.png" alt="">
+                        <a href="">
+                            <img src="assets/icons8-facebook-96.png" alt="">
+                        </a>                        
                     </div>
                     <div class="social-logo">
-                        <img src="assets/icons8-whatsapp-96.png" alt="">
+                        <a href="">
+                            <img src="assets/icons8-whatsapp-96.png" alt="">
+                        </a>
                     </div>
                     <div class="social-logo">
-                        <img src="assets/icons8-twitterx-96.png" alt="">
+                        <a href="">
+                            <img src="assets/icons8-twitterx-96.png" alt="">
+                        </a>
                     </div>
                     <div class="social-logo">
-                        <img src="assets/icons8-instagram-96.png" alt="">
+                        <a href="">
+                            <img src="assets/icons8-instagram-96.png" alt="">
+                        </a>
                     </div>
                     <div class="social-logo">
-                        <img src="assets/icons8-facebook-messenger-96.png" alt="">
+                        <a href="">
+                            <img src="assets/icons8-facebook-messenger-96.png" alt="">
+                        </a>
+                        
                     </div>
                 </div>
             </div>

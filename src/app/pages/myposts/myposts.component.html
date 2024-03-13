@@ -1,10 +1,7 @@
-<app-toolbar></app-toolbar>
-<div class="loading" *ngIf="!loading_complete">    
-  <app-spinner ></app-spinner>
-  <p>please wait ...</p>
-</div>
-<div class="everything"*ngIf="loading_complete">
-  <app-profile></app-profile>
+
+<div class="everything" TaswiraTheme [attr.theme]="Theme">
+  <app-toolbar TaswiraTheme></app-toolbar>
+  <app-profile (Theme)="selectedTheme($event)"></app-profile>
   <div class="posts-container" >
     <p class="heading"*ngIf="no_of_post === 0 && !current_user">No posts.</p>
     <div class="add-pins" *ngIf="current_user && no_of_post === 0" >
@@ -15,22 +12,36 @@
     </div>
     
       <div class="pins-hero">
-        <div class="pin-container" *ngFor="let post of data.pins_created">
-          <button class="icons save delete" (click)="deleteCreatedPost(post?.id)" *ngIf="current_user">
-            delete
-          </button>
-          <button class="icons save" (click)="saveUserPost(post?.id)" *ngIf="!current_user" [disabled]="post.saved">
-            {{post .saved? 'saved': 'save'}}
-          </button>
-          <button class="icons upload">
-            <mat-icon>share</mat-icon>
-          </button>
-          <button class="icons more">
-            <mat-icon>more_horiz</mat-icon>
-          </button>
-      
+        <div class="pin-container">
+          <div class="pins">
+            <div class="pin-box" *ngFor="let post of data.pins_created">
+              <div class="image-box">
+                <button class="icons save delete" (click)="deleteCreatedPost(post?.id)" *ngIf="current_user">
+                  delete
+                </button>
+                
+                <button class="icons upload">
+                  <mat-icon>share</mat-icon>
+                </button>
+                <button class="icons more">
+                  <mat-icon>more_horiz</mat-icon>
+                </button>  
+            
+                <img loading="lazy"   class="lazy-waiting" src="/assets/posts/{{post.image+timestamp}}" (click)="navigateToCheckout(post.id)" >
+              </div>     
+            
+              <div class="pin-owner-description">
+                <div class="description">
+                  <small>{{post.description}}</small>
+                </div>
+                <div class="phone-more" (click)="openPopupMenu(post.id, post.image)">
+                  <mat-icon>more_horiz</mat-icon>
+                </div>          
+            </div>
           
-          <img [src]="post?.image_url+timestamp | slice :67" alt="">
+            </div>    
+          </div>
+          
         </div>
         
       </div>

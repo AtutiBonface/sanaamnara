@@ -8,6 +8,7 @@ import { CommonUtilsService } from '../../services/common-utils.service';
 import { ActivatedRoute } from '@angular/router';
 import { SpinnerComponent } from '../../utils/spinner/spinner.component';
 import { ToolbarComponent } from '../../utils/toolbar/toolbar.component';
+import { TaswiraThemeDirective } from '../../directives/taswira-theme.directive';
 
 @Component({
   selector: 'app-savedposts',
@@ -19,6 +20,7 @@ import { ToolbarComponent } from '../../utils/toolbar/toolbar.component';
     MatIconModule,
     SpinnerComponent,
     ToolbarComponent,
+    TaswiraThemeDirective,
   ],
   providers:[
     CommonUtilsService
@@ -28,14 +30,16 @@ import { ToolbarComponent } from '../../utils/toolbar/toolbar.component';
 })
 export class SavedpostsComponent implements OnInit, OnDestroy{
 
-  private saved_posts_url = 'http://localhost:8000/pins/saved'
-  private pinLisUrl = 'http://localhost:8000/pins/list'
+
+theme: any;
 
   data : any = []
   timestamp = `?timestamp=${new Date().getTime()}`
   current_user: boolean = false
   loading_complete : boolean = false
   no_of_saved_posts : number = 0
+
+  api_url = 'https://imaginekenya.site'
 
   
   constructor(
@@ -67,7 +71,7 @@ export class SavedpostsComponent implements OnInit, OnDestroy{
     const data = new FormData()
     let activeUsername = this.activatedRoute.snapshot.params['username']
     data.append('username',activeUsername )
-    this.http.put(`${this.saved_posts_url}/${id}`,data, this.utils.returnHeaders()).pipe(
+    this.http.put(`${this.utils.pin_saved_url}/${id}`,data, this.utils.returnHeaders()).pipe(
       catchError((err:any)=>{
         if(err instanceof HttpErrorResponse){
           console.log(err.error)
@@ -81,6 +85,18 @@ export class SavedpostsComponent implements OnInit, OnDestroy{
     })
 
   }
+
+  selectedTheme(theme: any) {
+    this.theme = theme
+   
+  }
+  openPopupMenu(arg0: any,arg1: any) {
+  
+  }
+  navigateToCheckout(id: any) {
+  
+  }
+    
 
   
 

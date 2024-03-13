@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule, Location } from '@angular/common';
 import { HttpClient, HttpClientModule, HttpErrorResponse } from '@angular/common/http';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
@@ -7,6 +7,7 @@ import { AllpinsService } from '../../services/allpins.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { EMPTY, Subject, Subscription, catchError } from 'rxjs';
 import { CommonUtilsService } from '../../services/common-utils.service';
+import { TaswiraThemeDirective } from '../../directives/taswira-theme.directive';
 
 @Component({
   selector: 'app-checkout',
@@ -16,6 +17,7 @@ import { CommonUtilsService } from '../../services/common-utils.service';
     HttpClientModule,
     MatIconModule,
     ToolbarComponent,
+    TaswiraThemeDirective
   ],
   providers:[
     CommonUtilsService
@@ -24,6 +26,7 @@ import { CommonUtilsService } from '../../services/common-utils.service';
   styleUrl: './checkout.component.scss'
 })
 export class CheckoutComponent implements OnInit , OnDestroy{
+
 
   post_liked: boolean = false
   comment_liked : boolean = false
@@ -40,9 +43,12 @@ export class CheckoutComponent implements OnInit , OnDestroy{
 
   timestamp :any = `?timestamp=${new Date().getTime()}`
 
-  private allposts_url = 'http://localhost:8000/pins/list'
+  rootDirectory = '/assets/posts/'
 
-  private follow_url = 'http://localhost:8000/accounts/follow'
+
+  api_url = 'https://imaginekenya.site'
+
+  
 
 
   
@@ -57,14 +63,18 @@ export class CheckoutComponent implements OnInit , OnDestroy{
     private http: HttpClient, 
     private activatedRoute: ActivatedRoute,
     private utils: CommonUtilsService,
-    private router: Router
+    private router: Router,
+    private location: Location
     ){}
 
-    
+    moveBack() {
+      this.location.back()
+      
+    }
 
     saveClickedPost(id: any){
       const data = 0
-     this.http.put(`${this.allposts_url}/${id}`,data,  this.utils.returnHeaders()).pipe(
+     this.http.put(`${this.utils.pinslist_url}/${id}`,data,  this.utils.returnHeaders()).pipe(
         catchError((err: HttpErrorResponse)=>{
           if(err){
             console.log(err.error)
@@ -99,7 +109,7 @@ export class CheckoutComponent implements OnInit , OnDestroy{
   getFollowersState(){
     let data = new FormData()
     data.append('post_id', this.current_id)
-    this.http.post(this.follow_url,data,  this.utils.returnHeaders()).subscribe((e)=>{
+    this.http.post(this.utils.follow_url,data,  this.utils.returnHeaders()).subscribe((e)=>{
       this.follower_obj = e     
     })
   }
@@ -108,7 +118,7 @@ export class CheckoutComponent implements OnInit , OnDestroy{
     let data = new  FormData()
 
     data.append('follow_id', id)
-    this.http.put(this.follow_url, data, this.utils.returnHeaders()).pipe(
+    this.http.put(this.utils.follow_url, data, this.utils.returnHeaders()).pipe(
       catchError((err:HttpErrorResponse)=>{
         if(err){
           console.log(err.error)

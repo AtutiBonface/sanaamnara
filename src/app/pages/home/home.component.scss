@@ -1,10 +1,7 @@
 
 
-@import '../utils';
-
-
 .lazy-waiting{
-    background-color: $text-theme-color-light;
+    background-color: var(--text-theme-color-light);
     width: 100%;
 }
 
@@ -14,28 +11,31 @@
     left: 50%;
     transform: translate(-50% , -50%);
     h1{
-        color: $secondary-color;
+        color: var(--secondary-color);
         font-weight: 700;
         text-align: center;
     }
 }
 
 .home-body{
-    width: 100vw;
-    height: 100%;
+    width: 100vw !important;
+    height: 100vh !important;
+    padding: 0;
+    margin: 0;
     position: relative;
     overflow-x: hidden;
-    
+    overflow-y: auto; 
+    background-color:var(--primary-color);   
     mat-toolbar{
         margin: 0;
         position: fixed;
-        bottom: 0;   
+        bottom: 0 !important;   
         left: 0;
         z-index: 9999;
     }
 
     app-popup{
-        z-index: 10000;
+        z-index: 9999;
         margin: 0;
         bottom: 0;
         position: fixed;
@@ -48,11 +48,11 @@
         h1{
             justify-content: center;
             text-align: center;
-            font-size: $font-size-middle;
-            font-weight: $font-weight-middle;
-            color: $secondary-color;
+            font-size: var(--font-size-middle);
+            font-weight: var(--font-weight-middle);
+            color: var(--secondary-color);
             margin-top: 30px;
-            font-family: 'montserrat-semibold';
+            font-family: var(--font-fam-semibold);
         }
     }
 }
@@ -67,7 +67,6 @@
     margin-right: auto;
     position: relative;
 
-    
 
     button{
         border: none;
@@ -78,76 +77,116 @@
 
        
     }
-    .save{
-        padding:5px 10px 5px 10px;
-        position: absolute;
-        height: 40px;
-        border-radius: 15px;
-        padding: 0 10px 0 10px ;
-        background-color: $icons-button-utils-color;
-        color: $primary-color;
-        font-size: .9rem;
-        font-family: 'montserrat-semibold';
-        font-weight: bold;
-        top: 10px;
-        right: 10px;
-        display: none;
-        opacity: .9;
 
-        &:hover{
-            opacity: 1;
-        }
-        &:disabled{
-            background-color: $text-theme-color-dark;
-            cursor: not-allowed;
-        }
-    }
-    .upload , .more{
-        position: absolute;
-        justify-content: center;
+    
+
+    
+    .pins-hero{  
+        display: flex;
         align-items: center;
-        background-color: $primary-color;
-        padding: 0;
-        height: 30px;
-        width: 30px;
-        border-radius: 15px;
-        display: none;
-        mat-icon{
-            margin: 0;
-            padding: 0;
-            color: $icons-button-utils-color;
-            align-self: center;
-            justify-self: center;
-            vertical-align: middle;
-            
-        }
-    }
-    .more{
-        bottom: 10px;
-        right: 10px;
-    }
-    .upload{
-        bottom: 10px;
-        left: 10px;
-    }
-    .pins-hero{        
-        height: 100%;
-        width: 100%;
-        columns: 6;
+        justify-content: center;
         
-
-
-
-        .pin-container{
+        .pins{
+            columns: 6;
             width: fit-content;
-            break-inside: avoid;          
+          
+        }
+            
+        
+        .pin-box{
+            width: fit-content;
+            break-inside: avoid;
+                              
             
             padding: 0;
             margin: 0;
+            .image-box{
+                position: relative;               
+                height: auto;
+                cursor: pointer;
+                height: fit-content;               
+                padding: 0 !important;
+                margin: 0 !important; 
+                
+                &:hover{
+                    .save ,.upload ,.more{
+                        display: block;
+                    }
+                }
+                img{
+                    width: 100%;
+                    object-fit: cover;
+                    margin: 0;
+                    border-radius: 20px;
+                    min-height: 120px;
+                    width: 160px !important;
+
+                }
+                
+                .save{
+                    padding:5px 10px 5px 10px;
+                    position: absolute;
+                    height: 40px;
+                    border-radius: 15px;
+                    padding: 0 10px 0 10px ;
+                    background-color: var(--icons-button-utils-color);
+                    color: var(--text-theme-color-light);
+                    font-size: .9rem;
+                    font-family: var(--font-fam-semibold);
+                    font-weight: bold;
+                    top: 10px;
+                    right: 10px;
+                    display: none;
+                    opacity: .9;
+            
+                    &:hover{
+                        opacity: 1;
+                    }
+                    &:disabled{
+                        background-color: var(--text-theme-color-dark);
+                        cursor: not-allowed;
+                    }
+                }
+                .upload , .more{
+                    position: absolute;
+                    justify-content: center;
+                    align-items: center;
+                    background-color: var(--text-theme-color-light);
+                    padding: 0;
+                    height: 30px;
+                    width: 30px;
+                    border-radius: 15px;
+                    display: none;
+                    mat-icon{
+                        margin: 0;
+                        padding: 0;
+                        color: var(--icons-button-utils-color);
+                        align-self: center;
+                        justify-self: center;
+                        vertical-align: middle;
+                        
+                    }
+                }
+                .more{
+                    bottom: 10px;
+                    right: 10px;
+                }
+                .upload{
+                    bottom: 10px;
+                    left: 10px;
+                }
+            }
 
             .pin-owner-description{
                 display: flex;
                 justify-content: space-between;
+                cursor: pointer;    
+                &:hover{
+                    .save , .more, .upload{
+                        display: block;  
+                    }
+                                
+                }
 
                 .owner-profile{
                     width: 30px;
@@ -156,8 +195,8 @@
                     display: flex;
                     justify-content: center;
                     align-items: center;
-                    color: $text-theme-color-dark;
-                    font-weight: $font-weight-middle;
+                    color: var(--text-theme-color-dark);
+                    font-weight: var(--font-weight-middle);
                 }
                 .description{
                     small{
@@ -166,37 +205,17 @@
                         padding: 0;
                         margin: 0;
                         font-size: .6rem;
-                        color: $text-theme-color-dark;
-                        font-family: 'montserrat-semibold', Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+                        color: var(--text-theme-color);
+                        font-family: var(--font-fam-semibold);
                     }
                 }
                 .phone-more{
                     display: none;
-                    color: $icons-button-utils-color;
+                    color: var(--icons-button-utils-color);
                 }
             }
             
-            cursor: pointer;
-
-            .pin{
-                position: relative;
-                width: fit-content;
-
-            }
-
-            img{
-                width: 100% !important;
-                margin: 0;
-                padding: 0;
-                border-radius: 15px;
-
-            }
-            &:hover{
-                .save , .more, .upload{
-                    display: block;  
-                }
-                              
-            }
+            
             
         }
         
@@ -207,13 +226,14 @@
 @media only screen and (max-width: 310px) {
     .home-container{
         width: 80vw !important;
-        margin-top: 10px !important;
+        margin-top: 0 !important;
+        overflow-x: hidden  !important;
     }
-    .pins-hero{        
-        columns: 1 !important;
+    .pins{        
+       columns: 1 !important;
     }
     
-    .pin-container:hover{
+    .image-box:hover{
         .save , .more, .upload{
             display: none;  
         }
@@ -227,15 +247,16 @@
 }
 
 
-@media only screen and (min-width: 311px) and (max-width: 500px) {
+@media only screen and (min-width: 311px) and (max-width: 430px) {
     .home-container{
         width: 95vw !important;
-        margin-top: 10px !important;
+        margin-top: 0 !important;
+        overflow-x: hidden  !important;
     }
-    .pins-hero{        
+    .pins{        
         columns: 2 !important;
     }
-    .pin-container:hover{
+    .image-box:hover{
         .save , .more, .upload{
             display: none !important;  
         }
@@ -246,15 +267,18 @@
    
 }
 
-@media only screen and (min-width: 501px) and (max-width: 650px){
+@media only screen and (min-width: 431px) and (max-width: 650px){
     .home-container{
         width: 75vw !important;
-        margin-top: 10px !important;
+        margin-top: 0 !important;
+        overflow-x: hidden  !important;
     }
-    .pins-hero{        
-        columns: 2 !important;
+    .pins{ 
+        columns: 2 !important;  
+       
+        
     }
-    .pin-container:hover{
+    .image-box:hover{
         .save , .more, .upload{
             display: none !important;  
         }
@@ -268,12 +292,14 @@
 @media only screen and (min-width: 651px) and (max-width: 750px){
     .home-container{
         width: 92vw !important;
-        margin-top: 10px !important;
+        margin-top: 0 !important;
+        overflow-x: hidden  !important;
     }
-    .pins-hero{        
-        columns: 3 !important;
+    .pins{ 
+        columns: 3 !important;       
+        
     }
-    .pin-container:hover{
+    .image-box:hover{
         .save , .more, .upload{
             display: none !important;  
         }
@@ -286,12 +312,12 @@
 @media only screen and (min-width: 751px) and (max-width: 850px) {
     .home-container{
         width: 85vw !important;
-        margin-top: 10px !important;
+        margin-top: 0 !important;
     }
-    .pins-hero{        
-        columns: 3 !important;
+    .pins{        
+        columns: 4 !important;
     }
-    .pin-container:hover{
+    .image-box:hover{
         .save , .more, .upload{
             display: none !important;  
         }
@@ -304,10 +330,17 @@
 @media only screen and (min-width: 851px) and (max-width: 1000px) {
     .home-container{
         width: 80vw !important;
-        margin-top: 10px !important;
+        margin-top: 0 !important;
+        overflow-x: hidden  !important;
     }
-    .pins-hero{        
-        columns: 3 !important;
+    .image-box:hover{
+        .save , .more, .upload{
+            display: none !important;  
+        }
+    }
+    .pins{    
+        columns: 4 !important;   
+        
     }
     .phone-more{
         display: block !important;
@@ -319,24 +352,24 @@
     .home-container{
         width: 80vw !important;
     }
-    .pins-hero{        
-        columns: 4 !important;
+    .pins{        
+        columns: 5 !important; 
     }
 }
 @media only screen and (min-width: 1101px) and (max-width: 1300px) {
     .home-container{
         width: 95vw !important;
     }
-    .pins-hero{        
-        columns: 5 !important;
+    .pins{        
+        columns: 5 !important; 
     }
 }
 @media only screen and (min-width: 1301px) and (max-width: 1400px) {
     .home-container{
         width: 90vw !important;
     }
-    .pins-hero{        
-        columns: 5 !important;
+    .pins{        
+        columns: 6  !important;  
     }
 }
 

@@ -28,10 +28,12 @@ $warning-color: rgb(172, 16, 42);
         font-size: $font-size-middle;
         font-weight: $font-weight-middle;
         font-family: 'montserrat-semibold', Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        text-align: center;
     }
     p{
         word-wrap: break-word !important;
         white-space: wrap !important;
+       
     }
     .query-suggestions{
         max-height: 200px;
@@ -42,9 +44,9 @@ $warning-color: rgb(172, 16, 42);
         overflow-x: hidden;
         p{
             color: $icons-button-utils-color;
-            font-size: $font-size-small;
+            font-size: $font-size-middle;
             font-weight: $font-weight-middle;
-            line-height: calc($font-size-small + 5px);
+            line-height: $font-size-middle;
             font-family: 'montserrat-medium', Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
             
         }
@@ -57,14 +59,15 @@ $warning-color: rgb(172, 16, 42);
 
 
     .idea-box{
-        max-width: 150px;
-        height: 70px;
+        width: 200px !important;
+        height: 100px !important;
         cursor: pointer;
+        margin: 10px;
         border-radius: 10px;
         overflow: hidden;
-        margin-top: 10px;
-        display: grid;
-        grid-template-columns: 50px  100px;
+        position: relative;
+
+        margin-top: 10px;        
         margin-bottom: 10px;
         img{
             height: 100%;
@@ -89,25 +92,23 @@ $warning-color: rgb(172, 16, 42);
         .shopping-caption{
             position: absolute; 
             top: 0;    
-            background-color: rgba(0,0,0,.4);             
+            background-color: rgba(0, 0, 0, 0.523);             
             width: 100%;
             height: 100%; 
             display: flex;
-            align-items: flex-end;
+            justify-content: center;
+            align-items: center;
+            
                       
             p{
                 margin: 0;
                 padding: 0;
                 text-align: center;
-                font-size: $font-size-small;
-                line-height: $font-size-small;
-                font-weight: $font-weight-middle;
                 color: $primary-color;
-                font-family: 'montserrat-semibold';
-                word-wrap: break-word;
-                margin-left: 10px;
-                margin-right: 10px;
-                margin-bottom: 10px;
+                font-size: 1rem;
+                line-height: $font-size-middle;
+                font-family: 'montserrat-semibold', Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+               
             
             }
             p:hover{
@@ -118,23 +119,33 @@ $warning-color: rgb(172, 16, 42);
     .idea-caption{
         width: 100%;
         height: 100%;
-        background-color: rgba(0,0,0, .09);
+        background-color: rgba(0, 0, 0, 0.523);  
         justify-content: center;
         align-items: center;
         text-align: center;
         align-content: center;
-        position: relative;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        width: 100%;
+        display: flex;
+       
         
         p{
-            position: absolute;
-            font-size: $font-size-small;
+            
+            font-size: 1rem;
             font-weight: $font-weight-big;
-            line-height: $font-size-small;
             padding: 0;
+            text-align: center;
+
             margin: 0;
-            top: 50%;
-            font-family: 'montserrat-medium', Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-            transform: translateY(-50%);
+            margin-left: 10px;
+            margin-right: 10px;
+            color: $primary-color;
+            line-height: $font-size-middle;
+            font-family: 'montserrat-semibold', Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            
             
             
         }
@@ -144,10 +155,10 @@ $warning-color: rgb(172, 16, 42);
     }
 }
 .recent-searches ,.ideas-for-you, .popular-posts{
-    display: grid;
-    //width of each column is 150px 3px gap
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    column-gap: 3px;
+    display: flex;
+    width: 100%;
+    overflow: auto;
+
     
     
 }
@@ -166,52 +177,3 @@ $warning-color: rgb(172, 16, 42);
 
 
 
-@media only screen and (max-width: 1000px) {
-    .other-suggestions{
-        width: calc(100vw - 40px ) !important;
-        overflow: hidden;
-    }
-    .search-container{
-        margin: 0 !important;
-        overflow-x: hidden;
-    }
-
-    .ideas-for-you, .popular-posts{
-        width: calc(100vw - 40px);
-        overflow-y: auto; 
-        grid-template-columns: repeat(auto-fill , minmax(110px , 1fr)); 
-        max-height: 200px;   
-
-        .idea-box{
-            position: relative;
-            display: flex !important;
-            img{
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-            }
-            .idea-caption{
-                position: absolute;
-                width: 100%;
-                height: 100%;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                background-color: rgba(0, 0, 0, 0.584) !important;
-                left: 0;
-                bottom: 0;
-                p{
-                    word-wrap: break-word !important;
-                    color: $text-theme-color-light;
-                }
-            }
-        }
-
-    }
-    
-    
-}
-@media only screen and (min-width: 1001px) {
-    
-    
-}

@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 import { AbstractControl, FormBuilder, FormGroup, ReactiveFormsModule, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { HttpClient, HttpClientModule, HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { CommonUtilsService } from '../../services/common-utils.service';
 
 @Component({
   selector: 'app-register',
@@ -16,6 +17,9 @@ import { Router } from '@angular/router';
     ReactiveFormsModule,
     SpinnerComponent,
     HttpClientModule,
+  ],
+  providers:[
+    CommonUtilsService
   ],
   templateUrl: './register.component.html',
   styleUrl: '../login/login.component.scss'
@@ -44,7 +48,11 @@ export class RegisterComponent implements OnInit, OnDestroy{
   
   formData!: FormGroup;
 
-  constructor(private fb: FormBuilder, private http: HttpClient, private router: Router){
+  constructor(private fb: FormBuilder, 
+    private http: HttpClient, 
+    private router: Router,
+    private utils: CommonUtilsService
+    ){
     this.formData = this.fb.group({
       email:[
         '',
@@ -109,11 +117,11 @@ export class RegisterComponent implements OnInit, OnDestroy{
 
 
 
-    const api_url = 'http://localhost:8000/accounts/register/'
+    
 
 
     
-    this.http.post(api_url, Data).pipe(
+    this.http.post(this.utils.register_url, Data).pipe(
       catchError((err: HttpErrorResponse)=>{
         if(err){
           this.registering_error_subject.next(err.error)

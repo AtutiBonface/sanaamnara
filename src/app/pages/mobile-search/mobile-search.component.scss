@@ -1,5 +1,5 @@
 
-@import '../utils';
+
 
 app-search-auto-complete{
     position: absolute;
@@ -11,14 +11,23 @@ app-search-auto-complete{
 
     width: 100vw;
     height: 100vh;
-    position: relative;
+    position: relative;   
     background-color: rgba(0 , 0 , 0 ,.489);
-    .popup-container{
-        background-color: $primary-color;
+    .content{
+        position: absolute;
+        background-color: transparent;
         width: 100vw;
         height: 80vh;
-        position: absolute;                
+        overflow: hidden;
+        left: 0;
         bottom: 0;
+    }
+    .popup-container{
+        background-color: var(--primary-color2);
+        width: 100%;
+        height: 100%;
+                 
+        
         border-top-right-radius: 30px;
         border-top-left-radius: 30px;
         overflow-x: hidden !important;
@@ -26,7 +35,7 @@ app-search-auto-complete{
         
         .search-input{
             display: flex;
-            border: 2px solid $secondary-color;
+            border: 2px solid var(--secondary-color);
             border-radius: 25px;
             margin: 20px;
             height: 50px;
@@ -36,10 +45,10 @@ app-search-auto-complete{
             align-items: center;
             position: fixed;
             z-index: 9999;
-            background-color: $primary-color;
+            background-color: var(--primary-color2);
             mat-icon{
                 margin-left: 10px;
-                color: $secondary-color;
+                color: var(--secondary-color);
                 font-size: 1.5rem;
                 font-weight: 700;
                 width: fit-content;
@@ -52,12 +61,17 @@ app-search-auto-complete{
                 margin: 0;
                 height: 100%;
                 outline: none;
-                background-color: $primary-color;
-                font-size: $font-size-small;
+                background-color: var(--primary-color2);
+                font-size: var(--font-size-small);
                 padding: 0 5px 0 5px;
                 width:  calc(100% - 10px);
-                font-weight: $font-weight-middle;
-                font-family: 'montserrat-semibold', Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+                font-weight: var(--font-weight-middle);
+                font-family: var(--font-fam-semibold);
+                color: var(--text-theme-color);
+
+                &::placeholder{
+                    color: var(--text-theme-color);
+                }
     
             }
         }

@@ -9,6 +9,7 @@ import { AllpinsService } from '../../services/allpins.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SpinnerComponent } from '../../utils/spinner/spinner.component';
 import { ToolbarComponent } from '../../utils/toolbar/toolbar.component';
+import { TaswiraThemeDirective } from '../../directives/taswira-theme.directive';
 
 @Component({
   selector: 'app-myposts',
@@ -20,6 +21,7 @@ import { ToolbarComponent } from '../../utils/toolbar/toolbar.component';
     MatIconModule,
     SpinnerComponent,
     ToolbarComponent,
+    TaswiraThemeDirective
   ],
   providers:[
     CommonUtilsService,
@@ -31,16 +33,19 @@ import { ToolbarComponent } from '../../utils/toolbar/toolbar.component';
 export class MypostsComponent implements OnInit, OnDestroy{
 
 
-  private myposts_url = 'http://localhost:8000/pins/owner'
-  private pinLisUrl = 'http://localhost:8000/pins/list'
+
+  
   data : any = []
   current_user : boolean = false
   loading_complete : boolean = false
   no_of_post : number = 0
   timestamp = `?timestamp=${new Date().getTime()}`
 
+  Theme: any;
+
  
   subscribed3! : Subscription
+  api_url = 'https://imaginekenya.site'
   constructor(
     private http: HttpClient, 
     private utils: CommonUtilsService,
@@ -73,7 +78,7 @@ export class MypostsComponent implements OnInit, OnDestroy{
     const data = new FormData()
     let activatedUsername = this.activatedRoute.snapshot.params['username']
     data.append('username', activatedUsername)
-    this.http.put(`${this.myposts_url}/${id}`,data, this.utils.returnHeaders()).pipe(
+    this.http.put(`${this.utils.pin_owner_url}/${id}`,data, this.utils.returnHeaders()).pipe(
       catchError((err:any)=>{
         if(err instanceof HttpErrorResponse){
           console.log(err.error)
@@ -92,7 +97,7 @@ export class MypostsComponent implements OnInit, OnDestroy{
 
   saveUserPost(id: any) {
     let data = 0
-    this.http.put(`${this.pinLisUrl}/${id}`,data, this.utils.returnHeaders()).pipe(
+    this.http.put(`${this.utils.pinslist_url}/${id}`,data, this.utils.returnHeaders()).pipe(
       catchError((err: HttpErrorResponse)=>{
         
         return EMPTY
@@ -108,7 +113,16 @@ export class MypostsComponent implements OnInit, OnDestroy{
   navigateTocreate() {
     this.router.navigate(['posts/create'])
   }
-
+  selectedTheme(theme: any) {
+    this.Theme = theme
+    
+  }
+  openPopupMenu(arg0: any,arg1: any) {
+  
+  }
+  navigateToCheckout(arg0: any) {
+  
+  }
 
   ngOnInit(): void {
     this.saveActivatedRoute()

@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { ToolbarComponent } from '../../utils/toolbar/toolbar.component';
 import { HttpClient, HttpClientModule} from '@angular/common/http';
 import { MatIconModule } from '@angular/material/icon';
@@ -7,6 +7,7 @@ import { Subscription} from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CommonUtilsService } from '../../services/common-utils.service';
 import { SpinnerComponent } from '../../utils/spinner/spinner.component';
+import { TaswiraThemeDirective } from '../../directives/taswira-theme.directive';
 
 @Component({
   selector: 'app-profile',
@@ -17,19 +18,22 @@ import { SpinnerComponent } from '../../utils/spinner/spinner.component';
     HttpClientModule,
     MatIconModule,
     SpinnerComponent,
+    TaswiraThemeDirective
   ],
   providers:[
-    CommonUtilsService
+    CommonUtilsService,
+    TaswiraThemeDirective
   ],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.scss'
 })
 export class ProfileComponent implements OnInit, OnDestroy {
 
+  darkTheme : boolean = false
 
   activatedRouteParam : any;
 
-  private follow_url = 'http://localhost:8000/accounts/follow'
+  
   follower_obj: any = []
 
   profile_data :any = []
@@ -43,16 +47,28 @@ export class ProfileComponent implements OnInit, OnDestroy {
   
 
   @Input()in_createdPage :boolean = true
+  selectedTheme: any;
+
+  @Output()Theme: EventEmitter<any> = new EventEmitter<any>()
  
   constructor(
     private http: HttpClient, 
     private router: Router, 
     private activatedRoute: ActivatedRoute,
     private utils: CommonUtilsService,
+    private TaswiraTheme: TaswiraThemeDirective
     ){
     this.activatedRouteParam = this.activatedRoute.snapshot.params['username']
   }
+    Logout() {
 
+      let is_server = typeof window === 'undefined'
+      if(!is_server){
+        localStorage.clear()
+      }
+      this.router.navigate([''])
+      
+    }
 
   
 
@@ -100,6 +116,28 @@ export class ProfileComponent implements OnInit, OnDestroy {
     ngOnDestroy(): void {
       
     }
+
+
+    toggleTheme() {
+            
+      const is_server = typeof window === 'undefined'
+      if(!is_server){
+        let theme = localStorage.getItem('theme')
+        if(theme === 'light' || undefined){
+          localStorage.setItem('theme', 'dark')
+          this.darkTheme = true
+          this.selectedTheme = 'dark'
+          this.Theme.next('dark')
+          
+        }else{
+          localStorage.setItem('theme', 'light')
+          this.darkTheme = false
+          this.selectedTheme = 'light'
+          this.Theme.next('light')
+        }
+      }
+    }
+      
   
 
 }

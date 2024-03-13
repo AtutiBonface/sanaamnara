@@ -35,6 +35,39 @@ $warning-color: rgb(172, 16, 42);
     font-weight: normal;
     
 }
+:root{
+    --primary-color-dark : rgba(0, 0, 0, 0.934);
+    --primary-color-light: rgb(243, 243, 243);
+    --font-size-big : 1.4rem;
+    --font-size-small: .8rem;
+    --font-weight-middle: 550;
+    --font-weight-big : 600;
+    --text-theme-color-dark: black;
+    --text-theme-color-light: white;
+    --warning-color: rgb(172, 16, 42);
+    --icons-button-utils-color : #330099;
+    --secondary-color1 : #6730fb;
+    --secondary-color2 :  #330099;
+    --font-size-middle : 1.1rem;
+    --font-weight-small: 400;
+    --font-fam-semibold:'montserrat-semibold' , Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    --font-fam-medium: 'montserrat-medium' , Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    --font-fam-extrabold: 'montserrat-Extrabold' , Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    --font--fam-above-nom: 'montserrat' , Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+div[theme = 'light']{
+    --primary-color : var(--primary-color-light) !important;
+    --text-theme-color: var(--text-theme-color-dark);
+    --primary-color2 : var( --text-theme-color-light);
+    --secondary-color: var(--secondary-color1)
+}
+div[theme = 'dark']{
+    --primary-color : var(--primary-color-dark) !important;
+    --text-theme-color: var(--primary-color-light);
+    --primary-color2 : var(--text-theme-color-dark);
+    --secondary-color : var(--secondary-color2)
+}
 
 
 
@@ -42,7 +75,7 @@ html, body {
     height: 100%;
     scroll-snap-type: y mandatory;
  }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-color: $primary-color;}
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;}
 
 app-root{
     width: 100vw;
@@ -55,44 +88,44 @@ app-spinner{
 }
 ::-webkit-scrollbar {
     width: 5px;
-    height: 5px;
+    height: 0px;
 }
 
 ::-webkit-scrollbar-track {
-    background-color: $primary-color; 
+    background-color: var(--primary-color); 
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: $secondary-color; /* Color of the scroll bar thumb */
+    background-color: var(--secondary-color); /* Color of the scroll bar thumb */
     border-radius: 2.5px;
 }
 
 /* For Firefox */
 ::-moz-scrollbar {
     width: 5px;
-    height: 5px;
+    height: 0px;
 }
 
 ::-moz-scrollbar-track {
-    background-color: $primary-color;
+    background-color: var(--primary-color);
 }
 
 ::-moz-scrollbar-thumb {
-    background-color: $secondary-color;
+    background-color: var(--secondary-color);
     border-radius: 2.5px;
 }
 
 
 ::-ms-scrollbar {
     width: 5px;
-    height: 5px;
+    height: 0px;
 }
 
 ::-ms-scrollbar-track {
-    background-color: $primary-color;
+    background-color: var(--primary-color);
 }
 
 ::-ms-scrollbar-thumb {
-    background-color: $secondary-color;
+    background-color: var(--secondary-color);
     border-radius: 2.5px;
 }

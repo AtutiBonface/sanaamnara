@@ -1,4 +1,3 @@
-@import '../utils';
 
 .loading{
     margin-top: 100px;
@@ -9,27 +8,46 @@
     }
     p{
         text-align: center;
-        color: $secondary-color;
-        font-weight: $font-weight-middle;
-        font-size: $font-size-middle;
+        color: var(--text-theme-color);
+        font-weight: var(--font-weight-middle);
+        font-size: var(--font-size-middle);
         margin: 0;
         padding: 0;
         padding: 20px 0 20px 0;
-        font-family: 'montserrat-semibold';
+        font-family: var(--font-fam-semibold);
     }
+}.everything{
+    background-color: var(--primary-color);
+    height: 100% !important;
+    overflow: hidden;
 }
-.posts-container{
-    width: 80vw !important;
+.posts-container{    
     justify-content: center;
     display: block;
     align-items: center;
     margin-left: auto;
     margin-right: auto;
+    background-color: transparent;
+    height: fit-content;
+   
+    .pins-hero{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .pin-container{
+        width: 80vw;
+        height: fit-content;
+        width: 100vw;
+        height: 100%;
+        overflow-y: auto;
+    }
+
 
     .heading{
-        color: $icons-button-utils-color;
-        font-weight: $font-weight-middle;
-        font-family: 'montserrat-semibold';
+        color: var(--icons-button-utils-color);
+        font-weight: var(--font-weight-middle);
+        font-family: var(--font-fam-semibold);
         display: flex;
         text-align: center;
         justify-content: center;
@@ -40,7 +58,7 @@
 
         .add{
             display: block;
-            background-color: $text-theme-color-light;
+            background-color: var(--text-theme-color);
             border-radius: 10px;
             cursor: pointer;
             position: relative;
@@ -48,13 +66,13 @@
             margin: 0 auto 0 auto;
             
             p{
-                color: $secondary-color;
-                font-size: $font-size-middle;
-                font-weight: $font-weight-middle;
+                color: var(--secondary-color);
+                font-size: var(--font-size-middle);
+                font-weight: var(--font-weight-middle);
                 width: fit-content;
                 padding: 10px 20px 10px 20px;
                 margin: 0;
-                font-family: 'montserrat-semibold';
+                font-family: var(--font-fam-semibold);
             }
                      
 
@@ -66,189 +84,314 @@
         width: fit-content;
         height: fit-content;
         background-color: transparent;
-        font-family: 'montserrat-semibold';
+        font-family: var(--font-fam-semibold);
         cursor: pointer;
 
        
     }
-    .save{
-        padding:5px 10px 5px 10px;
-        position: absolute;
-        height: 40px;
-        border-radius: 15px;
-        padding: 0 10px 0 10px ;
-        color: $primary-color;
-        font-size: .9rem;
-        font-weight: bold;
-        font-family: 'montserrat-semibold';
-        top: 10px;
-        right: 10px;
-        display: none;
-        opacity: .9;
-        background-color: $icons-button-utils-color;
-
-        &:hover{
-            opacity: 1;
-        }
-    }
-    .save:disabled{
-        background-color: $text-theme-color-dark;
-        cursor: not-allowed;
-    }
-    .save.delete{
-        background-color: $warning-color;
-    }
-   
-    .upload , .more{
-        position: absolute;
-        justify-content: center;
-        align-items: center;
-        background-color: $primary-color;
-        padding: 0;
-        height: 30px;
-        width: 30px;
-        display: flex;
-
-        border-radius: 15px;
-        display: none;
-        mat-icon{
-            margin: 0;
-            padding: 0;
-            display: flex;
-            color: $icons-button-utils-color;
-            align-self: center;
-            justify-self: center;
-            vertical-align: middle;
-            margin-left: auto;
-            margin-right: auto;
-            
-        }
-    }
-    .more{
-        bottom: 10px;
-        right: 10px;
-    }
-    .upload{
-        bottom: 10px;
-        left: 10px;
-    }
-    .pins-hero{        
-        height: 100%;
-        width: 100%;
+    .pins{
         columns: 6;
+        height: fit-content;
+        overflow-y: auto;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
 
-
-        .pin-container{
-            width: fit-content;         
-            
-            padding: 0;
-            margin: 0;
-            position: relative;
+       
+      
+    }
+        
+    
+    .pin-box{
+        width: fit-content;
+        break-inside: avoid;      
+        padding: 0;
+        margin: 0;
+        .image-box{
+            position: relative;               
+            height: auto;
             cursor: pointer;
-
+            height: fit-content;               
+            padding: 0 !important;
+            margin: 0 !important; 
+            
+            &:hover{
+                .save ,.upload ,.more{
+                    display: block;
+                }
+            }
             img{
-                width: 100% !important;
+                width: 100%;
+                object-fit: cover;
                 margin: 0;
-                padding: 0;
-                border-radius: 15px;
+                border-radius: 20px;
+                min-height: 120px;
+                width: 160px !important;
 
             }
+            
+            .save{
+                padding:5px 10px 5px 10px;
+                position: absolute;
+                height: 40px;
+                border-radius: 15px;
+                padding: 0 10px 0 10px ;
+                background-color: var(--icons-button-utils-color);
+                color: var(--text-theme-color-light);
+                font-size: .9rem;
+                font-family: var(--font-fam-semibold);
+                font-weight: bold;
+                top: 10px;
+                right: 10px;
+                display: none;
+                opacity: .9;
+        
+                &:hover{
+                    opacity: 1;
+                }
+                &:disabled{
+                    background-color: var(--text-theme-color-dark);
+                    cursor: not-allowed;
+                }
+            }
+            .upload , .more{
+                position: absolute;
+                justify-content: center;
+                align-items: center;
+                background-color: var(--text-theme-color-light);
+                padding: 0;
+                height: 30px;
+                width: 30px;
+                border-radius: 15px;
+                display: none;
+                mat-icon{
+                    margin: 0;
+                    padding: 0;
+                    color: var(--icons-button-utils-color);
+                    align-self: center;
+                    justify-self: center;
+                    vertical-align: middle;
+                    
+                }
+            }
+            .more{
+                bottom: 10px;
+                right: 10px;
+            }
+            .upload{
+                bottom: 10px;
+                left: 10px;
+            }
+        }
+
+        .pin-owner-description{
+            display: flex;
+            justify-content: space-between;
+            cursor: pointer;    
             &:hover{
                 .save , .more, .upload{
                     display: block;  
                 }
-                              
+                            
             }
-            
+
+            .owner-profile{
+                width: 30px;
+                height: 30px;
+                border-radius: 15px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: var(--text-theme-color-dark);
+                font-weight: var(--font-weight-middle);
+            }
+            .description{
+                small{
+                    width: 100%;
+                    word-wrap: break-word;
+                    padding: 0;
+                    margin: 0;
+                    font-size: .6rem;
+                    color: var(--text-theme-color);
+                    font-family: var(--font-fam-semibold);
+                }
+            }
+            .phone-more{
+                display: none;
+                color: var(--icons-button-utils-color);
+            }
         }
         
+        
+        
     }
+    
+    .save:disabled{
+        background-color: var(--text-theme-color-dark);
+        cursor: not-allowed;
+    }
+    .save.delete{
+        background-color: var(--warning-color);
+    }
+   
+
+        
+    
 }
+
 
 @media only screen and (max-width: 310px) {
-    .posts-container{
+    .pin-container{
         width: 80vw !important;
-        margin-top: 10px !important;
+        margin-top: 0 !important;
+        overflow-x: hidden  !important;
     }
-    .pins-hero{        
-        columns: 1 !important;
+    .pins{        
+       columns: 1 !important;
     }
+    
+    .image-box:hover{
+        .save , .more, .upload{
+            display: none;  
+        }
+    }
+    .phone-more{
+        
+        display: block !important;
+    }
+    
    
 }
 
 
-@media only screen and (min-width: 311px) and (max-width: 500px) {
-    .posts-container{
+@media only screen and (min-width: 311px) and (max-width: 430px) {
+    .pin-container{
         width: 95vw !important;
-        margin-top: 10px !important;
+        margin-top: 0 !important;
+        overflow-x: hidden  !important;
     }
-    .pins-hero{        
+    .pins{        
         columns: 2 !important;
+    }
+    .image-box:hover{
+        .save , .more, .upload{
+            display: none !important;  
+        }
+    }
+    .phone-more{
+        display: block !important;
     }
    
 }
 
-@media only screen and (min-width: 501px) and (max-width: 650px){
-    .posts-container{
+@media only screen and (min-width: 431px) and (max-width: 650px){
+    .pin-container{
         width: 75vw !important;
-        margin-top: 10px !important;
+        margin-top: 0 !important;
+        overflow-x: hidden  !important;
     }
-    .pins-hero{        
-        columns: 2 !important;
+    .pins{ 
+        columns: 2 !important;  
+       
+        
     }
-
+    .image-box:hover{
+        .save , .more, .upload{
+            display: none !important;  
+        }
+    }
+    .phone-more{
+        display: block !important;
+    }
+    
+    
 }
 @media only screen and (min-width: 651px) and (max-width: 750px){
-    .posts-container{
+    .pin-container{
         width: 92vw !important;
-        margin-top: 10px !important;
+        margin-top: 0 !important;
+        overflow-x: hidden  !important;
     }
-    .pins-hero{        
-        columns: 3 !important;
+    .pins{ 
+        columns: 3 !important;       
+        
+    }
+    .image-box:hover{
+        .save , .more, .upload{
+            display: none !important;  
+        }
+    }
+    .phone-more{
+        display: block !important;
     }
 
 }
 @media only screen and (min-width: 751px) and (max-width: 850px) {
-    .posts-container{
+    .pin-container{
         width: 85vw !important;
-        margin-top: 10px !important;
+        margin-top: 0 !important;
     }
-    .pins-hero{        
-        columns: 3 !important;
+    .pins{        
+        columns: 4 !important;
+    }
+    .image-box:hover{
+        .save , .more, .upload{
+            display: none !important;  
+        }
+    }
+    .phone-more{
+        display: block !important;
     }
     
 }
 @media only screen and (min-width: 851px) and (max-width: 1000px) {
-    .posts-container{
-        width: 70vw !important;
-        margin-top: 10px !important;
+    .pin-container{
+        width: 80vw !important;
+        margin-top: 0 !important;
+        overflow-x: hidden  !important;
     }
-    .pins-hero{        
-        columns: 3 !important;
+    .image-box:hover{
+        .save , .more, .upload{
+            display: none !important;  
+        }
     }
+    .pins{    
+        columns: 4 !important;   
+        
+    }
+    .phone-more{
+        display: block !important;
+    }
+    
 }
 
 @media only screen and (min-width: 1001px) and (max-width: 1100px) {
-    .posts-container{
+    .pin-container{
         width: 80vw !important;
     }
-    .pins-hero{        
-        columns: 4 !important;
+    .pins{        
+        columns: 5 !important; 
     }
 }
 @media only screen and (min-width: 1101px) and (max-width: 1300px) {
-    .posts-container{
+    .pin-container{
         width: 95vw !important;
     }
-    .pins-hero{        
-        columns: 5 !important;
+    .pins{        
+        columns: 5 !important; 
     }
 }
 @media only screen and (min-width: 1301px) and (max-width: 1400px) {
-    .posts-container{
+    .pin-container{
         width: 90vw !important;
     }
-    .pins-hero{        
-        columns: 5 !important;
+    .pins{        
+        columns: 6  !important;  
     }
 }
+
+
+
+
+  
+ 

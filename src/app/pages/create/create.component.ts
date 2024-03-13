@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule, Location } from '@angular/common';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { SpinnerComponent } from '../../utils/spinner/spinner.component';
@@ -10,6 +10,7 @@ import { EMPTY, Subscription, catchError } from 'rxjs';
 import { error } from 'console';
 import { AllpinsService } from '../../services/allpins.service';
 import { CommonUtilsService } from '../../services/common-utils.service';
+import { TaswiraThemeDirective } from '../../directives/taswira-theme.directive';
 
 @Component({
   selector: 'app-create',
@@ -21,6 +22,7 @@ import { CommonUtilsService } from '../../services/common-utils.service';
     HttpClientModule,
     MatIconModule,
     ToolbarComponent,
+    TaswiraThemeDirective
   ],
   providers: [
     CommonUtilsService,
@@ -40,7 +42,6 @@ export class CreateComponent implements OnInit, OnDestroy{
   file_inputed : boolean = false
   file_input_classname  : string= ''
 
-  private api_create_url = 'http://localhost:8000/pins/create'
 
   formDescData! : FormGroup;
   
@@ -54,6 +55,7 @@ export class CreateComponent implements OnInit, OnDestroy{
     private http: HttpClient,
     private service : AllpinsService,
     private utils: CommonUtilsService,
+    private location: Location
     ){
     this.fileData = this.fb.group({
       imagePost:[
@@ -98,7 +100,7 @@ export class CreateComponent implements OnInit, OnDestroy{
 
     
 
-    this.http.post(this.api_create_url, Data, this.utils.returnHeaders()).pipe(
+    this.http.post(this.utils.create_pin_url, Data, this.utils.returnHeaders()).pipe(
       catchError((err: HttpErrorResponse)=>{
         if(err){
           console.log(err.error)
@@ -188,6 +190,10 @@ export class CreateComponent implements OnInit, OnDestroy{
     $event.preventDefault()
    
 
+  }
+
+  moveBack(){
+    this.location.back()
   }
 
   ngOnDestroy(): void {

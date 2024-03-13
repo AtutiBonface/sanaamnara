@@ -5,10 +5,9 @@ import { CreateComponent } from './pages/create/create.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { SavedpostsComponent } from './pages/savedposts/savedposts.component';
 import { MypostsComponent } from './pages/myposts/myposts.component';
-import { UnauthenticatedComponent } from './pages/unauthenticated/unauthenticated.component';
-import { PopupComponent } from './utils/popup/popup.component';
 
 export const routes: Routes = [
+    
     {
         path: '',
         component: HomeComponent,
@@ -16,7 +15,7 @@ export const routes: Routes = [
     },
     {
         path: 'unauth',
-        component: UnauthenticatedComponent,
+        loadComponent: ()=> import('./pages/unauthenticated/unauthenticated.component').then(e=>e.UnauthenticatedComponent),
         canActivate: [Restrictions]   
 
     },
@@ -49,6 +48,7 @@ export const routes: Routes = [
         canActivate: [canActivateTeam]
 
     },
+    
     
     
     

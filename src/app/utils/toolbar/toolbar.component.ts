@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component,OnInit} from '@angular/core';
+import { Component,OnInit, Output} from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { SearchAutoCompleteComponent } from '../search-auto-complete/search-auto-complete.component';
@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 import { Subject} from 'rxjs';
 import { CommonUtilsService } from '../../services/common-utils.service';
 import { MobileSearchComponent } from '../../pages/mobile-search/mobile-search.component';
+import { TaswiraThemeDirective } from '../../directives/taswira-theme.directive';
 
 @Component({
   selector: 'app-toolbar',
@@ -19,7 +20,8 @@ import { MobileSearchComponent } from '../../pages/mobile-search/mobile-search.c
     MatToolbarModule,
     ReactiveFormsModule,
     SearchAutoCompleteComponent,
-    MobileSearchComponent
+    MobileSearchComponent,
+    TaswiraThemeDirective,
   ],
   providers: [
   ],
@@ -34,7 +36,6 @@ export class ToolbarComponent  implements OnInit{
 
   openSearchAutoComplete : boolean = false
   is_logged_in = false
-  private users_url = 'http://localhost:8000/accounts/users'
 
   profile_username : any;
   profile_subject: Subject<any> = new Subject<any>()
@@ -46,11 +47,24 @@ export class ToolbarComponent  implements OnInit{
 
   open_mobile_search_popup = false
 
+
+  @Output() reloadPage : Subject<boolean> = new Subject<boolean>()
+
   constructor(
     private http: HttpClient, 
     private fb: FormBuilder, 
     private router: Router,
     private utils: CommonUtilsService){
+
+    let token! :any;
+
+    let is_server = typeof window === 'undefined'
+
+    if(!is_server){
+      this.profile_username = localStorage.getItem('user')
+    }
+
+
     this.searchData = this.fb.group({
       query:[
         '',
@@ -93,23 +107,18 @@ export class ToolbarComponent  implements OnInit{
   }
   navigateToHome() {
     this.open_mobile_search_popup = false
-    this.router.navigate([''])    
-  }
-  MyProfileName(){ 
-    this.open_mobile_search_popup = false   
-    this.utils.profile_subject.subscribe((data)=>{
-      this.profile_username = data['username']
-    })
+    this.router.navigate([''])  
+    
+    this.reloadPage.next(true)
 
   }
+  
   
   navigateToMobileNotify() {
     this.open_mobile_search_popup = false
     
   }
   ngOnInit(): void {
-    this.utils.ProfileName()
-    this.MyProfileName()
     this.searchQuery()
 
   }

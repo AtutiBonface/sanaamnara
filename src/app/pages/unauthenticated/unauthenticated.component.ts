@@ -23,12 +23,14 @@ import { AuthenticatedUsersService } from '../../services/authenticated-users.se
 })
 export class UnauthenticatedComponent {
 
+
+  timestamp = `?timestamp=${new Date().getTime()}`
+
   
 
   constructor(
     private service: AuthenticatedUsersService
-  ){
-
+  ){   
     
 
   }  

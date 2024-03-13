@@ -12,7 +12,14 @@ $text-theme-color-light: white;
 $warning-color: rgb(172, 16, 42);
 
 
-
+.everything{
+    background-color: var(--primary-color);
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    margin-top: 0 !important;
+    
+}
 
 .create-hero{
     width: 100vw;
@@ -189,6 +196,27 @@ $warning-color: rgb(172, 16, 42);
 
     
 }
+.back{
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    border: none;
+    background-color: var(--text-theme-color);
+    width: fit-content;
+    height: fit-content;
+    height: 40px;
+    width: 40px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    mat-icon{
+        color: var(--icons-button-utils-color);            
+        height: 30px;
+        width: 30px;
+        font-size: 30px;
+    }
+}
 
 
 .post-description{
@@ -255,6 +283,7 @@ $warning-color: rgb(172, 16, 42);
     .Publish-btn{
         top: 20px !important;
     }
+    
     
     
     .drag-drop-container{

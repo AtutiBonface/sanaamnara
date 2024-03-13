@@ -1,49 +1,16 @@
-$primary-color : rgb(243, 243, 243);
-$secondary-color : #6730fb;
-$icons-button-utils-color : #330099;
-$font-size-big : 1.4rem;
-$font-size-middle : 1.1rem;
-$font-size-small: .8rem;
-$font-weight-small: 400;
-$font-weight-middle: 550;
-$font-weight-big : 600;
-$text-theme-color-dark: black;
-$text-theme-color-light: white;
-$warning-color: rgb(172, 16, 42);
-@font-face {
-    font-family: 'montserrat';
-    src: url("/assets/fonts/Montserrat-Black.ttf") format('truetype');
-    font-weight: normal;
-    
-}
-@font-face {
-    font-family: 'montserrat-semibold';
-    src: url("/assets/fonts/Montserrat-SemiBold.ttf") format('truetype');
-    font-weight: normal;
-    
-}
-@font-face {
-    font-family: 'montserrat-Extrabold';
-    src: url("/assets/fonts/Montserrat-ExtraBold.ttf") format('truetype');
-    font-weight: normal;
-    
-}
-@font-face {
-    font-family: 'montserrat-medium';
-    src: url("/assets/fonts/Montserrat-Light.ttf") format('truetype');
-    font-weight: normal;
-    
-}
+
+
 
 .checkout-hero{
     /* height of  fixed toolbar */
     width: 100vw;
     height: 100vh;
     margin-top: 70px;
-    background-color: $primary-color;
+    overflow-y: auto;
+    background-color: var(--primary-color);
     
     mat-icon{
-        color: $icons-button-utils-color;
+        color: var(--icons-button-utils-color);
         
 
     }
@@ -54,12 +21,13 @@ $warning-color: rgb(172, 16, 42);
 
 
     .checkout-box{
-        width: 70vw;
+        
+        width: 50vw;
         padding: 0;
         margin: 0;
         margin-left: auto;
         margin-right: auto;
-        background-color:$text-theme-color-light;
+        background-color: var(--text-theme-color);
         height: fit-content;
         display: grid;
         justify-content: center;
@@ -76,12 +44,29 @@ $warning-color: rgb(172, 16, 42);
             padding: 0;
             margin: 0;
             display: flex;
+            position: relative;
             justify-content: left;
+            mat-icon{
+                left: 15px;
+                top: 15px;
+                cursor: pointer;                
+                font-size: 3rem;
+                color: var(--secondary-color);
+                border-radius: 50%;
+                overflow: hidden;
+                position: absolute;
+                z-index: 100;
+                width: fit-content;
+                height: fit-content;
+                outline: none;
+                background-color: var(--primary-color);
+
+            }
             
 
             img{
                 width: 100%;
-                max-height: 80vh; 
+                height: auto; 
                 justify-self: left;
                 vertical-align: middle; 
                 object-fit: scale-down;              
@@ -94,6 +79,7 @@ $warning-color: rgb(172, 16, 42);
             width: 100%;
             display: block;
             position: relative;
+            background-color: var(--primary-color2);
 
             .post-actions{
                 height: 70px;
@@ -101,10 +87,15 @@ $warning-color: rgb(172, 16, 42);
                 width: calc(100% - 30px);
                 justify-content: space-between;
                 align-items: center;
+                margin-left: auto;
+                margin-right: auto;
                 button{
                     background-color: transparent;
                     border: none;
                     cursor: pointer;
+                    padding-left: 10px;
+                    padding-right: 10px;
+                    margin: 10px;
 
                 }
                 .left-icons{
@@ -112,17 +103,25 @@ $warning-color: rgb(172, 16, 42);
                     align-items: center;
                     justify-items: center;
                     justify-content: center;
+                    width: fit-content;
+                    mat-icon{
+                        font-size: 2rem ;
+                        width: fit-content;
+                        height: fit-content;
+                        color: var(--icons-button-utils-color);
+                        
+                    }
                 }
                 .save{
                     height: 40px;
                     border-radius: 15px;
                     padding: 0 15px 0 15px ;
-                    font-family: 'montserrat-semibold';
-                    background-color: $icons-button-utils-color;
-                    color: $primary-color;
-                    font-size: $font-size-middle;
-                    font-weight: $font-weight-middle;font-size: $font-size-middle;
-                    font-weight: $font-weight-middle;
+                    font-family: var(--font-fam-semibold);
+                    background-color: var(--icons-button-utils-color);
+                    color: var(--text-theme-color-light);
+                    font-size: var(--font-size-middle);
+                    font-weight:var(--font-weight-middle);font-size: var(--font-size-middle);
+                    font-weight: var(--font-weight-middle);
         
                     opacity: .9;            
         
@@ -132,7 +131,7 @@ $warning-color: rgb(172, 16, 42);
                     }
 
                     &:disabled{
-                        background-color: $text-theme-color-dark;
+                        background-color: gray;
                         cursor: not-allowed;
                     }
                 }
@@ -165,11 +164,11 @@ $warning-color: rgb(172, 16, 42);
                         height: 36px !important;
                         width: 36px !important;
                         border-radius: 18px;
-                        font-weight: $font-weight-middle;
-                        font-size: $font-size-small;
-                        color: $text-theme-color-light;
+                        font-weight: var(--font-weight-middle);
+                        font-size: var(--font-size-small);
+                        color: var(--text-theme-color-light);
                         display: flex;
-                        background-color: indigo;
+                        background-color: var(--icons-button-utils-color);
                         border-radius: 20px;
                         margin: 0;
                         justify-content: center;
@@ -182,14 +181,15 @@ $warning-color: rgb(172, 16, 42);
                     p{
                         margin: 0;
                         padding: 0;
-                        font-family: 'montserrat-semibold';
+                        font-family: var(--font-fam-semibold);
                         width: fit-content;
                         display: block;
-                        height: $font-size-middle;
-                        font-size: $font-size-small;
+                        height: var(--font-size-middle);
+                        font-size: var(--font-size-small);
+                        color: var(--text-theme-color);
                         span{
-                            color: $icons-button-utils-color;
-                            font-weight: $font-weight-big;
+                            color: var(--icons-button-utils-color);
+                            font-weight: var(--font-weight-big);
                             margin-right: 5px;
                         }
                     }
@@ -199,17 +199,17 @@ $warning-color: rgb(172, 16, 42);
                     background-color: transparent;
                     border-radius: 20px;
                     height: 40px;
-                    border: 2px solid $icons-button-utils-color;
-                    color: $icons-button-utils-color;
+                    border: 2px solid var(--icons-button-utils-color);
+                    color: var(--icons-button-utils-color);
                     padding: 0 15px 0 15px;
-                    font-size: $font-size-middle;
-                    font-weight: $font-weight-middle; 
-                    font-family: 'montserrat-semibold';  
+                    font-size: var(--font-size-middle);
+                    font-weight: var(--font-weight-middle); 
+                    font-family: var(--font-fam-semibold);  
                     cursor: pointer;  
                     
                     &:hover{
-                        background-color: $icons-button-utils-color;
-                        color: $primary-color;
+                        background-color: var(--icons-button-utils-color);
+                        color: var(--primary-color);
                         transition: ease 1s;
                     }
                 }
@@ -225,12 +225,12 @@ $warning-color: rgb(172, 16, 42);
                 width: calc(100% - 20px);
                 margin: 0 auto 0 auto;
                 h1{
-                    font-size: $font-size-middle;
-                    font-weight: $font-weight-middle;
-                    color: $icons-button-utils-color;
+                    font-size: var(--font-size-middle);
+                    font-weight: var(--font-weight-middle);
+                    color: var(--icons-button-utils-color);
                     margin: 0;
                     padding: 0;
-                    font-family: 'montserrat-semibold';
+                    font-family: var(--font-fam-semibold);
                 }
                 .comment-commenter{
                     .comment{
@@ -241,9 +241,9 @@ $warning-color: rgb(172, 16, 42);
                             width: 26px;
                             height: 26px;
                             border-radius: 14px;
-                            background-color: $primary-color;
+                            background-color: var(--text-theme-color);
                             font-size: .7rem;
-                            color: $icons-button-utils-color;
+                            color: var(--primary-color);
                             display: flex;
                             vertical-align: middle;
                             justify-content: center;
@@ -254,20 +254,21 @@ $warning-color: rgb(172, 16, 42);
                         p{
                             padding: 0;
                             margin: 0;
-                            font-size: $font-size-small;
+                            font-size: var(--font-size-small);
                             word-wrap: break-word;
                             display: flex;
                             justify-items: left;
                             text-align:left;
                             justify-content: left;
-                            height: $font-size-middle;
+                            height: var(--font-size-middle);
+                            color: var(--text-theme-color);
                             vertical-align: middle;
-                            font-family: 'montserrat-semibold';
+                            font-family: var(--font-fam-semibold);
                            
                         
                             span{
-                                font-weight: $font-weight-middle;
-                                font-size: $font-size-middle;
+                                font-weight: var(--font-weight-middle);
+                                font-size: var(--font-size-middle);
                                 margin-left: 5px;
                                 margin-right: 5px;
                                 
@@ -284,10 +285,11 @@ $warning-color: rgb(172, 16, 42);
                             margin: 0;
                             justify-content: space-between;
                             max-width: 170px;
+                            color: var(--text-theme-color);
                             margin-left: 30px;
                             align-items: center;
-                            font-family: 'montserrat-medium';
-                            font-weight: $font-size-big;
+                            font-family: var(--font-fam-medium);
+                            font-weight: var(--font-size-big);
                         }
                         mat-icon{
                             font-size: 20px;
@@ -312,15 +314,15 @@ $warning-color: rgb(172, 16, 42);
                     display: flex;
                     justify-content: space-between;
                     p{
-                        font-size: $font-size-middle;
-                        font-weight: $font-weight-middle;
-                        line-height: $font-size-middle;
-                        color: $icons-button-utils-color;
-                        font-family: 'montserrat-semibold';
+                        font-size: var(--font-size-middle);
+                        font-weight: var(--font-weight-middle);
+                        line-height: var(--font-size-middle);
+                        color: var(--icons-button-utils-color);
+                        font-family: var(--font-fam-semibold);
                         margin: 0;
                         padding: 0;
                         text-align: center;
-                        height: $font-size-middle;
+                        height: var(--font-size-middle);
                         vertical-align: middle;
                     }
                     .right{
@@ -333,12 +335,12 @@ $warning-color: rgb(172, 16, 42);
                         justify-content: center;
                         align-items: center;
                         display: flex;
-                        font-size: $font-size-small;
+                        font-size: var(--font-size-small);
                     }
                     button{
                         background-color: transparent;
                         border: none;
-                        background-color: $primary-color;
+                       
                         justify-content: center;
                         display: flex;
                         align-items: center;
@@ -364,10 +366,10 @@ $warning-color: rgb(172, 16, 42);
                         height: 36px !important;
                         width: 36px !important;
                         border-radius: 18px;
-                        font-weight: $font-weight-middle;
-                        font-size: $font-size-small;
-                        font-family: 'montserrat-semibold';
-                        color: $text-theme-color-light;
+                        font-weight: var(--font-weight-middle);
+                        font-size: var(--font-size-small);
+                        font-family: var(--font-fam-semibold);
+                        color: var(--text-theme-color-light);
                         display: flex;
                         background-color: indigo;
                         border-radius: 20px;
@@ -382,7 +384,7 @@ $warning-color: rgb(172, 16, 42);
                         background-color: transparent;
                         height: 40px;
                         border-radius: 20px;
-                        border: 2px solid $secondary-color;
+                        border: 2px solid var(--secondary-color);
                         padding: 0;
                         overflow: hidden;
                         margin: 0;
@@ -395,18 +397,18 @@ $warning-color: rgb(172, 16, 42);
                             height: 40px;
                             padding: 5px 10px 5px 10px;
                             background-color: transparent;
-                            color: $text-theme-color-dark;
+                            color: var(--text-theme-color);
                             display: flex;
                             justify-content: center;
                             align-items: center;
-                            font-weight: $font-weight-middle;
+                            font-weight: var(--font-weight-middle);
                             outline: none;
                             border: none;
                             resize: none;
                             width: calc(100% - 20px);
                             height: 100%;
-                            font-size: $font-size-middle;
-                            font-family: 'montserrat-semibold';
+                            font-size:var( --font-size-middle);
+                            font-family: var(--font-fam-semibold);
                         }
                         .emoji-box{
                             position: absolute;
@@ -436,10 +438,10 @@ $warning-color: rgb(172, 16, 42);
         justify-content: center;
         align-items: center;
         margin: 16px 0 16px 0;
-        font-weight: $font-weight-big;
-        color: $icons-button-utils-color;
-        font-size: $font-size-big;
-        font-family: 'montserrat-semibold';
+        font-weight: var(--font-weight-big);
+        color: var(--icons-button-utils-color);
+        font-size: var(--font-size-big);
+        font-family: var(--font-fam-semibold);
     }
 
     
@@ -482,7 +484,7 @@ $warning-color: rgb(172, 16, 42);
                 padding:5px 10px 5px 10px;
                 position: absolute;
                 border-radius: 20px;
-                background-color: purple;
+                background-color: var(--secondary-color);
                 color: white;
                 font-size: .9rem;
                 font-weight: bold;
@@ -507,7 +509,7 @@ $warning-color: rgb(172, 16, 42);
                 mat-icon{
                     margin: 0;
                     padding: 0;
-                    color: purple;
+                    color: var(--secondary-color);
                     align-self: center;
                     justify-self: center;
                     vertical-align: middle;
