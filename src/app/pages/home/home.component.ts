@@ -148,7 +148,7 @@ export class HomeComponent implements OnInit, OnDestroy{
     this.open_popup = true
     this.IdForpopup = id
 
-    this.image_url = image;
+    this.image_url = image
 
     
   }

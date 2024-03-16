@@ -7,7 +7,7 @@ import { EMPTY, Subject, catchError } from 'rxjs';
 })
 export class CommonUtilsService {
 
-  domain_url = 'http://localhost:8000'
+  domain_url = 'https://api.imaginekenya.site'
   users_url = `${this.domain_url}/accounts/users`
 
   login_url = `${this.domain_url}/accounts/login/`
