@@ -24,6 +24,7 @@
     margin: 0;
     position: relative;
     overflow-x: hidden;
+    padding-top: 20px;
     overflow-y: auto; 
     background-color:var(--primary-color);   
     mat-toolbar{
@@ -87,7 +88,7 @@
         justify-content: center;
         
         .pins{
-            columns: 6;
+            columns: 7;
             width: fit-content;
           
         }
@@ -102,11 +103,32 @@
             margin: 0;
             .image-box{
                 position: relative;               
-                height: auto;
+               
                 cursor: pointer;
                 height: fit-content;               
                 padding: 0 !important;
                 margin: 0 !important; 
+                border-radius: 20px;  
+                overflow: hidden;
+                background-color: white;
+                min-width: 110px;
+                min-width: 110px;
+                border: none;
+                
+                .wave{
+                    position: absolute;
+                    height: 100%;
+                    width: 10px;
+                    background-color: var(--text-theme-color-dark);
+                    opacity: .2;
+                    filter: blur(20px);
+                    animation: wave 1.5s infinite 100ms;
+                }
+
+                @keyframes wave {
+                    from{left : 0}
+                    to{left : 100%}                    
+                }
                 
                 &:hover{
                     .save ,.upload ,.more{
@@ -115,13 +137,21 @@
                 }
                 img{
                     width: 100%;
-                    object-fit: cover;
+                    object-fit: contain;
                     margin: 0;
-                    border-radius: 20px;
-                    min-height: 120px;
-                    width: 160px !important;
+                    height: 100% !important;
+                    opacity: 0;
+                    border: none;
 
                 }
+                img.block{
+                    opacity: 1;
+                }
+
+
+                
+                
+                
                 
                 .save{
                     padding:5px 10px 5px 10px;
@@ -181,12 +211,7 @@
                 display: flex;
                 justify-content: space-between;
                 cursor: pointer;    
-                &:hover{
-                    .save , .more, .upload{
-                        display: block;  
-                    }
-                                
-                }
+                
 
                 .owner-profile{
                     width: 30px;
@@ -213,6 +238,10 @@
                     display: none;
                     color: var(--icons-button-utils-color);
                 }
+            }
+
+            .pin-owner-description.block{
+                display: flex;
             }
             
             
@@ -269,7 +298,7 @@
 
 @media only screen and (min-width: 431px) and (max-width: 650px){
     .home-container{
-        width: 75vw !important;
+        width: 95% !important;
         margin-top: 0 !important;
         overflow-x: hidden  !important;
     }
@@ -311,11 +340,11 @@
 }
 @media only screen and (min-width: 751px) and (max-width: 850px) {
     .home-container{
-        width: 85vw !important;
+        width: 90vw !important;
         margin-top: 0 !important;
     }
     .pins{        
-        columns: 4 !important;
+        columns: 3 !important;
     }
     .image-box:hover{
         .save , .more, .upload{
@@ -329,7 +358,7 @@
 }
 @media only screen and (min-width: 851px) and (max-width: 1000px) {
     .home-container{
-        width: 80vw !important;
+        width: 90vw !important;
         margin-top: 0 !important;
         overflow-x: hidden  !important;
     }
@@ -372,6 +401,15 @@
         columns: 6  !important;  
     }
 }
+@media only screen and (min-width: 1401px){
+    .home-container{
+        width: 85vw !important;
+    }
+    .pins{        
+        columns: 6  !important;  
+    }
+}
+
 
 
 

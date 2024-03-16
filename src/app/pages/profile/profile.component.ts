@@ -29,6 +29,7 @@ import { TaswiraThemeDirective } from '../../directives/taswira-theme.directive'
 })
 export class ProfileComponent implements OnInit, OnDestroy {
 
+
   darkTheme : boolean = false
 
   activatedRouteParam : any;
@@ -60,14 +61,13 @@ export class ProfileComponent implements OnInit, OnDestroy {
     ){
     this.activatedRouteParam = this.activatedRoute.snapshot.params['username']
   }
-    Logout() {
+    navigateEditProfile() {
+      this.router.navigate(['profile/changes'])
+    }
+    
 
-      let is_server = typeof window === 'undefined'
-      if(!is_server){
-        localStorage.clear()
-      }
-      this.router.navigate([''])
-      
+    navigateToSettings() {
+      this.router.navigate(['my/_settings'])
     }
 
   

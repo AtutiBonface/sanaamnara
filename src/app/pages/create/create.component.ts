@@ -41,6 +41,7 @@ export class CreateComponent implements OnInit, OnDestroy{
   preview_image_url : string = ''
   file_inputed : boolean = false
   file_input_classname  : string= ''
+  imageDimension : any ;
 
 
   formDescData! : FormGroup;
@@ -93,6 +94,7 @@ export class CreateComponent implements OnInit, OnDestroy{
     
 
     Data.append('image', this.file)
+    Data.append('dimensions', this.imageDimension)
     Data.append('title', this.formDescData.get('title')?.value)
     Data.append('description', this.formDescData.get('description')?.value)
     Data.append('link', this.formDescData.get('link')?.value)
@@ -143,10 +145,28 @@ export class CreateComponent implements OnInit, OnDestroy{
 
     const file = $event.target?.files
 
+    
+
     if(file){
       if(file.length > 0){
         this.file = file[0]
+
+       
+          const image = new Image()          
+
+          image.onload = ()=>{
+            const width = image.width
+            const height = image.height
+
+            
+            this.imageDimension = `${width}x${height}`
+          }
+
+          
+
+       
         const imageUrl = URL.createObjectURL(file[0])
+        image.src = imageUrl
         this.file_inputed = true
         this.preview_image_url = imageUrl
         this.file_input_classname  = 'displayNone'
@@ -161,7 +181,16 @@ export class CreateComponent implements OnInit, OnDestroy{
     }else if(!file){
       if($event.length > 0){
         this.file = $event[0]
+        const image = new Image()
+        image.onload = ()=>{
+          const width = image.width
+          const height = image.height
+
+          
+          this.imageDimension = `${width}x${height}`
+        }
         const imageUrl = URL.createObjectURL($event[0])
+        image.src = imageUrl
         this.file_inputed = true
         this.preview_image_url = imageUrl
         this.file_input_classname  = 'displayNone'        

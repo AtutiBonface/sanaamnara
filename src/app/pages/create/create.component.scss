@@ -1,15 +1,4 @@
-$primary-color : rgb(243, 243, 243);
-$secondary-color : #6730fb;
-$icons-button-utils-color : #330099;
-$font-size-big : 1.4rem;
-$font-size-middle : 1.1rem;
-$font-size-small: .8rem;
-$font-weight-small: 400;
-$font-weight-middle: 550;
-$font-weight-big : 600;
-$text-theme-color-dark: black;
-$text-theme-color-light: white;
-$warning-color: rgb(172, 16, 42);
+
 
 
 .everything{
@@ -18,6 +7,16 @@ $warning-color: rgb(172, 16, 42);
     height: 100vh;
     width: 100vw;
     margin-top: 0 !important;
+    padding-top: 10px;
+    .top-actions{
+        height: fit-content;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 5px 10px 5px 10px;
+        
+        
+    }
     
 }
 
@@ -25,13 +24,15 @@ $warning-color: rgb(172, 16, 42);
     width: 100vw;
     height: fit-content;
     margin: 0;
+
     padding: 0;
-    margin-top: 70px !important;
+    padding: 10px;
+    border-radius: 20px;
     margin-right: auto;
     margin-left: auto;
     display: grid;
     grid-template-columns: 300px 300px;
-    background-color: $primary-color;
+    background-color: var(--card-bgcolor);
     width: fit-content;
 
     .form1{
@@ -64,24 +65,24 @@ $warning-color: rgb(172, 16, 42);
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: $primary-color;
-            border: 1px solid $icons-button-utils-color;
+            background-color: transparent;
+            border: 1px solid var(--icons-button-utils-color);
             box-shadow: 2px 2px 5px black;
             width: 30px;
             height: 30px;
-            font-family: 'montserrat-semibold';
+            font-family: var(--font-fam-semibold);
             padding: 0;
             margin: 0;
             cursor: pointer;
             border-radius: 15px;
             &:hover{
-                background-color: $secondary-color;
-                color: $primary-color;
+                background-color: var(--secondary-color);
+                color: var(--icons-button-utils-color);
             }
             mat-icon{
                 padding: 0;
                 margin: 0;
-                color: $icons-button-utils-color;
+                color:var( --icons-button-utils-color);
 
                 
             }
@@ -91,7 +92,7 @@ $warning-color: rgb(172, 16, 42);
         display: flex;
         justify-content: center;
         align-items: center;
-        background-color: $text-theme-color-light;
+        background-color: var(--primary-color2);
         width: 260px;
         height: 260px;
         border-radius: 20px;
@@ -101,16 +102,16 @@ $warning-color: rgb(172, 16, 42);
         .input-container{
             width: 100%;
             height: 100%;
-            border: 2px dashed $secondary-color;
+            border: 2px dashed var(--secondary-color);
             border-radius: 20px;
-            background-color: $primary-color;
+            background-color: var(--primary-color);
             overflow: hidden;
         }
         label{
            display: block;
            height: 260px;
            width: 260px;
-           font-family: 'montserrat-semibold';
+           font-family: var(--font-fam-semibold);
         }
         
 
@@ -123,23 +124,23 @@ $warning-color: rgb(172, 16, 42);
 }
 
 .Publish-btn{
-    position: absolute;
+   
     cursor: pointer;
     display: flex;
-    top: 70px;// height of navbar included
-    right: 10px;
-    background-color: $icons-button-utils-color;
-    color: $primary-color;
-    border: 2px solid $icons-button-utils-color;
+   // height of navbar included
+    
+    background-color: var(--icons-button-utils-color);
+    color: var( --primary-color2);
+    border: 2px solid var(--icons-button-utils-color);
     padding: 0 15px 0 15px;
     height: 40px;
     border-radius: 20px;
-    font-weight: $font-weight-middle;
-    font-size: $font-size-small;
+    font-weight: var(--font-weight-middle);
+    font-size: var(--font-size-small);
     justify-content: center;
     align-items: center;
     min-width: 110px;
-    font-family: 'montserrat-semibold';
+    font-family: var(--font-fam-semibold);
     &:disabled{
         opacity: .3;
         cursor: not-allowed;
@@ -151,18 +152,18 @@ $warning-color: rgb(172, 16, 42);
         justify-self: center;
     }
     .process.processing{
-        color: $icons-button-utils-color;
+        color: var(--icons-button-utils-color);
         padding-left: 5px;
     }
 }
 .Publish-btn.processing{
-    background-color: $primary-color;
-    color: $icons-button-utils-color;
+    background-color: var(--primary-color);
+    color:var( --icons-button-utils-color);
 }
 .drag-drop-captions{
     justify-content: center;
     mat-icon{
-        color: $secondary-color;
+        color: var( --secondary-color);
         font-size: 80px;
         width: 100px;
         height: 100px;
@@ -179,29 +180,27 @@ $warning-color: rgb(172, 16, 42);
         margin: 0;
         text-align: center;
         margin-top: 20%;
-        font-size: $font-size-middle;
-        font-weight: $font-weight-middle;
-        line-height: $font-size-middle;
-        font-family: 'montserrat-semibold';
+        font-size:  var(--font-size-middle);
+        font-weight: var(--font-weight-middle);
+        line-height: var(--font-size-middle);
+        font-family: var(--font-fam-semibold);
     }
     p{
         padding: 0;
         margin: 0;
         text-align: center;
-        font-size: $font-size-small;
-        font-weight: $font-weight-middle;
-        color: $icons-button-utils-color;
-        font-family: 'montserrat-semibold';
+        font-size: var(--font-size-small);
+        font-weight: var(--font-weight-middle);
+        color: var(--icons-button-utils-color);
+        font-family: var(--font-fam-semibold);
     }
 
     
 }
 .back{
-    position: absolute;
-    top: 20px;
-    left: 20px;
+   
     border: none;
-    background-color: var(--text-theme-color);
+    background-color: var(--text-theme-color-light);
     width: fit-content;
     height: fit-content;
     height: 40px;
@@ -242,22 +241,23 @@ $warning-color: rgb(172, 16, 42);
             
         }
         label{
-            font-size: $font-size-small;
-            font-weight: $font-weight-middle;
+            font-size: var(--font-size-small);
+            font-weight: var( --font-weight-middle);
             display: block;
-            font-family: 'montserrat-semibold';
+            font-family: var(--font-fam-semibold);
         }
         input, textarea{
             background-color: transparent;
-            border: 2px solid $secondary-color;
+            border: 2px solid  var(--secondary-color);
             border-radius: 10px;
+            color: var(--text-theme-color);
             resize: none;
             outline: none;
             width: calc(100% - 22px);
             height: 40px;
             padding: 0;
             padding: 0 10px 0 10px;
-            font-family: 'montserrat-semibold';
+            font-family: var(--font-fam-semibold);
             
         }
         #description{
@@ -280,9 +280,7 @@ $warning-color: rgb(172, 16, 42);
         display: block !important;
         
     }
-    .Publish-btn{
-        top: 20px !important;
-    }
+    
     
     
     
@@ -291,14 +289,14 @@ $warning-color: rgb(172, 16, 42);
         height: fit-content !important;
         padding: 0 !important;
         .input-container{
-            border: 2px solid $secondary-color !important;
+            border: 2px solid var( --secondary-color) !important;
             label{
                 display: block;
                 height: fit-content !important;
                 width: fit-content !important;
                 padding: 10px;                
-                font-family: 'montserrat-semibold';
-                background-color: $text-theme-color-light;
+                font-family: var(--font-fam-semibold);
+                background-color: var(--text-theme-color);
              } 
 
         }
@@ -313,12 +311,19 @@ $warning-color: rgb(172, 16, 42);
                 display: none;
             }
             p{
-                color: $secondary-color;
+                color: var(--secondary-color);
                 span{
                     display: none;
                 }
             }
         }
     }
+}
+
+@media screen and (min-width : 1001px){
+    .top-actions{
+        margin-top: 70px !important;
+    }
+
 }
 

@@ -1,14 +1,17 @@
 
 <div class="everything" TaswiraTheme>
     <app-toolbar></app-toolbar>
-    <button class="back" (click)="moveBack()">
-        <mat-icon >navigate_before</mat-icon>
-    </button>
-    
-    <button type="submit" class="Publish-btn"  (click)="onSubmitPost()" [ngClass]="process_class_name" [disabled]="fileData.invalid && fileData.invalid">
-        <app-spinner *ngIf="form_is_submited"></app-spinner>
-        <div class="process" [ngClass]="process_class_name">{{process_name}}</div>                   
-    </button>    
+    <div class="top-actions">
+        <button class="back" (click)="moveBack()">
+            <mat-icon >navigate_before</mat-icon>
+        </button>
+        
+        <button type="submit" class="Publish-btn"  (click)="onSubmitPost()" [ngClass]="process_class_name" [disabled]="fileData.invalid && fileData.invalid">
+            <app-spinner *ngIf="form_is_submited"></app-spinner>
+            <div class="process" [ngClass]="process_class_name">{{process_name}}</div>                   
+        </button>  
+    </div>
+      
     <div class="create-hero" (dragover)="onFileDragOver($event)"> 
         <div class="form1">
             <div class="preview-upload" *ngIf="file_inputed">

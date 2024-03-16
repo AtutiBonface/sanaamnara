@@ -10,6 +10,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { SpinnerComponent } from '../../utils/spinner/spinner.component';
 import { ToolbarComponent } from '../../utils/toolbar/toolbar.component';
 import { TaswiraThemeDirective } from '../../directives/taswira-theme.directive';
+import { DimensionsDirective } from '../../directives/dimensions.directives';
 
 @Component({
   selector: 'app-myposts',
@@ -21,7 +22,8 @@ import { TaswiraThemeDirective } from '../../directives/taswira-theme.directive'
     MatIconModule,
     SpinnerComponent,
     ToolbarComponent,
-    TaswiraThemeDirective
+    TaswiraThemeDirective,
+    DimensionsDirective,
   ],
   providers:[
     CommonUtilsService,
@@ -51,7 +53,8 @@ export class MypostsComponent implements OnInit, OnDestroy{
     private utils: CommonUtilsService,
     private service: AllpinsService,
     private activatedRoute: ActivatedRoute,
-    private router : Router
+    private router : Router,
+
     ){}
   
 

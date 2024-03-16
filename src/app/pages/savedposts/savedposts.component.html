@@ -11,7 +11,10 @@
       <div class="pins-hero">
         <div class="pin-container">
             <div class="pins">
-                <div class="pin-box" *ngFor="let pin of data.saved_pins">
+                <div class="pin-box" 
+                  *ngFor="let pin of data.saved_pins" 
+                  
+                  >
                       <div class="image-box">
                         <button class="icons save delete" (click)="deleteSavedPost(pin?.id)" *ngIf="current_user">
                           delete
@@ -24,7 +27,7 @@
                           <mat-icon>more_horiz</mat-icon>
                         </button>  
                     
-                        <img loading="lazy"   class="lazy-waiting" src="/assets/posts/{{pin.image+timestamp}}" (click)="navigateToCheckout(pin.id)" >
+                        <img loading="lazy"   class="lazy-waiting" [src]="pin.image_url" (click)="navigateToCheckout(pin.id)" >
                       </div>     
                     
                       <div class="pin-owner-description">

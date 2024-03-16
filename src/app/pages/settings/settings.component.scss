@@ -1,0 +1,148 @@
+.settings-container{
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--primary-color);
+    position: relative;
+    padding-top: 20px;
+    app-toolbar{
+        position: fixed;
+        bottom: 0;
+        z-index: 9999;
+    }
+
+    .back{
+        background-color: transparent;
+        border: none;
+        border-radius: 20px;
+        height: 40px;
+        width: 40px;
+        background-color: var(--primary-color2);
+        position: absolute;
+        top: 20px;
+        left: 10px;
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        mat-icon{
+            color: var(--icons-button-utils-color);
+            width: fit-content;
+            height: fit-content;
+            padding: 0;
+            margin: 0;
+            font-size: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+
+
+    h1{
+        font-size: var(--font-size-big);
+        font-weight: var(--font-weight-big);
+        color: var(--icons-button-utils-color);
+        font-family: var(--font-fam-semibold);
+        padding: 0;
+        margin: 0;
+        padding-left: 10px;
+        text-align: center;
+        
+    }
+    .logo{
+        display: flex;
+        position: absolute;
+        justify-content: left;
+        align-items: center;
+        img{
+            height: 30px;
+        }
+        p{
+            color: var(--text-theme-color);
+            font-size: var(--font-size-middle);
+            font-weight: var(--font-size-middle);
+            font-family: var(--font-fam-semibold);
+            margin: 0;
+            margin-left: -10px;
+            padding: 0;
+            
+        }
+
+    }
+    .logo1{
+        top: 70px;
+    }
+    .logo2{
+        bottom: 70px;
+        
+    }
+    .small-settings{
+        margin-top: 100px;
+        .mysetting{
+            height: 50px;
+            margin: 0 10px 0 10px;
+            button{
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                height: 100%;
+                border: none;
+                margin: 5px 0 5px 0;
+                background-color: var(--primary-color2);
+                border-radius: 10px;
+                font-size: var(--font-size-middle);
+                font-weight: var(--font-weight-middle);
+                font-family: var(--font-fam-semibold);
+                color: var(--text-theme-color);
+            }
+            p{
+                padding: 0;
+                margin: 0;
+                font-size: var(--font-size-middle);
+                font-weight: var(--font-weight-middle);
+                font-family: var(--font-fam-semibold);
+                color: var(--text-theme-color);
+            }
+        }
+        .change-theme{
+            height: 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            .left{
+                display: flex;
+                align-items: center;
+
+            }
+            mat-icon{
+                color: var(--icons-button-utils-color);
+                font-size: 30px;
+                margin-left: 10px;
+                margin-right: 10px;                
+                width: fit-content;
+                height: fit-content;
+
+            }
+            .right{
+                padding-right: 20px;
+            }
+
+            p{
+                width: fit-content;
+                color: var(--text-theme-color);
+                font-size: var(--font-size-middle);
+                font-weight: var(--font-weight-middle);
+                font-family: var(--font-fam-semibold);
+                margin: 0;
+                padding: 0;
+                width: fit-content;
+            }
+            mat-slide-toggle{
+                font-size: 30px;
+                width: fit-content;
+                height: fit-content;
+                
+            }
+        }
+    }
+}

@@ -49,6 +49,8 @@ $warning-color: rgb(172, 16, 42);
     --secondary-color1 : #6730fb;
     --secondary-color2 :  #330099;
     --font-size-middle : 1.1rem;
+    --card-bgcolor-dark: rgba(60, 60 ,60, 1);
+    
     --font-weight-small: 400;
     --font-fam-semibold:'montserrat-semibold' , Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     --font-fam-medium: 'montserrat-medium' , Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
@@ -60,13 +62,15 @@ div[theme = 'light']{
     --primary-color : var(--primary-color-light) !important;
     --text-theme-color: var(--text-theme-color-dark);
     --primary-color2 : var( --text-theme-color-light);
-    --secondary-color: var(--secondary-color1)
+    --secondary-color: var(--secondary-color1);
+    --card-bgcolor : var(--primary-color-light);
 }
 div[theme = 'dark']{
     --primary-color : var(--primary-color-dark) !important;
     --text-theme-color: var(--primary-color-light);
     --primary-color2 : var(--text-theme-color-dark);
-    --secondary-color : var(--secondary-color2)
+    --secondary-color : var(--secondary-color2);
+    --card-bgcolor : var(--card-bgcolor-dark);
 }
 
 

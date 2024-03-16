@@ -13,30 +13,49 @@
     
     <div class="pins-hero">
       <div class="pins">
-        <div class="pin-box"  *ngFor="let pin of pins_list">          
-          <div class="image-box">
-            <button class="icons save"(click)="savePostToMyProfile(pin.id)" [disabled]="pin.saved">
-              {{pin.saved? 'saved': 'save'}}
-            </button>
-            
-            <button class="icons upload">
-              <mat-icon>share</mat-icon>
-            </button>
-            <button class="icons more">
-              <mat-icon>more_horiz</mat-icon>
-            </button>  
+        <div class="pin-box"  *ngFor="let pin of pins_list">
+          <!--  [style.height.px]="calculateHeight(pin.d_height, pin.d_width, 180)" -->           
+         
+            <div class="image-box" [attr.D_height]="pin.d_height" [attr.D_width]="pin.d_width" Dimensions >
+              <div class="wave" [ngClass]="newImageClassName"></div>            
+              <button class="icons save"(click)="savePostToMyProfile(pin.id)" [disabled]="pin.saved">
+                {{pin.saved? 'saved': 'save'}}
+              </button>
+              
+              <button class="icons upload">
+                <mat-icon>share</mat-icon>
+              </button>
+              <button class="icons more">
+                <mat-icon>more_horiz</mat-icon>
+              </button>  
   
-            <img loading="lazy"   class="lazy-waiting" src="/assets/posts/{{pin.image+timestamp}}" [alt]="pin.image+timestamp  |slice :60" (click)="navigateToCheckout(pin.id)" >
-          </div>     
+              <img  
+                class="lazy-waiting"  
+                
+                (click)="navigateToCheckout(pin.id)"
+                
+                (load)="imageLoaded()"
+
+                [ngClass]="newImageClassName"
+                
+                                
+
+                [attr.source]="pin.image"
+              
+
+              
+               PinIntersection>
+              </div>     
     
-          <div class="pin-owner-description">
-            <div class="description">
-              <small>{{pin.description}}</small>
-            </div>
-            <div class="phone-more" (click)="openPopupMenu(pin.id, pin.image)">
-              <mat-icon>more_horiz</mat-icon>
-            </div>          
-        </div>
+            <div class="pin-owner-description"  [ngClass]="newImageClassName" >
+              <div class="description">
+                <small>{{pin.description}}</small>
+              </div>
+              <div class="phone-more" (click)="openPopupMenu(pin.id, pin.image)" >
+                <mat-icon>more_horiz</mat-icon>
+            </div> 
+            
+          </div>       
 
       </div>
 

@@ -1,0 +1,108 @@
+.profile-changes-container{
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--primary-color);
+    position: relative;
+    padding-top: 20px;
+
+    .back{
+        width: 40px;
+        height: 40px;
+        border: none;
+        border-radius: 20px;
+        background-color: var(--primary-color2);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 20px;
+        left: 10px;
+
+        mat-icon{
+            height: 100%;
+            width: 100%;
+            display: flex;
+            
+            justify-content: center;
+            align-items: center;
+            font-size: 30px;
+            color: var(--icons-button-utils-color);
+
+        }
+    }
+
+    .changes-card{
+        
+        border-radius: 20px;
+        width: 80vw;
+        margin-top: 50px;
+        margin-left: auto;
+        margin-right: auto;
+        
+        .sub-divisions{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--primary-color2);
+            border-radius: 10px;
+            min-height: 40px;
+            margin: 5px auto 5px auto;
+            padding: 5px;
+
+            button.edit{
+                background-color: var(--primary-color);
+                border: none;
+                width: 70px;
+                height: 30px;
+                border-radius: 10px;
+                font-size: small;
+                font-weight: var(--font-weight-middle);
+                color: var(--text-theme-color);
+                cursor: pointer;
+            }
+            
+            
+
+            .info{
+                
+                //photo info first
+                .photo-info{
+                    width: fit-content;
+                    .photo{
+                        position: relative;
+                        width: 60px;
+                        height: 60px;
+                        border-radius: 30px;
+                        overflow: hidden;
+                        img{
+                            object-fit: cover;
+                            width: 60px;
+                            height: 60px;
+                        }
+
+                    }
+                    
+                }
+                p{
+                    padding: 0;
+                    margin: 0;
+                    color: var(--icons-button-utils-color);
+                    font-size: calc(var(--font-size-middle) - 5px);
+                    font-weight: var(--font-weight-middle);
+                    font-family: var(--font-fam-semibold);
+                }
+
+                //other text-inputs ie subdivistions
+                small{
+                    font-weight: var(--font-weight-middle);
+                    color: var(--text-theme-color);
+                    font-family: var(--font-fam-semibold);
+                   
+                }
+
+            }
+        }
+    }
+
+
+}

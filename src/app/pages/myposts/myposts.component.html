@@ -27,7 +27,7 @@
                   <mat-icon>more_horiz</mat-icon>
                 </button>  
             
-                <img loading="lazy"   class="lazy-waiting" src="/assets/posts/{{post.image+timestamp}}" (click)="navigateToCheckout(post.id)" >
+                <img loading="lazy"   class="lazy-waiting" [src]="post.image_url" (click)="navigateToCheckout(post.id)" >
               </div>     
             
               <div class="pin-owner-description">

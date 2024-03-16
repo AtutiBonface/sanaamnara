@@ -49,7 +49,7 @@ export class PopupComponent {
     const anchor = document.createElement('a')
     anchor.style.display = 'none'
     anchor.href = this.image_url
-    anchor.download = `Taswira-users-images-7${this.image_url}`
+    anchor.download = `${this.image_url}`
 
     document.body.appendChild(anchor)
 

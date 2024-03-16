@@ -1,5 +1,5 @@
 import { CommonModule, isPlatformBrowser} from '@angular/common';
-import { Component, OnDestroy, OnInit,  ElementRef,ViewChild, AfterViewInit, Inject, PLATFORM_ID, Renderer2 } from '@angular/core';
+import { Component, OnDestroy, OnInit,  ElementRef,ViewChild, AfterViewInit, Inject, PLATFORM_ID, Renderer2, Directive } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { ToolbarComponent } from '../../utils/toolbar/toolbar.component';
@@ -11,6 +11,8 @@ import { MobileSearchComponent } from '../mobile-search/mobile-search.component'
 import { PopupComponent } from '../../utils/popup/popup.component';
 import { TawiraMasonryDirective } from '../../directives/tawira-masonry.directive';
 import { TaswiraThemeDirective } from '../../directives/taswira-theme.directive';
+import { PinIntersectionDirective } from '../../directives/pin-intersection.directive';
+import { DimensionsDirective } from '../../directives/dimensions.directives';
 
 
 @Component({
@@ -25,8 +27,9 @@ import { TaswiraThemeDirective } from '../../directives/taswira-theme.directive'
     MobileSearchComponent,
     PopupComponent,
     TaswiraThemeDirective,
-
-  
+    PinIntersectionDirective,
+    DimensionsDirective,
+    
   ],
   providers:[
    CommonUtilsService,
@@ -42,6 +45,7 @@ import { TaswiraThemeDirective } from '../../directives/taswira-theme.directive'
 })
 export class HomeComponent implements OnInit, OnDestroy{
 
+
   pins_list : any = []
 
   timestamp : string = `?timestamp=${new Date().getTime()}`
@@ -54,8 +58,9 @@ export class HomeComponent implements OnInit, OnDestroy{
 
   connection_failed : boolean = false
 
+  newImageClassName = 'none'
 
-  imageLoaded = false
+  
 
 
   IdForpopup : any = ''
@@ -75,6 +80,19 @@ export class HomeComponent implements OnInit, OnDestroy{
     private utils: CommonUtilsService,
     
     ){
+    }
+
+    calculateHeight(height: number,width: number, orignal_width: number) {
+      const newHeight = (height/width)*orignal_width
+
+      
+      
+      return newHeight
+    }
+
+
+    imageLoaded(){
+      this.newImageClassName = 'block'
     }
 
 
@@ -130,7 +148,7 @@ export class HomeComponent implements OnInit, OnDestroy{
     this.open_popup = true
     this.IdForpopup = id
 
-    this.image_url = `/assets/posts/${image}`
+    this.image_url = image;
 
     
   }
@@ -155,3 +173,4 @@ export class HomeComponent implements OnInit, OnDestroy{
   
   
 }
+

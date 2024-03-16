@@ -9,6 +9,7 @@ import { ActivatedRoute } from '@angular/router';
 import { SpinnerComponent } from '../../utils/spinner/spinner.component';
 import { ToolbarComponent } from '../../utils/toolbar/toolbar.component';
 import { TaswiraThemeDirective } from '../../directives/taswira-theme.directive';
+import { DimensionsDirective } from '../../directives/dimensions.directives';
 
 @Component({
   selector: 'app-savedposts',
@@ -21,6 +22,8 @@ import { TaswiraThemeDirective } from '../../directives/taswira-theme.directive'
     SpinnerComponent,
     ToolbarComponent,
     TaswiraThemeDirective,
+    DimensionsDirective,
+
   ],
   providers:[
     CommonUtilsService

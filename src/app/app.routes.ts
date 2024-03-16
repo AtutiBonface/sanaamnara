@@ -5,6 +5,8 @@ import { CreateComponent } from './pages/create/create.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { SavedpostsComponent } from './pages/savedposts/savedposts.component';
 import { MypostsComponent } from './pages/myposts/myposts.component';
+import { SettingsComponent } from './pages/settings/settings.component';
+import { EditProfileComponent } from './pages/edit-profile/edit-profile.component';
 
 export const routes: Routes = [
     
@@ -48,6 +50,20 @@ export const routes: Routes = [
         canActivate: [canActivateTeam]
 
     },
+    {
+        path: 'my/_settings',
+        component: SettingsComponent,
+        canActivate: [canActivateTeam]
+
+    },
+
+    {
+        path: 'profile/changes',
+        component: EditProfileComponent,
+        canActivate: [canActivateTeam]
+
+    },
+
     
     
     

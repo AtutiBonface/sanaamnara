@@ -1,0 +1,62 @@
+<div class="settings-container" TaswiraTheme  [attr.theme]="myTheme">
+    <app-toolbar></app-toolbar>
+    <h1>Settings</h1>
+    <button class="back" (click)="moveBack()">
+        <mat-icon >navigate_before</mat-icon>
+    </button>
+    <div class="logo logo1">
+        <img src="/assets/Taswira2030.png" alt="logo">
+        <p>aswira</p>
+    </div>
+    <div class="small-settings">
+        <div class="mysetting theme-settings">
+            <div class="change-theme">
+                <div class="left">
+                    <mat-icon>{{darkTheme? 'brightness_2': 'brightness_6'}}</mat-icon>
+                    <p>{{!darkTheme? 'Dark': 'Light'}} Mode</p>
+                </div>
+                <div class="right" style="z-index: 0 !important;">
+                    <mat-slide-toggle  color="primary" (change)="toggleTheme()" [checked]="myTheme === 'dark'"></mat-slide-toggle>
+                </div>
+            </div>
+        </div>
+        <div class="mysetting edit-profile">
+            <button class="btn-setting" (click)="editProfile()">
+                <p>Edit profile</p>
+                <small>Romni</small>
+            </button>
+        </div>
+        <div class="mysetting privacy">
+            <button class="btn-setting">
+                privacy
+            </button>
+        </div>
+        <div class="mysetting accounts-settings">
+            <button class="btn-setting">
+                Account Management
+            </button>
+        </div>
+        <div class="mysetting bussiness-integration">
+            <button class="btn-setting">
+                Intergrate Bussness
+            </button>
+        </div>
+        <div class="mysetting profile-visibility">
+            <button class="btn-setting">
+                Profile Visibility
+            </button>
+        </div>
+        <div class="mysetting tune-home-feed">
+            <button class="btn-setting">
+                What I want to see !
+            </button>
+        </div>
+        <div class="mysetting logout">
+            <button class="btn-setting" (click)="logoutUser()">
+                <p>Logout</p>
+                <app-spinner *ngIf="logout"></app-spinner>
+            </button>
+        </div>
+    </div>
+    
+</div>
