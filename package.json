@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:SanaaMnaraTest": "node dist/sanaa-mnara-test/server/server.mjs"
+    "serve:ssr:Taswira": "node dist/Taswira/server/server.mjs"
   },
   "private": true,
   "dependencies": {

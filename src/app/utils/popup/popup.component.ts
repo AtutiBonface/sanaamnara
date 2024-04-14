@@ -48,10 +48,12 @@ export class PopupComponent {
    
     const anchor = document.createElement('a')
     anchor.style.display = 'none'
-    anchor.href = this.image_url
-    anchor.download = `${this.image_url}`
+    anchor.href = `${this.image_url}`
 
+    anchor.download = `Taswira${this.image_url}`
+    
     document.body.appendChild(anchor)
+    
 
     anchor.click()
 

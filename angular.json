@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "SanaaMnaraTest": {
+    "Taswira": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/sanaa-mnara-test",
+            "outputPath": "dist/Taswira",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -26,7 +26,7 @@
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
-              "src/sanaamnara.png",
+              "src/Taswira2030.png",
               "src/assets"
             ],
             "styles": [
@@ -68,10 +68,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "SanaaMnaraTest:build:production"
+              "buildTarget": "Taswira:build:production"
             },
             "development": {
-              "buildTarget": "SanaaMnaraTest:build:development"
+              "buildTarget": "Taswira:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -79,7 +79,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "SanaaMnaraTest:build"
+            "buildTarget": "Taswira:build"
           }
         },
         "test": {
@@ -92,7 +92,7 @@
             "tsConfig": "tsconfig.spec.json",
             "inlineStyleLanguage": "scss",
             "assets": [
-              "src/sanaamnara.png",
+              "src/Taswira2030.png",
               "src/assets"
             ],
             "styles": [

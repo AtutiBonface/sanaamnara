@@ -26,6 +26,8 @@ export class UnauthenticatedComponent {
 
   timestamp = `?timestamp=${new Date().getTime()}`
 
+  url = 'https//im.imaginekenya.site/assets/home-photos'
+
   
 
   constructor(
