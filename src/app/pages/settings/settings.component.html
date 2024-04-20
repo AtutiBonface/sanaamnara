@@ -1,13 +1,14 @@
 <div class="settings-container" TaswiraTheme  [attr.theme]="myTheme">
     <app-toolbar></app-toolbar>
-    <h1>Settings</h1>
-    <button class="back" (click)="moveBack()">
-        <mat-icon >navigate_before</mat-icon>
-    </button>
-    <div class="logo logo1">
-        <img src="/assets/Taswira2030.png" alt="logo">
-        <p>aswira</p>
+    <div class="top-content">
+        <h1>Settings</h1>
+        <button class="back" (click)="moveBack()">
+            <mat-icon >navigate_before</mat-icon>
+        </button>
     </div>
+
+    
+
     <div class="small-settings">
         <div class="mysetting theme-settings">
             <div class="change-theme">
@@ -16,7 +17,25 @@
                     <p>{{!darkTheme? 'Dark': 'Light'}} Mode</p>
                 </div>
                 <div class="right" style="z-index: 0 !important;">
-                    <mat-slide-toggle  color="primary" (change)="toggleTheme()" [checked]="myTheme === 'dark'"></mat-slide-toggle>
+
+                    <div class="toggle-buttons-container">
+                        <div class="theme-btn" [ngClass]="myTheme === 'dark'? 'none': 'block'">
+                            <button (click)="toggleTheme()" class="toggle-off black">
+                                <div class="toggle-ball white">
+                    
+                                </div>
+                            </button>
+                        </div>                       
+                        <div class="theme-btn" [ngClass]="myTheme === 'dark'? 'block': 'none'">
+                            <button (click)="toggleTheme()" class="toggle-on white" >
+                                <div class="toggle-ball black">
+                    
+                                </div>
+                            </button>
+                        </div>
+                        
+                    </div>
+
                 </div>
             </div>
         </div>

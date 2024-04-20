@@ -1,31 +1,18 @@
-<mat-toolbar class="desktop-toolbar" TaswiraTheme>
+<mat-toolbar class="desktop-toolbar"  TaswiraTheme>
     <div class="left-end logged-menu">
       <img src="assets/Taswira2030.png" alt="logo" (click)="navigateToHome()">
       
       <span (click)="navigateToCreate()">Create</span>
+
+      <button class="search-btn" (click)="toggleOnAutoComplete()"><mat-icon class="search-icon">
+        search</mat-icon></button>
+
+      
       
     </div>
-    <div class="middle">
-      <div class="search-container">
-        <form  [formGroup]="searchData">
-        <mat-icon class="search-icon">search</mat-icon>
-        <mat-icon class="close-icon" *ngIf="searchData.get('query')?.dirty && searchData.get('query')?.value != '' "
-        (click)="searchData.get('query')?.reset()"
-        >close</mat-icon>
-        
-  
-        <input type="text" placeholder="Search here" id="query" formControlName="query" (focus)="toggleOnAutoComplete()" (blur)="toggleOffAutoComplete()" >
-      </form>
-          
-      </div>
-      <!-- autocomplete seaching is here -->
-      <div class="search-autocomplete" *ngIf="openSearchAutoComplete">
-        <app-search-auto-complete [query]="query_subject"></app-search-auto-complete>
-      </div>
-  
-    </div>
+    
     <div class="right-end  logged-menu">
-      <mat-icon class="notifications">notifications</mat-icon>
+      <button><mat-icon class="notifications">notifications</mat-icon></button>
       <button class="profile-btn" (click)="navigateToProfile()">{{profile_username | uppercase | slice :0:2}}</button>   
     </div>
   </mat-toolbar>
@@ -46,6 +33,7 @@
   
       
   </mat-toolbar>
-  <div class="overlay-search-container" *ngIf="openSearchAutoComplete"></div>
   
+  <app-search-auto-complete  [ngClass]="openSearchAutoComplete? 'block': 'none'"></app-search-auto-complete>
+  <div class="overlay-search-container" [ngClass]="openSearchAutoComplete? 'block': 'none'" (click)="dismissSearchContainer()"></div>
   

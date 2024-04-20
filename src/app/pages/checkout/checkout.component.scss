@@ -51,7 +51,7 @@
                 top: 15px;
                 cursor: pointer;                
                 font-size: 3rem;
-                color: var(--secondary-color);
+                color: var(--icons-theme);
                 border-radius: 50%;
                 overflow: hidden;
                 position: absolute;
@@ -108,7 +108,7 @@
                         font-size: 2rem ;
                         width: fit-content;
                         height: fit-content;
-                        color: var(--icons-button-utils-color);
+                        color: var(--icons-theme);
                         
                     }
                 }
@@ -317,7 +317,7 @@
                         font-size: var(--font-size-middle);
                         font-weight: var(--font-weight-middle);
                         line-height: var(--font-size-middle);
-                        color: var(--icons-button-utils-color);
+                        color: var(--icons-theme);
                         font-family: var(--font-fam-semibold);
                         margin: 0;
                         padding: 0;
@@ -371,7 +371,7 @@
                         font-family: var(--font-fam-semibold);
                         color: var(--text-theme-color-light);
                         display: flex;
-                        background-color: indigo;
+                        background-color: var(--icons-button-utils-color);
                         border-radius: 20px;
                         margin: 0;
                         justify-content: center;
@@ -384,7 +384,7 @@
                         background-color: transparent;
                         height: 40px;
                         border-radius: 20px;
-                        border: 2px solid var(--secondary-color);
+                        border: 2px solid var(--icons-theme);
                         padding: 0;
                         overflow: hidden;
                         margin: 0;
@@ -439,7 +439,7 @@
         align-items: center;
         margin: 16px 0 16px 0;
         font-weight: var(--font-weight-big);
-        color: var(--icons-button-utils-color);
+        color: var(--icons-theme);
         font-size: var(--font-size-big);
         font-family: var(--font-fam-semibold);
     }

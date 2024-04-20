@@ -1,11 +1,14 @@
 <div class="search-container">
+    <div class="search-input">
+        <input type="text" placeholder="search here">
+    </div>
     <div class="query-suggestions">
-        <div class="suggestions" *ngFor="let suggestion of query_suggestions" (click)="navigateToSearchResult()">
-            <p>{{suggestion.title}}</p>
+        <div class="suggestions" >
+            <p></p>
         </div>
     </div>
 
-    <div class="other-suggestions"*ngIf="showOtherSuggestions">
+    <div class="other-suggestions">
         <div class="recent-searches">
         </div>
         <h1>Ideas for you</h1>
@@ -70,7 +73,5 @@
         
     </div>
     
-   
-    
-    width: ;
+
 </div>

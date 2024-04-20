@@ -13,16 +13,34 @@ $warning-color: rgb(172, 16, 42);
 
 .search-container{
     background-color: $primary-color;
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: auto !important;
+    margin-right: auto !important;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     height: fit-content;//make sure you chage this
-    margin-left: 36.5px;
-    margin-right: 36.5px;
-    margin-bottom: 36.5px;
-    padding: 20px  20px 20px 20px;
-    
+    width: 90vw !important;
+
+    .search-input{
+        height: 40px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        input{
+            height: 100%;
+            width: 60%;
+            padding: 0;
+            margin: 0;
+            border-radius: 20px;
+            border: none;
+            outline: none;
+            padding: 0 10px 0 10px;
+            
+        }
+
+    }
+
     h1{
         margin: 5px 0 5px 0;
         font-size: $font-size-middle;
@@ -67,8 +85,9 @@ $warning-color: rgb(172, 16, 42);
         overflow: hidden;
         position: relative;
 
-        margin-top: 10px;        
-        margin-bottom: 10px;
+        margin: 10px 10px 10px 10px;
+                  
+    
         img{
             height: 100%;
             object-fit: cover;
@@ -76,12 +95,11 @@ $warning-color: rgb(172, 16, 42);
         }
     }
     .shoppin-box{
-        width: 130px;
-        height: 130px;
+        width: 130px !important;
+        height: 130px !important;
         cursor: pointer;
         border-radius: 10px;
-        margin-top: 10px;
-        margin-bottom: 10px;
+        margin: 10px 10px 10px 10px;            
         overflow: hidden;       
         position: relative;
         img{
@@ -157,17 +175,21 @@ $warning-color: rgb(172, 16, 42);
 .recent-searches ,.ideas-for-you, .popular-posts{
     display: flex;
     width: 100%;
-    overflow: auto;
+    overflow-x: auto;
+    justify-content: center;
+    align-items: center;
 
     
     
 }
 .shopping-sportlight{
-    display: grid;
+    padding: 10px 10px 10px 10px;
+    display: flex;
+    overflow-x:auto;
+    justify-content: center;
+    align-items: center;
 
-    // width of shop---  130px remember here 
-    grid-template-columns: repeat(auto-fill , minmax(130px , 1fr));
-    column-gap: 5px;
+  
     
     
 }

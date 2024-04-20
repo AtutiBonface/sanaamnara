@@ -30,10 +30,6 @@ import { TaswiraThemeDirective } from '../../directives/taswira-theme.directive'
 })
 export class ToolbarComponent  implements OnInit{
 
-
-
-
-
   openSearchAutoComplete : boolean = false
   is_logged_in = false
 
@@ -43,7 +39,7 @@ export class ToolbarComponent  implements OnInit{
   query :any;
   query_subject : Subject<any> = new Subject<any>()
 
-  searchData! : FormGroup;
+  
 
   open_mobile_search_popup = false
 
@@ -65,43 +61,47 @@ export class ToolbarComponent  implements OnInit{
     }
 
 
-    this.searchData = this.fb.group({
-      query:[
-        '',
-      ]
-    })
+    
   }
 
+
+
+  
  
     
-  searchQuery() {
-    this.searchData.get('query')?.valueChanges.subscribe((result)=>{
-     
-      this.query_subject.next(result)    
-    })
+  
+  dismissSearchContainer() {
+    if(this.openSearchAutoComplete ){
+      setTimeout(()=>{
+        this.openSearchAutoComplete = false;
+      }, 100)
+    }
+    else{
 
-    
+    }
+  }   
 
-  }
 
 
   toggleOnAutoComplete(){
-    this.openSearchAutoComplete = true
-  }
-  toggleOffAutoComplete(){
-    setTimeout(()=>{
+    if (this.openSearchAutoComplete === false){
+      this.openSearchAutoComplete = true
+    }else{
       this.openSearchAutoComplete = false
-    },300)    
+    }
   }
+  
 
   navigateToCreate() {
     this.router.navigate(['posts/create'])
   }
 
   navigateToProfile() {
-    if(this.profile_username != undefined){
+    if(this.profile_username!= undefined){
       this.router.navigate([this.profile_username])
     }
+
+    console.log(this.profile_username)
 
     
   }
@@ -119,7 +119,7 @@ export class ToolbarComponent  implements OnInit{
     
   }
   ngOnInit(): void {
-    this.searchQuery()
+   
 
   }
 

@@ -287,6 +287,7 @@
     }
     .phone-more{
         display: block !important;
+        color: var(--icons-theme) !important; 
     }
    
 }
@@ -330,6 +331,7 @@
     }
     .phone-more{
         display: block !important;
+
     }
 
 }
@@ -379,6 +381,9 @@
     .pins{        
         columns: 5 !important; 
     }
+    .everything{
+        padding-top: 70px !important;
+    }
 }
 @media only screen and (min-width: 1101px) and (max-width: 1300px) {
     .pin-container{
@@ -387,13 +392,19 @@
     .pins{        
         columns: 5 !important; 
     }
+    .everything{
+        padding-top: 70px !important;
+    }
 }
-@media only screen and (min-width: 1301px) and (max-width: 1400px) {
+@media only screen and (min-width: 1301px){
     .pin-container{
         width: 90vw !important;
     }
     .pins{        
         columns: 6  !important;  
+    }
+    .everything{
+        padding-top: 70px !important;
     }
 }
 

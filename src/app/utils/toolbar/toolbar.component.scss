@@ -14,13 +14,15 @@ mat-toolbar{
     align-items: center;
     height: 70px;
     width: 100vw;
+    box-shadow: 2px 3px var(--primary-color2);
     
     
    
     
 
     .left-end ,.right-end{
-        width: fit-content;
+        padding-left: 20px;
+
         span{
             color: var(--text-theme-color);
             font-weight: var(--font-weight-big);
@@ -29,14 +31,17 @@ mat-toolbar{
             cursor: pointer;
         }
     }
-    .logged-menu{
-        width: 120px;
-    }
+    
     .left-end{
         justify-content: center;
         align-items: center;
         text-align: center;
         display: flex;
+
+        span{
+            padding-left: 10px;
+            padding-right: 10px;
+        }
 
         img{
             height: 40px;
@@ -50,98 +55,32 @@ mat-toolbar{
             justify-self: center;
             text-align: center;
         }
-    }
-    .middle{
-        display: block;
-        position: relative;
-        width: 100%;
-        .search-container{
-            margin: 0;
-            border: none;
-            height: 40px;
-            padding: 0;
-            width: calc(100% - 33px);
-            margin-left: auto;
-            margin-right: auto;
-            position: relative;            
-            background-color: rgba(0, 0, 0, .1);
-            overflow: hidden;
-            border-radius: 20px;
+        .search-btn{
+            width: fit-content !important;
+            background-color: transparent;
+            display: flex;
+            justify-content: center;
 
-            .search-icon{
-                position: absolute;
-                top: 50%;
-                left: 0;
-                transform: translateY(-50%);
-                color: var(--icons-button-utils-color);
-                padding: 0;
-                margin: 0;
-            }
-            .close-icon{
-                position: absolute;
-                display: block;
-                top: 50%;
-                right: 0;
-                padding: 0;
-                margin: 0;
-                transform: translateY(-50%);
-                color: var(--icons-button-utils-color);
-                cursor: pointer;
-                
-                
-
-            }
-
-            input{
-                width: calc(100% - 43px); 
-                padding: 0;
-                height: calc(100% - 0px);
-                border: none;
-                padding: 0 20px 0 20px;
-                background-color: transparent;
-               
-                outline: none;
-                font-size: var(--font-size-small);
-                font-weight: var(--font-weight-middle);
-                color: var(--icons-button-utils-color);
-                &::placeholder{
-                    color: var(--icons-button-utils-color);
-                    text-align: center;
-                }
-            }
-            
-        }
         
-        .search-autocomplete{
-            position: absolute;
-            border: 0;
-            width: 100%;            
-            padding: 0;
-            top: 40px;
-            z-index: 1020;
-                        
-            app-search-auto-complete{
-                margin: 0;
-                display: block;
-                height: 100%;
-                width: 100%;
-                word-wrap: break-word !important;
-                
-               
-            } 
         }
-        
     }
+    
     .right-end{
         display: flex;
+        justify-content: center;
+        align-items: center;
         .profile-btn{
-            padding: 5px;
-            height: fit-content;
-
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            vertical-align:middle;
+            height: 30px;
+            width: 30px;
+            align-self: center;
             font-size: var(--font-size-small);
             font-weight: var(--font-weight-middle);
             color: var(--icons-button-utils-color);
-            border-radius: 50%;
+            border-radius: 15px;
             border: 2px solid var(--icons-button-utils-color);
         }
     }
@@ -175,13 +114,7 @@ mat-toolbar{
     img{
         height: 35px;
     }
-    mat-icon{
-        font-size: 2.2rem;
-        width: fit-content;
-        height: fit-content;
-        color: var(--secondary-color);
-        cursor: pointer;
-    }
+    
 
     .mobile-profile{
         button{
@@ -241,36 +174,55 @@ mat-toolbar{
 }
 
 mat-icon{
-    color: var(--icons-button-utils-color);
+    color: var(--icons-theme);
     justify-self: center;
     align-self: center;
     font-size: 20px;
     margin-left: 5px;
     margin-right: 5px;
 }
-form{
-    height: 100%;
-}
 
 button{
-    height: 40px;
-    padding-left: 15px;
-    padding-right: 15px;
+   
     border: none;
-    border-radius: 20px;
-    font-size: var(--font-size-middle);
-    font-weight: var(--font-weight-middle);
+    margin: 10px 10px 10px 10px;
     cursor: pointer;
+    background-color: transparent;
 }
 .overlay-search-container{
-    position: absolute;
-    height: 100vh;
+    height: 100vh !important;
     width: 100%;
+    overflow: none;
+    position: fixed;
     top: 64px;// height of the toolbar
     background-color: rgba(0, 0, 0 , .6);
     z-index: 1000;
+
    
 
+}
+.overlay-search-container.none{
+    display: none;
+}
+app-search-auto-complete{
+    position: absolute;
+    top: 70px;   
+    z-index: 9999;
+    left: 50%;
+    transform: translateX(-50%);
+
+}
+app-search-auto-complete.none{
+    display: none;
+}
+
+
+mat-icon{
+    font-size: 2.2rem !important;
+    width: fit-content !important;
+    height: fit-content;
+    color: var(--icons-theme) !important;
+    cursor: pointer !important;
 }
 
 

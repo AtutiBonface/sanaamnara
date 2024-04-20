@@ -23,93 +23,15 @@ import { CommonUtilsService } from '../../services/common-utils.service';
 })
 export class SearchAutoCompleteComponent implements OnInit, OnDestroy{
 
-  allSearchableData : any = []
-
-  recently_serched_data : any = []
-
-  popular_searches: any = []
-
-  showOtherSuggestions : boolean = true
-
-  @Input() query :any;
-  query_subject : Subject<any> = new Subject<any>()
-
-  query_suggestions : any = []
-
   
-  private token : string = ''
-
-  subscribed! : Subscription
-  subscribed2! : Subscription
-  subscribed3! : Subscription
-
-  constructor(
-    private http:HttpClient , 
-    private router: Router,
-    private utils: CommonUtilsService
-    ){
-    
-  
-  }
- 
-
-  
-
-  RequestAllSearchableData(){
-    this.subscribed = this.http.get(this.utils.search_url, this.utils.returnHeaders()).pipe(
-      catchError((err: HttpErrorResponse)=>{
-        if(err){
-          console.log(err.error)
-        }
-        return EMPTY
-      })
-    ).subscribe((result)=>{
-      
-      this.allSearchableData = result
-
-      
-     
-    })
-
-  }
- 
-
-  searchSuggestions(e: any){
-    const filteredData = this.allSearchableData.filter((item: any) =>item.title.toLowerCase().includes(e.toLowerCase()))
-    
-    
-
-    this.query_suggestions = filteredData
-  }
-  
-  searchedData(){
-    this.query.subscribe((e: any)=>{
-      
-      this.searchSuggestions(e)
-      if(e === ''){
-        this.query_suggestions = []
-        this.showOtherSuggestions = true
-      }else{
-        this.showOtherSuggestions = false
-      }
-    })
-
-    
-  }
-  navigateToSearchResult() {
-    this.router.navigate(['create'])
-  }
   ngOnInit(): void {
-    this.RequestAllSearchableData()
-    this.searchedData()
+    
 
     
   }
 
   ngOnDestroy(): void {
-    this.subscribed.unsubscribe()
-    this.subscribed2.unsubscribe()
-    this.subscribed3.unsubscribe()
+    
 
   }
 

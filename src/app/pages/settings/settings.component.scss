@@ -10,6 +10,57 @@
         z-index: 9999;
     }
 
+    
+
+
+    .toggle-buttons-container{
+        width: fit-content !important;
+        height: fit-content !important;
+        
+        .theme-btn.none{
+            display: none;
+        }
+
+        .white{
+            background-color: white !important;
+            
+
+        }
+        .black{
+            background-color: black !important;
+        }
+        
+
+        .toggle-off ,.toggle-on{
+            width: 50px !important;
+            height: 30px !important;
+            display: block;
+            border-radius: 15px !important;
+            border: none;
+            margin: 5px;
+            position: relative;
+            cursor: pointer;
+            
+        }
+        .toggle-ball{
+            width: 20px;
+            height: 20px;
+            border-radius: 10px;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            &.black{
+                right: 5px !important;
+            }
+            &.white{
+                left: 5px !important;
+                
+            }
+            
+        }
+    }
+
+
     .back{
         background-color: transparent;
         border: none;
@@ -24,7 +75,7 @@
         align-content: center;
         justify-content: center;
         mat-icon{
-            color: var(--icons-button-utils-color);
+            color: var(--icons-theme);
             width: fit-content;
             height: fit-content;
             padding: 0;
@@ -40,7 +91,7 @@
     h1{
         font-size: var(--font-size-big);
         font-weight: var(--font-weight-big);
-        color: var(--icons-button-utils-color);
+        color: var(--icons-theme);
         font-family: var(--font-fam-semibold);
         padding: 0;
         margin: 0;
@@ -48,35 +99,9 @@
         text-align: center;
         
     }
-    .logo{
-        display: flex;
-        position: absolute;
-        justify-content: left;
-        align-items: center;
-        img{
-            height: 30px;
-        }
-        p{
-            color: var(--text-theme-color);
-            font-size: var(--font-size-middle);
-            font-weight: var(--font-size-middle);
-            font-family: var(--font-fam-semibold);
-            margin: 0;
-            margin-left: -10px;
-            padding: 0;
-            
-        }
-
-    }
-    .logo1{
-        top: 70px;
-    }
-    .logo2{
-        bottom: 70px;
-        
-    }
+    
     .small-settings{
-        margin-top: 100px;
+        margin-top: 60px;
         .mysetting{
             height: 50px;
             margin: 0 10px 0 10px;
@@ -93,6 +118,8 @@
                 font-size: var(--font-size-middle);
                 font-weight: var(--font-weight-middle);
                 font-family: var(--font-fam-semibold);
+                padding-left: 10px;
+                padding-right: 10px;
                 color: var(--text-theme-color);
             }
             p{
@@ -115,7 +142,7 @@
 
             }
             mat-icon{
-                color: var(--icons-button-utils-color);
+                color: var(--icons-theme);
                 font-size: 30px;
                 margin-left: 10px;
                 margin-right: 10px;                
@@ -124,7 +151,7 @@
 
             }
             .right{
-                padding-right: 20px;
+                padding-right: 0px;
             }
 
             p{
@@ -145,4 +172,15 @@
             }
         }
     }
+}
+
+@media only screen and (min-width: 1001px) {
+    .settings-container{
+        margin-top: 70px !important;
+
+        .back{
+            display: none;
+        }
+    }
+
 }

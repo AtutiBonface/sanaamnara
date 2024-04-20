@@ -4,6 +4,7 @@
     background-color: var(--primary-color);
     position: relative;
     padding-top: 20px;
+    overflow: hidden !important;
 
     .back{
         width: 40px;
@@ -26,13 +27,13 @@
             justify-content: center;
             align-items: center;
             font-size: 30px;
-            color: var(--icons-button-utils-color);
+            color: var(--icons-theme);
 
         }
     }
 
     .changes-card{
-        
+        overflow: hidden !important;        
         border-radius: 20px;
         width: 80vw;
         margin-top: 50px;
@@ -86,7 +87,7 @@
                 p{
                     padding: 0;
                     margin: 0;
-                    color: var(--icons-button-utils-color);
+                    color: var(--icons-theme);
                     font-size: calc(var(--font-size-middle) - 5px);
                     font-weight: var(--font-weight-middle);
                     font-family: var(--font-fam-semibold);
@@ -104,5 +105,15 @@
         }
     }
 
+
+}
+
+@media only screen and (min-width: 1001px) {
+    .back{
+        display: none !important;
+    }
+    .profile-changes-container{
+        margin-top: 70px;
+    }
 
 }
