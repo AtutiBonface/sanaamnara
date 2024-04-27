@@ -45,6 +45,7 @@ export class ToolbarComponent  implements OnInit{
 
 
   @Output() reloadPage : Subject<boolean> = new Subject<boolean>()
+  searchbtnOpen: boolean = true
 
   constructor(
     private http: HttpClient, 
@@ -74,6 +75,7 @@ export class ToolbarComponent  implements OnInit{
     if(this.openSearchAutoComplete ){
       setTimeout(()=>{
         this.openSearchAutoComplete = false;
+        this.searchbtnOpen = true;
       }, 100)
     }
     else{
@@ -86,8 +88,10 @@ export class ToolbarComponent  implements OnInit{
   toggleOnAutoComplete(){
     if (this.openSearchAutoComplete === false){
       this.openSearchAutoComplete = true
+      this.searchbtnOpen = false;
     }else{
       this.openSearchAutoComplete = false
+      this.searchbtnOpen = true;
     }
   }
   

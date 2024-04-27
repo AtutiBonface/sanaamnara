@@ -5,7 +5,8 @@
       <span (click)="navigateToCreate()">Create</span>
 
       <button class="search-btn" (click)="toggleOnAutoComplete()"><mat-icon class="search-icon">
-        search</mat-icon></button>
+        {{searchbtnOpen? 'search': 'close'}}
+        </mat-icon></button>
 
       
       

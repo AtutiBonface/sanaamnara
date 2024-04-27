@@ -1,7 +1,97 @@
 
 <div class="everything" TaswiraTheme [attr.theme]="Theme">
+  <div class="actions-overlay" *ngIf="actionMenuOpened"></div>
   <app-toolbar TaswiraTheme></app-toolbar>
   <app-profile (Theme)="selectedTheme($event)"></app-profile>
+
+  <div class="actions" *ngIf="actionMenuOpened">
+    <div class="actions-container">
+      <button class="close" (click)="closeActions()">
+        <mat-icon>close</mat-icon>
+      </button>
+      <div class="share-actions" *ngIf="!confirmDelete || shareMenuOpened">
+        <h1>Share</h1>
+          <div class="socials">
+              <div class="social-logo">
+                  <a href="https://www.facebook.com/sharer/sharer.php?u=taswira.imaginekenya.site" target="_blank" rel="noopener noreferrer">
+                      
+                      <img src="assets/icons8-facebook-96.png" alt="">
+                  </a>                        
+              </div>
+              <div class="social-logo">
+                  <a href="">
+                      <img src="assets/icons8-whatsapp-96.png" alt="">
+                  </a>
+              </div>
+              <div class="social-logo">
+                  <a href="https://twitter.com/intent/tweet?url=taswira.imaginekenya.site&text=Welcome to our site" target="_blank" rel="noopener noreferrer">
+                      <img src="assets/icons8-twitterx-96.png" alt="">
+                  </a>
+              </div>
+              <div class="social-logo">
+                  <a href="#" data-action="share/whatsapp/share">
+                      <img src="assets/icons8-instagram-96.png" alt="">
+                  </a>
+              </div>
+              <div class="social-logo">
+                  <a href="#">
+                      <img src="assets/icons8-facebook-messenger-96.png" alt="">
+                  </a>
+                  
+              </div>
+
+              
+          </div>
+          <div class="copylink">
+            <button (click)="copyToClipboard()">
+              <mat-icon>link</mat-icon>
+              <div class="link-caption">
+                {{copiedLink? 'copied!':'copy link'}}
+              </div>
+            </button>
+          </div>
+  
+      </div>
+      <div class="more-actions" *ngIf="!confirmDelete && !shareMenuOpened">
+
+        <h1>Options</h1>      
+        <button>
+          <mat-icon>download</mat-icon>
+          <div class="btntxt">Download</div>
+        </button>
+        <button>
+          <mat-icon>edit</mat-icon>
+          <div class="btntxt">Edit post</div>
+        </button>
+        <button>
+          <mat-icon>not_interested</mat-icon>
+          <div class="btntxt">Hide form public</div>
+        </button>
+        <button (click)="confirmDelete = true">
+          <mat-icon>delete</mat-icon>
+          <div class="btntxt">Delete post</div>
+        </button>
+  
+      </div>
+      <div class="confirm-delete-actions" *ngIf="confirmDelete">
+        <p>I want to delete this post?</p>
+        <small>You won't get it back!</small>
+  
+        <div class="state-btn">
+          <button class="cancel delbtn" (click)="confirmDelete = false">No!</button>
+          <button class="confirm delbtn" (click)="deleteCreatedPost()">Yes!</button>
+        </div>
+       
+  
+  
+      </div>
+
+    </div>
+ 
+    
+  </div>
+  
+  
   <div class="posts-container" >
     <p class="heading"*ngIf="no_of_post === 0 && !current_user">No posts.</p>
     <div class="add-pins" *ngIf="current_user && no_of_post === 0" >
@@ -10,20 +100,21 @@
          <p>create here</p>
       </div>      
     </div>
+
     
       <div class="pins-hero">
         <div class="pin-container">
           <div class="pins">
             <div class="pin-box" *ngFor="let post of data.pins_created">
               <div class="image-box">
-                <button class="icons save delete" (click)="deleteCreatedPost(post?.id)" *ngIf="current_user">
+                <button class="icons save delete" (click)="openConfirmDeletePC(post?.id)" *ngIf="current_user">
                   delete
                 </button>
                 
-                <button class="icons upload">
+                <button class="icons upload" (click)="openShareMenu(post?.image)">
                   <mat-icon>share</mat-icon>
                 </button>
-                <button class="icons more">
+                <button class="icons more" (click)="openActionsMenu(post?.id)">
                   <mat-icon>more_horiz</mat-icon>
                 </button>  
             
@@ -34,8 +125,8 @@
                 <div class="description">
                   <small>{{post.description}}</small>
                 </div>
-                <div class="phone-more" (click)="openPopupMenu(post.id, post.image)">
-                  <mat-icon>more_horiz</mat-icon>
+                <div class="phone-more" (click)="openActionsMenu(post?.id)">
+                  <mat-icon >more_horiz</mat-icon>
                 </div>          
             </div>
           

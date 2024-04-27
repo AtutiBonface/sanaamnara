@@ -9,7 +9,90 @@
     <app-spinner *ngIf="loading"></app-spinner>
     <h1>Loading interests on Home feed!</h1>
   </div>
+
   <div class="home-container" *ngIf="!connection_failed">
+
+    <div class="actions-overlay" *ngIf="actionMenuOpened"></div>
+
+    <div class="actions" *ngIf="actionMenuOpened">
+      <div class="actions-container">
+        <button class="close" (click)="closeActions()">
+          <mat-icon>close</mat-icon>
+        </button>
+        <div class="share-actions" *ngIf="actionMenuOpened || shareMenuOpened">
+          <h1>Share</h1>
+            <div class="socials">
+                <div class="social-logo">
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=taswira.imaginekenya.site" target="_blank" rel="noopener noreferrer">
+                        
+                        <img src="assets/icons8-facebook-96.png" alt="">
+                    </a>                        
+                </div>
+                <div class="social-logo">
+                    <a href="">
+                        <img src="assets/icons8-whatsapp-96.png" alt="">
+                    </a>
+                </div>
+                <div class="social-logo">
+                    <a href="https://twitter.com/intent/tweet?url=taswira.imaginekenya.site&text=Welcome to our site" target="_blank" rel="noopener noreferrer">
+                        <img src="assets/icons8-twitterx-96.png" alt="">
+                    </a>
+                </div>
+                <div class="social-logo">
+                    <a href="#" data-action="share/whatsapp/share">
+                        <img src="assets/icons8-instagram-96.png" alt="">
+                    </a>
+                </div>
+                <div class="social-logo">
+                    <a href="#">
+                        <img src="assets/icons8-facebook-messenger-96.png" alt="">
+                    </a>
+                    
+                </div>
+  
+                
+            </div>
+            <div class="copylink">
+              <button (click)="copyToClipboard()">
+                <mat-icon>link</mat-icon>
+                <div class="link-caption">
+                  {{copiedLink? 'copied!':'copy link'}}
+                </div>
+              </button>
+            </div>
+    
+        </div>
+        <div class="more-actions" *ngIf="!shareMenuOpened">
+  
+          <h1>Options</h1>      
+          <button>
+            <mat-icon>download</mat-icon>
+            <div class="btntxt">Download</div>
+          </button>
+          <button>
+            <mat-icon>save</mat-icon>
+            <div class="btntxt">Save</div>
+          </button>
+         
+          <button >
+            <mat-icon>close</mat-icon>
+            <div class="btntxt">I don't want to see this</div>
+            
+          </button>
+          <button>
+            <mat-icon>not_interested</mat-icon>
+            <div class="btntxt">
+              Report <br> <small>This goes against community quidelines</small>
+            </div>
+            <p></p>
+          </button>    
+           
+        </div>
+        
+      </div>
+   
+      
+    </div>
     
     <div class="pins-hero">
       <div class="pins">
@@ -22,10 +105,10 @@
                 {{pin.saved? 'saved': 'save'}}
               </button>
               
-              <button class="icons upload">
+              <button class="icons upload" (click)="openShareMenu(pin.id, pin.image)">
                 <mat-icon>share</mat-icon>
               </button>
-              <button class="icons more">
+              <button class="icons more" (click)="openSeeMoreMenu(pin.id)">
                 <mat-icon>more_horiz</mat-icon>
               </button>  
   

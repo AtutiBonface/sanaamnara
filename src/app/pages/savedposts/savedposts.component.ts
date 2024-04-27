@@ -33,8 +33,16 @@ import { DimensionsDirective } from '../../directives/dimensions.directives';
 })
 export class SavedpostsComponent implements OnInit, OnDestroy{
 
+copiedLink: any = false
+confirmDelete: any = false;
+shareMenuOpened: any = false;
+actionMenuOpened: any = false
+idOfItem: any;
+imageLink : any;
 
-theme: any;
+
+
+  theme: any;
 
   data : any = []
   timestamp = `?timestamp=${new Date().getTime()}`
@@ -70,11 +78,11 @@ theme: any;
     this.utils.activateRouteUsername = this.activatedRoute.snapshot.params['username']
   }
 
-  deleteSavedPost(id: any){
+  deleteSavedPost(){
     const data = new FormData()
     let activeUsername = this.activatedRoute.snapshot.params['username']
     data.append('username',activeUsername )
-    this.http.put(`${this.utils.pin_saved_url}/${id}`,data, this.utils.returnHeaders()).pipe(
+    this.http.put(`${this.utils.pin_saved_url}/${this.idOfItem}`,data, this.utils.returnHeaders()).pipe(
       catchError((err:any)=>{
         if(err instanceof HttpErrorResponse){
           console.log(err.error)
@@ -84,8 +92,12 @@ theme: any;
         return EMPTY
       })
     ).subscribe((e)=>{
-      this.data = e  
+      this.data = e 
+      this.actionMenuOpened = false;
+      this.confirmDelete = false; 
     })
+
+
 
   }
 
@@ -93,13 +105,40 @@ theme: any;
     this.theme = theme
    
   }
-  openPopupMenu(arg0: any,arg1: any) {
   
-  }
   navigateToCheckout(id: any) {
   
   }
+  openConfirmDeletePC(id: any) {
+    this.idOfItem = id
+    this.confirmDelete = true;
+    this.actionMenuOpened = true;
+  }
+  openShareMenu() {
+    this.actionMenuOpened= true;
+    this.shareMenuOpened = true;
+  
+  }
+  openActionsMenu(id: any,image: any) {
+    this.imageLink = image
+    this.idOfItem = id;
+    this.actionMenuOpened = true
+  
+  }
+  
+
+  copyToClipboard() {
+    this.copiedLink = true
+
+  }
     
+
+  closeActions() {
+    this.actionMenuOpened = false;
+    this.confirmDelete = false;
+    this.shareMenuOpened = false
+
+  }
 
   
 

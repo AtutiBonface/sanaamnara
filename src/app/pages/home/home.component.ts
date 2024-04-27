@@ -45,6 +45,14 @@ import { DimensionsDirective } from '../../directives/dimensions.directives';
 })
 export class HomeComponent implements OnInit, OnDestroy{
 
+  
+  
+  
+  copiedLink: any = false
+  shareMenuOpened: any = false
+  actionMenuOpened: any = false
+
+
 
   pins_list : any = []
 
@@ -90,6 +98,29 @@ export class HomeComponent implements OnInit, OnDestroy{
       return newHeight
     }
 
+
+    openSeeMoreMenu(id: any) {
+      this.actionMenuOpened = true
+      this.IdForpopup = id
+    }
+    openShareMenu(id : any, image: string) {
+      this.IdForpopup = id
+      this.actionMenuOpened = true;
+      this.shareMenuOpened = true
+      this.image_url = image
+    
+    }
+    copyToClipboard() {
+      this.copiedLink = true
+    
+    }
+
+
+    closeActions() {
+      this.actionMenuOpened = false;
+      this.shareMenuOpened = false;
+      this.copiedLink = false;
+   }
 
     imageLoaded(){
       this.newImageClassName = 'block'

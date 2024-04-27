@@ -45,9 +45,22 @@ export class MypostsComponent implements OnInit, OnDestroy{
 
   Theme: any;
 
+  confirmDelete : any = false;
+
+  
+  actionMenuOpened : any = false;
+
+  idOfItem : any ;
+
+  copiedLink: any = false ; /* copy link to clipboard */
+
  
   subscribed3! : Subscription
   api_url = 'https://imaginekenya.site'
+  imageLink: any;
+
+  shareMenuOpened : any = false;
+
   constructor(
     private http: HttpClient, 
     private utils: CommonUtilsService,
@@ -77,11 +90,11 @@ export class MypostsComponent implements OnInit, OnDestroy{
     this.utils.activateRouteUsername = this.activatedRoute.snapshot.params['username']
   }
 
-  deleteCreatedPost(id: any){
+  deleteCreatedPost(){
     const data = new FormData()
     let activatedUsername = this.activatedRoute.snapshot.params['username']
     data.append('username', activatedUsername)
-    this.http.put(`${this.utils.pin_owner_url}/${id}`,data, this.utils.returnHeaders()).pipe(
+    this.http.put(`${this.utils.pin_owner_url}/${this.idOfItem}`,data, this.utils.returnHeaders()).pipe(
       catchError((err:any)=>{
         if(err instanceof HttpErrorResponse){
           console.log(err.error)
@@ -93,9 +106,12 @@ export class MypostsComponent implements OnInit, OnDestroy{
     ).subscribe((e)=>{
       this.data = e
       
+      this.actionMenuOpened = false;
+      this.confirmDelete = false;
 
      
     })
+
   }
 
   saveUserPost(id: any) {
@@ -125,6 +141,39 @@ export class MypostsComponent implements OnInit, OnDestroy{
   }
   navigateToCheckout(arg0: any) {
   
+  }
+
+  openConfirmDeletePC(id :any){
+    this.idOfItem = id
+    this.confirmDelete = true
+    this.actionMenuOpened = true;
+
+  }
+
+  copyToClipboard(){
+    this.copiedLink = true;
+   
+    
+  }
+
+  openShareMenu(image: any){
+    this.imageLink = image
+
+    this.actionMenuOpened = true;
+    this.shareMenuOpened = true
+
+
+  }
+
+  closeActions(){
+    this.actionMenuOpened = false;
+    this.confirmDelete = false;
+    this.shareMenuOpened = false;
+    this.copiedLink = false
+  }
+  openActionsMenu(id: any){
+    this.actionMenuOpened = true;
+    this.idOfItem = id;
   }
 
   ngOnInit(): void {
