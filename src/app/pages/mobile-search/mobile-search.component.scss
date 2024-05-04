@@ -1,12 +1,7 @@
 
 
 
-app-search-auto-complete{
-    position: absolute;
-    top: 70px;
-    z-index: 0;
-    width: 100%;
-}
+
 .search-dropbox{
 
     width: 100vw;
@@ -79,5 +74,209 @@ app-search-auto-complete{
         }
 
     }
+
+    .search-display{
+        display: block;
+        margin-top: 80px !important;
+        width: 100%;
+        padding-left: 10px;
+        padding-right: 10px;
+        
+    }
+    .query-suggestions{
+        small{
+            font-size: var(--font-size-small);
+            font-family: var(--font-fam-semibold);
+            font-weight: var(--font-weight-middle);
+            display: block;
+            margin: 0 20px 0 20px;
+            color: var(--text-theme-color);
+        }
+
+    }
+    .other-suggestions{
+        margin: 0 10px 0 10px;
+        .recent-searches{
+            display:inline-flex;
+            overflow-x: scroll;
+            width: 100%;
+
+            small{
+                background-color: var(--primary-color);
+                
+                vertical-align: middle;               
+                
+                position: relative;
+                color: var(--text-theme-color);
+                padding-right: 25px;
+                margin: 2px;
+                font-size: var(--font-size-small);
+                height: fit-content;
+                display: flex;
+                justify-content: center;
+                text-align: center;
+                line-height: calc(var(--font-size-small) + 10px);
+                border-radius: 10px;   
+                padding-left: 5px; 
+                max-width: 270px;            
+                
+
+                button{
+                    position: absolute;
+                    top: 50%;
+                    right: 5px;
+                    padding: 0;
+                    margin: 0;
+                    font-size: var(--font-size-big);
+
+                    transform: translateY(-50%);
+                    background-color: transparent;
+                    color: var(--icons-theme);
+                    border: none;
+                    font-weight: 800;
+                    
+
+                }
+
+
+            }
+
+            
+        }
+        h1{
+            margin: 0;
+            padding: 0;
+            justify-content: center;
+            text-align: center;
+            color: var(--text-theme-color);
+            font-size: var(--font-size-middle);
+            font-family: var(--font-fam-semibold);
+        }
+
+        .ideas-for-you,.popular-posts{
+            display:inline-flex;
+            overflow-x: scroll !important;
+            width: max-content
+
+        }
+
+        .idea-box{
+            width: 150px;
+            height: 100px;
+
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 5px;
+
+            img{
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            .idea-caption{
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                vertical-align: middle;
+                padding: 0 10px 0 10px;
+                transform: translate(-50% , -50%);
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.519);
+
+                p{
+                    margin: 0;
+                    padding: 0;
+                    display: flex;
+                                     
+                    color: white;
+                    font-size: var(--font-size-small);
+                    font-family: var(--font-fam-semibold);
+                    font-weight: var(--font-size-middle);
+                    text-align: center;
+                    justify-content: center;
+
+                    max-width: 100%;
+
+                    
+
+                    align-self:center;
+                    
+                   
+                    
+                    
+                }
+            }
+        }
+
+    }
+
+    .shopping-sportlight{
+        
+        display:inline-flex;
+        overflow-x: scroll !important;
+        width: max-content;
+
+
+        .shoppin-box{
+            position: relative;
+            width: 120px;
+            height: 120px;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 5px;
+
+
+            img{
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            .shopping-caption{
+                position: absolute;
+                width: 120px;
+                height: 120px;
+                left: 0;
+                top: 0;
+                display: flex;
+                justify-content: center;
+                vertical-align: middle;
+                background-color: rgba(0, 0, 0, 0.526);
+                align-items: center;
+                align-content: center;
+
+                p{
+                    text-align: center;
+                    margin: 0;
+                    padding: 0;
+                    color: white;
+                    font-size: var(--font-size-small);
+                    font-weight: var(--font-weight-middle);
+                    font-family: var(--font-fam-semibold);
+
+                    width: fit-content;
+
+                }
+
+            }
+
+        }
+
+    }
+    
+
+   /*  other-suggestions ideas-for-you idea-box
+
+    popular-posts idea-box idea-caption
+
+    shopping-sportlight shoppin-box shopping-caption */
+
+    
     
 }

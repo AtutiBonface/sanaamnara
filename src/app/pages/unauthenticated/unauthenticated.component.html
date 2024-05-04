@@ -16,11 +16,14 @@
           <button class="accounts-btn login-btn"(click)="toggleLoginDialog()">Login</button>
           <button class="accounts-btn register-btn" (click)="toggleRegisterDialog()">Register</button>
         </div>
+
+
+
         
       </div>
     </mat-toolbar>
     
-    <section class="mobile-toolbar  section section1">
+    <section class="mobile-toolbar  section section1" id="top-phone">
       <div class="content">
         <div class="center">
           <div class="title">
@@ -34,7 +37,7 @@
         
           <div class="bigger-links">
             <span class="menu-links link-1">About</span>
-            <span class="menu-links link-2">Business</span>
+            <span class="menu-links link-2">Explore</span>
             <span class="menu-links link-3"(click)="toggleLoginDialog()" >Sign in</span>
           </div>
           <div class="smaller-links">
@@ -48,7 +51,15 @@
         </div>
 
       </div>
-    
+
+        <button class="scrolldown-btn">
+          <mat-icon>keyboard_arrow_down</mat-icon>
+        </button>
+
+      <div class="scroll-down">
+        <p>Here is how it works <mat-icon>keyboard_arrow_down</mat-icon></p>
+        
+      </div>    
     </section>
     
     
@@ -62,7 +73,7 @@
     
     
     
-    <section class="cover-section">
+    <section class="cover-section  intro-page">
       <div class="pictures"><img src="/assets/home-photos/Volleyball wallpaper.png" alt=""></div>
       <div class="pictures"><img src="/assets/home-photos/9a68f83a-2804-4b2a-a7a4-76a38532eaf1.png" alt=""></div>
       <div class="pictures"><img src="/assets/home-photos/Air Jordan 1 _ Venom • Spider-Man Mash-Up.png" alt=""></div>
@@ -78,10 +89,110 @@
     </section>
     
     
-    <section class="">
+    <section class="cover-section   food" id="search">
+      <h1>Easy Chicken dinner.</h1>
+      <div class="section-container">
+        <div class="section-images-container">
+          <div class="images">
+            <img class="image4" src="/assets/Taswira images/food 11.avif" alt="">
+            
+            <img class="image1" src="/assets/Taswira images/food 10.jpg" alt="">
+          
+          
+            <img class="image2" src="/assets/Taswira images/food 13.jpeg" alt="">
+          
+          
+          
+            <img class="image3"  src="/assets/Taswira images/food 12.jpeg" alt="">
+           
+            
+          </div>
+        </div>
+        <div class="section-more-container">
+          <h1>Search for an idea</h1>
+          <p>What do you want to try next? Think of something you're into - like "Easy chicken dinner" - and see what you find.</p>
+
+          <button class="explore">Explore</button>
+        </div>
+      </div>
       
     
     </section>
+    <section class="cover-section fashion" id="try">
+      <div class="section-container">
+        <div class="section-images-container">
+          <div class="main-image">
+            <img src="/assets/Taswira images/fashion 4.jpg" alt="fashion">
+          </div>
+          <div class="avatar">
+            <img src="/assets/Taswira images/fashion 3.jpg" alt="fashion3">              
+          </div>
+          <div class="caption">
+            <small>Nelly Hadja</small><small>
+              10.2k likes
+            </small>
+          </div>
+          <div class="compliment-images">
+            <div class="status">
+              <div class="state">
+                <span><span class="span2"></span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+              
+              </div>
+              
+              <img src="/assets/Taswira images/fashion 2.webp" alt="">
+            </div>
+
+            
+          </div>
+        </div>
+        <div class="section-more-container">
+
+          <h1>See it, make it, try it ,do it</h1>
+          <p>The best part of Taswira is discovering new things and ideas from people around the world.</p>
+
+          <button class="explore">Explore</button>
+
+        </div>
+      </div>
+      
+    
+    </section> 
+    <section class="cover-section gadgets" id="save">
+      <div class="section-container">
+        <div class="section-images-container">
+          
+            <img class="image1" src="/assets/Taswira images/gadgets.jpg" alt="">
+         
+          
+            <img class="image2" src="/assets/Taswira images/gadgets 10.jpeg" alt="">
+          
+          
+            <img  class="image-center" src="/assets/Taswira images/gadgets 4.jpg" alt="">
+          
+          
+            <img class="image3" src="/assets/Taswira images/gadget 12.jpeg" alt="">
+          
+         
+            <img class="image4" src="/assets/Taswira images/gadget 20.jpeg" alt="">
+          
+        </div>
+        <div class="section-more-container">
+          <h1>Save the ideas you like</h1>
+          <p>Collect your favorites so you can get back to them later.</p>
+
+          <button class="explore">Explore</button>
+
+        </div>
+      </div>
+      
+    
+    </section>
+
+    <section class="cover-section bottom" id="bottom"></section>
     
     
     

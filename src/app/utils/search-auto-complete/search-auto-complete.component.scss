@@ -114,16 +114,14 @@
                 margin: 0;
                 padding: 0;
                 text-align: center;
-                color: var(--primary-color);
-                font-size: 1rem;
-                line-height: var(--font-size-middle);
+                color: var(--text-theme-color);
+                font-size: var(--font-size-small);
+               
                 font-family: var(--font-fam-semibold);
                
             
             }
-            p:hover{
-                color: var(--secondary-color);
-            }
+           
         }
     }
     .idea-caption{
@@ -152,20 +150,19 @@
             margin: 0;
             margin-left: 10px;
             margin-right: 10px;
-            color: var(--primary-color);
-            line-height: var(--font-size-middle);
+            color: var(--text-theme-color);
+            font-size: var(--font-size-small);
+            
             font-family: var(--font-fam-semibold);
             
             
             
         }
-        p:hover{
-            color: var( --secondary-color);
-        }
+       
     }
 }
 .recent-searches ,.ideas-for-you, .popular-posts{
-    display: flex;
+    display: inline-flex;
     width: 100%;
     overflow-x: auto;
     justify-content: center;

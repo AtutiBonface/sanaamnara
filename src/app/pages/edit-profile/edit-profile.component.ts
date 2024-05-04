@@ -21,6 +21,12 @@ import { TaswiraThemeDirective } from '../../directives/taswira-theme.directive'
 })
 export class EditProfileComponent {
 
+
+  nameChangesOpened: any = false
+  contactChangesOpened: any = false
+  passwordChangesOpened: any = false
+  promptPassword: any = false
+
   constructor(
     private location: Location,
   ){}
@@ -31,6 +37,27 @@ export class EditProfileComponent {
   moveBack() {
     this.location.back()
   
+  }
+
+  openPasswordChanges() {
+    this.passwordChangesOpened = true
+
+  }
+  openContactChanges() {
+    this.contactChangesOpened = true
+    
+  }
+  openNameChanges() {
+
+    this.nameChangesOpened = true
+    
+  }
+
+  openPromptpassword() {
+    this.promptPassword = true
+  }
+  closePromptpassword(){
+    this.promptPassword = false
   }
 
 }
