@@ -7,17 +7,20 @@ export let className = ''
 export const canActivateTeam = ()=>{
 
     const authentication = inject(AuthenticatedUsersService)
+
+
+    return authentication.isAuthenticated()
     
-    if(authentication.isAuthenticated()){
+    /* if(authentication.isAuthenticated()){
         const router = inject(Router)    
         return true
     }else{
         const router = inject(Router)
 
-        router.navigate(['unauth'])
+        router.navigate([''])
 
         return false
-    }
+    } */
 }
 
 // restrictics user from going index page unless logged out

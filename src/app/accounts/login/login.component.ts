@@ -148,7 +148,9 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.destroyLoginSubs = this.login_success_subject.subscribe((result)=>{
       this.openDialog.emit(false)
       this.is_logged_in.next(true)
-      this.router.navigate([''])
+      
+
+      location.reload()
 
       const access_token = result['access_token']
       const username = result['username']

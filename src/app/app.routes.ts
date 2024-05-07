@@ -7,10 +7,16 @@ import { SavedpostsComponent } from './pages/savedposts/savedposts.component';
 import { MypostsComponent } from './pages/myposts/myposts.component';
 import { SettingsComponent } from './pages/settings/settings.component';
 import { EditProfileComponent } from './pages/edit-profile/edit-profile.component';
+import { IndexComponent } from './pages/index/index.component';
 
 export const routes: Routes = [
-    
+
     {
+        path: '',
+        component: IndexComponent,
+    },
+    
+    /* {
         path: '',
         component: HomeComponent,
         canActivate: [canActivateTeam]
@@ -20,7 +26,7 @@ export const routes: Routes = [
         loadComponent: ()=> import('./pages/unauthenticated/unauthenticated.component').then(e=>e.UnauthenticatedComponent),
         canActivate: [Restrictions]   
 
-    },
+    }, */
     {
         path: ':username',
         component: MypostsComponent,

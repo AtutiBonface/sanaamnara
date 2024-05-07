@@ -55,7 +55,7 @@ export class SettingsComponent {
       localStorage.clear()
       this.logout = true
       setTimeout(()=>{
-        this.router.navigate(['index'])
+        this.router.navigate([''])
       },1000)
     }
   }
