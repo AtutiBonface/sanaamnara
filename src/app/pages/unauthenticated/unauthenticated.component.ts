@@ -5,6 +5,7 @@ import { LoginComponent } from '../../accounts/login/login.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { AuthenticatedUsersService } from '../../services/authenticated-users.service';
+import { UnauthAnimationDirective } from '../../directives/unauth-animation.directive';
 
 @Component({
   selector: 'app-unauthenticated',
@@ -14,10 +15,11 @@ import { AuthenticatedUsersService } from '../../services/authenticated-users.se
     RegisterComponent,
     LoginComponent,
     MatToolbarModule,
-    MatIconModule,
-    
+    MatIconModule, 
+    UnauthAnimationDirective  
     
   ],
+  
   templateUrl: './unauthenticated.component.html',
   styleUrl: './unauthenticated.component.scss'
 })

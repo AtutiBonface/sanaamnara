@@ -63,6 +63,86 @@ app-register{
         background-color: rgba(0, 0, 0 ,.55);
         z-index: 1000;
     }
+
+    .top-desktop-unauth-page{
+        padding-top: 70px !important;
+        
+        scroll-snap-align: center;
+        background-color: $primary-color;
+        height: 100vh;
+        width: 100vw;
+
+        .top-container{
+            
+            height: 100%;
+            width: 100%;
+
+            .heading{
+                h1,h2{
+                    font-family: var(--font-fam-semibold);
+                    font-weight: var(--font-weight-big);
+
+                    
+                    padding: 0;
+                    margin: 0;
+                    text-align: center;
+                    padding: 10px 0 10px 0;
+                }
+
+                h1{
+                    font-size: calc(var(--font-size-big) + 15px);
+                    color: black;
+                    padding-top: 20px;
+
+                }
+                h2{
+                    font-size: calc(var(--font-size-big) + 10px);
+                    color: var(--icons-button-utils-color);
+                }
+            }
+            .center-animation{
+                width: 100%;
+            }
+            .animation1{
+                width: 100%;
+                height: 70vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+
+
+                .box{
+                    width: 140px;
+                    margin: 0 40px 0 40px;
+                    border-radius: 20px;
+                    overflow: hidden;
+
+                    img{
+                        width: 100%;
+                        object-fit: cover;
+                        height: 100% !important;
+                    }
+                }
+                .big{
+                    height: 75% !important;
+                }
+                .small{
+                    height: 66% !important;
+                }
+                .smaller{
+                    height: 50%  !important;
+                }
+
+                
+            }
+
+
+        }
+
+
+
+    }
     .desktop-toolbar{
         display: flex;
         height: 70px;
@@ -1061,6 +1141,8 @@ button.explore{
 
 
 @media only screen and (min-width: 1001px){
+
+
     .section-container{
         display: flex !important;
         justify-content: center;
@@ -1186,6 +1268,16 @@ button.explore{
 
     .cover-section.end-page{
         display: block !important;
+
+        app-login{
+            display: flex !important;
+            position: relative !important;
+            width: 50%;
+            transform: none;
+            left: 0;
+            top: 0;
+    
+        }
     } 
     .end-page{
         /* margin-top: 70px !important;
@@ -1229,14 +1321,6 @@ button.explore{
         align-items: center;
     }
     
-    app-login{
-        display: flex !important;
-        position: relative !important;
-        width: 50%;
-        transform: none;
-        left: 0;
-        top: 0;
-
-    }
+    
     
 }
